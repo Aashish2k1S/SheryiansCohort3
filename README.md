@@ -1,2 +1,2 @@
-# Java
+# JS
 Practice Codes

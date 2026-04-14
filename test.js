@@ -1,29 +1,16 @@
-function isAutomorphic(n) {
-    // Write your logic here
-    if (n<=0) return 'No'; 
-    
-    let remain = n, temp = 0, sq = n*n, temp2 = 0; 
-    let isAutomorphic = true; 
+function is_neon(nStr) {
+    // Write your code here
+    let n = parseInt(nStr);
 
-    while(true){
-        temp = remain % 10; 
-        remain = Math.floor(remain / 10); 
-        temp2 = sq % 10; 
-        sq = Math.floor(sq / 10); 
+    if (n < 0) return 'No';
 
-        
-        if (temp !== temp2) {
-            isAutomorphic = false; 
-            break; 
-        }
+    let sq = n*n, sum = 0;
 
-        if (remain === 0) break; 
+    while(sq > 0){
+        sum += sq%10; 
+        sq = Math.floor(sq/10); 
     }
-    return (isAutomorphic ? 'Yes' : 'No'); 
+    return sum === n ? 'Yes' : 'No';
 }
 
-
-console.log(isAutomorphic(7));
-
-
-
+console.log(is_neon('9'));

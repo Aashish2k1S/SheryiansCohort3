@@ -192,6 +192,10 @@ module.exports = { calculatePower };
 
 
 // 2. CHECK IF A NUMBER IS STRONG 
+// EG: IT MEANS THE SUM OF THE FACTORIAL OF THE DIGITS OF THE NUMBER SHOULD BE EQUAL TO THE NUMBER ITSELF 
+// 145 =>  1! + 4! + 5! = 1 + 24 + 120 = 145 (Yes STRONG NUMBER) 
+// 123 => 1! + 2! + 3! = 1 + 2 + 6 = 9 (No STRONG NUMBER) 
+
 function fact(n){
   if (n === 0 || n === 1) return 1; 
   else if (n < 0) return undefined; 
@@ -269,6 +273,12 @@ module.exports = { sumOfDigits };
 
 
 //CHECK IF A NUMBER IS AUTOMORPHIC 
+//EG : IT MEANS THE NUMBER SHOULD BE PRESENT AT THE END OF THE SQUARE OF THE NUMBER 
+// 5 => 5*5 = 25 (Yes AUTOMORPHIC NUMBER) 
+// 6 => 6*6 = 36 (Yes AUTOMORPHIC NUMBER) 
+// 25 => 25*25 = 625 (Yes AUTOMORPHIC NUMBER) 
+// 76 => 76*76 = 5776 (Yes AUTOMORPHIC NUMBER) 
+// 123 => 123*123 = 15129 (No AUTOMORPHIC NUMBER) 
 
 function isAutomorphic(n) {
     // Write your logic here
@@ -282,7 +292,6 @@ function isAutomorphic(n) {
         remain = Math.floor(remain / 10); 
         temp2 = sq % 10; 
         sq = Math.floor(sq / 10); 
-
         
         if (temp !== temp2) {
             isAutomorphic = false; 
@@ -295,3 +304,160 @@ function isAutomorphic(n) {
 }
 
 module.exports = { isAutomorphic };
+
+
+
+// # WHILE LOOPS PROBLEM PART 2 
+
+// REVERSE A NUMBER 
+function reverseNumber(n) { 
+    // Write your logic here 
+    
+    let num = parseInt(n), temp = 0, rev = 0; 
+
+    while(true) 
+    { 
+        temp = num % 10; 
+        rev = rev * 10 + temp; 
+        num = Math.floor(num / 10); 
+        
+        if (num === 0) break; 
+    } 
+
+    return rev; 
+}
+
+module.exports = { reverseNumber };
+
+
+// # DO WHILE LOOP 
+
+// HARSHAD NUMBER CHECK 
+//EG : IT MEANS THE NUMBER SHOULD BE DIVISIBLE BY THE SUM OF ITS DIGITS 
+// 18 => 1+8 = 9 => 18%9 = 0 (Yes HARSHAD NUMBER) 
+// 123 => 1+2+3 = 6 => 123%6 = 3 (No HARSHAD NUMBER) 
+class Solution {
+    is_harshad(nStr) {
+        // Write your code here
+        function sumOfDigits(n) {
+            let num = parseInt(n), temp = 0, sum = 0; 
+
+            while(true)
+            {
+                temp = num % 10; 
+                num = Math.floor(num / 10); 
+                sum += temp; 
+
+                if (num === 0) break; 
+            }
+            return sum; 
+        }
+
+        let sum = sumOfDigits(nStr); 
+        let num = parseInt(nStr); 
+        return (num % sum === 0 ? 'Harshad Number' : 'Not Harshad Number'); 
+    }
+}
+
+module.exports = Solution;
+
+
+// ABUNDANT NUMBER CHECKER 
+//EG : IT MEANS THE SUM OF THE PROPER DIVISORS OF THE NUMBER SHOULD BE GREATER THAN THE NUMBER ITSELF 
+// 12 => 1+2+3+4+6 = 16 => 16 > 12 (Yes ABUNDANT NUMBER) 
+// 18 => 1+2+3+6+9 = 21 => 21 > 18 (Yes ABUNDANT NUMBER) 
+// 20 => 1+2+4+5+10 = 22 => 22 > 20 (Yes ABUNDANT NUMBER) 
+// 24 => 1+2+3+4+6+8+12 = 36 => 36 > 24 (Yes ABUNDANT NUMBER) 
+// 28 => 1+2+4+7+14 = 28 => 28 = 28 (No ABUNDANT NUMBER) 
+class Solution {
+    is_abundant(nStr) {
+        // Write your code here 
+        function sumofFactors(n){
+            let num = n, sum = 0; 
+            if (num === NaN || num === 1 || num === 0 || num < 0) return 0; 
+            for (let i = 1; i <= Math.floor(num/2); i++) if (num % i === 0) sum += i; 
+            return sum; 
+        } 
+        
+        let num = parseInt(nStr);
+        let sumofDivisors = sumofFactors(num); 
+         
+        return (sumofDivisors > num ? 'Yes' : 'No'); 
+    }
+}
+
+module.exports = Solution;
+
+
+// FINDING PRIME FACTORS OF A NUMBER 
+//EG : IT MEANS THE NUMBER SHOULD BE DIVISIBLE BY THE SUM OF ITS DIGITS 
+// 60 => 2 * 2 * 3 * 5 (Prime Factors of 60 are 2, 2, 3, 5) 
+// 12 => 2 * 2 * 3 (Prime Factors of 12 are 2, 2, 3) 
+class Solution { 
+    prime_factors(nStr) { 
+        // Write your code here 
+        let num = parseInt(nStr), d = 2, str = ''; 
+
+        if (num <= 1) return 'No prime factors'; 
+
+        while (num > 1) {
+            if (num % d === 0) {
+            str = str + d + "\n";
+            num = num / d;
+            } else d++;
+        }
+        return str.trim(); 
+    }
+}
+
+module.exports = Solution;
+
+
+// ARMSTRONG NUMBER 
+//EG : IT MEANS THE SUM OF THE POWER OF THE DIGITS OF THE NUMBER SHOULD BE EQUAL TO THE NUMBER ITSELF 
+// 153 => 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153 (Yes ARMSTRONG NUMBER) 
+// 123 => 1^3 + 2^3 + 3^3 = 1 + 8 + 27 = 36 (No ARMSTRONG NUMBER) 
+class Solution {
+    is_armstrong(nStr) {
+        // Write your code here
+        let num = parseInt(nStr); 
+        if (num < 0) return 'Not Armstrong'; 
+
+        let len = String(num).length, sum = 0, temp = 0, remain = num; 
+        
+        while(true){
+            temp = remain % 10; 
+            remain = Math.floor(remain / 10); 
+            sum += Math.pow(temp, len); 
+
+            if (remain === 0) break; 
+        } 
+        return (sum === num ? 'Armstrong' : 'Not Armstrong'); 
+    }
+}
+
+module.exports = Solution;
+
+
+// CHECK IF A NUMBER IS A NEON NUMBER 
+//EG : IT MEANS THE NUMBER SHOULD BE DIVISIBLE BY THE SUM OF ITS DIGITS 
+// 9 => 9*9 = 81 => 8+1 = 9 => 81%9 = 0 (Yes NEON NUMBER) 
+// 123 => 1+2+3 = 6 => 123%6 = 3 (No NEON NUMBER) 
+class Solution {
+    is_neon(nStr) {
+        // Write your code here
+        let n = parseInt(nStr);
+
+        if (n < 0) return 'No';
+
+        let sq = n*n, sum = 0;
+
+        while(sq > 0){
+            sum += sq%10; 
+            sq = Math.floor(sq/10); 
+        }
+        return sum === n ? 'Yes' : 'No';
+    }
+}
+
+module.exports = Solution;

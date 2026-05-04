@@ -1,16 +1,15 @@
-function is_neon(nStr) {
-    // Write your code here
-    let n = parseInt(nStr);
+function printXShapePattern(n) {
+    // Write your logic here
+    if (!n) return;
+    else if (n%2 === 0) return; 
 
-    if (n < 0) return 'No';
-
-    let sq = n*n, sum = 0;
-
-    while(sq > 0){
-        sum += sq%10; 
-        sq = Math.floor(sq/10); 
-    }
-    return sum === n ? 'Yes' : 'No';
+    for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (i === j || (i+j) === (n+1)) process.stdout.write(`*`);
+            else process.stdout.write(` `);
+        }
+        process.stdout.write("\n");
+    }  
 }
+printXShapePattern(5);
 
-console.log(is_neon('9'));

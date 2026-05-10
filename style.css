@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;    
+    background: black;
+    color: white;
+}
+
+.container{
+    width: 95%;
+    margin: 0 auto;
+    padding: 1.25rem 0;
+}
+
+
+
+.header {
+    display: flex;
+    flex-flow: row nowrap;    
+    gap: 1.25rem;
+}
+
+.logo{
+    height: 3.125rem;
+    mix-blend-mode: difference;
+    flex-basis: 1;
+}
+
+
+.nav{
+    width: 60%;
+    gap: 1.25rem;
+    margin-left: auto;
+    border: 2px solid white;
+    flex-basis: 4;
+    display: flex;    
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.nav a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.nav a:hover{
+    text-decoration: underline;
+}
+
+
+button {
+    padding: .625rem 1.25rem;
+    background: #131313;
+    color: white;
+    border: none;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+    flex-basis: 1;
+}
+
+
+
+.content{
+    margin: 5rem 0 3rem 0;
+    width: 100%;
+    text-align: center;
+    font-size: 8rem;
+}
+
+
+
+.middle{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    margin-bottom: 2rem;    
+}
+
+.middle p{
+    padding: .625rem 1.25rem;
+    font-weight: 300;
+    background: #131313;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.middle p:nth-child(1){
+    background: #ed460d;
+}
+
+
+
+.blogs{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.25rem;
+}
+
+
+.blog-card{
+    width: 300px;
+    padding: 1.25rem;
+    border: 2px solid white;
+    border-radius: 0.3125rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-img{   
+
+    width: 200px; 
+    height: 200px; 
+
+    border: 2px solid white;
+    padding: 1.25rem;
+    border-radius: 0.3125rem;
+}
+
+.blog-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.3125rem;
+}
+
+.tag{
+    margin-top: 1.25rem;
+    font-weight: 300;
+    background-color: #5d1e0a;
+    color: #de875b;
+    padding: 1.2rem;
+
+}
+
+.date{
+    margin-top: 1.25rem;
+    color: rgba(255, 255, 255, 0.646);
+    font-weight: 100;
+}
+
+
+
+
+
+
+
+
+
+
+

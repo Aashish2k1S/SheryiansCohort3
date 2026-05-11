@@ -1,4 +1,4 @@
-# ScaleX - Insights & Blogs tttttttttttttttttttttttttttttt
+# ScaleX - Insights & Blogs 
 
 A modern, dark-themed static webpage displaying the **ScaleX** blog and insights section.
 

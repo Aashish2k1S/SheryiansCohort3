@@ -15,36 +15,31 @@ html,body{
 }
 
 .container{
-    width: 95%;
-    margin: 0 auto;
-    padding: 1.25rem 0;
+    width: 90%;
+    height: auto;
+    margin: 0.5rem auto;
+    padding: 1rem 1.25rem 5rem 1.25rem;
 }
-
 
 
 .header {
     display: flex;
-    flex-flow: row nowrap;    
-    gap: 1.25rem;
+    flex-direction: row;    
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo{
-    height: 3.125rem;
-    mix-blend-mode: difference;
-    flex-basis: 1;
+    height: 2.5rem; 
+    cursor: pointer;
 }
 
 
 .nav{
-    width: 60%;
-    gap: 1.25rem;
-    margin-left: auto;
-    border: 2px solid white;
-    flex-basis: 4;
     display: flex;    
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 
@@ -52,6 +47,7 @@ html,body{
     text-decoration: none;
     color: white;
     font-size: 1.25rem;
+    font-weight: 400;
     cursor: pointer;
 }
 
@@ -61,13 +57,25 @@ html,body{
 
 
 button {
-    padding: .625rem 1.25rem;
+    padding: 1rem 1.5rem;    
+    font-size: 1.1rem;
     background: #131313;
     color: white;
     border: none;
-    border-radius: 0.3125rem;
+    border-radius: 7px;
     cursor: pointer;
-    flex-basis: 1;
+    font-weight: 400;
+}
+
+button:hover {
+    padding: 1rem 1.5rem;    
+    font-size: 1.1rem;
+    background: #13131372;
+    color: gray;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 400;
 }
 
 
@@ -84,21 +92,21 @@ button {
 .middle{
     display: flex;
     flex-flow: row nowrap;
-    gap: 1rem;
+    gap: 0.7rem;
     width: 100%;
     justify-content: center;
     align-items: center;
-    font-weight: 100;
-    margin-bottom: 2rem;    
+    margin-bottom: 3rem;    
 }
 
 .middle p{
-    padding: .625rem 1.25rem;
-    font-weight: 300;
+    padding: 0.9rem 1.5rem;
+    font-weight: 400;
+    font-size: 1rem;
     background: #131313;
     color: white;
     border: none;
-    border-radius: 1.25rem;
+    border-radius: 1.5rem;
     cursor: pointer;
 }
 
@@ -106,6 +114,9 @@ button {
     background: #ed460d;
 }
 
+.middle p:hover{
+    background: #ed460d;
+}
 
 
 .blogs{
@@ -114,63 +125,77 @@ button {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    /* border: 2px solid #ffff; */
 }
 
 
 .blog-card{
-    width: 350px;
-    height: 400px;
+    width: 400px;
+    height: 450px;
     background-color: #0d0d0d;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    margin: 1rem 0;
+
 }
 
 .blog-img{   
     width: 100%; 
     height: 50%; 
-    padding: 1rem;
-    border-radius: 0.3125rem;
+    border-radius: 1rem;
+    cursor: pointer;
 }
 
 .blog-card:nth-child(1) .blog-img{    
     background: url('./assets/card1.png'); 
     background-size: cover;
+    background-position: center;
 }
 
 .blog-card:nth-child(2) .blog-img{    
     background: url('./assets/card2.png'); 
     background-size: cover;
+    background-position: center;
 }
 
 .blog-card:nth-child(3) .blog-img{    
     background: url('./assets/card3.png'); 
     background-size: cover;
+    background-position: center;
 }
 
 
 .blog-content {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.3rem 1.25rem;
 }
 
 .blog-content .tag{
-    margin: 1.25rem 0;
-    width: auto;
-    font-weight: 700;
-    background-color: #5d1e0a;
+    margin-bottom: 1.8rem;
+    width: fit-content;
+    font-weight: 400;
+    background-color: #5d1d0ac2;
     color: #de875b;
     padding: 0.5rem 1rem;
     display: inline;
-    border-radius: 1.25rem;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.blog-content .label{
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .date{
     margin-top: 1.25rem;
-    color: rgba(255, 255, 255, 0.646);
-    font-weight: 100;
+    color: rgba(255, 255, 255, 0.646);    
+    font-size: 0.9rem;
+    font-weight: 200;
 }
 
 

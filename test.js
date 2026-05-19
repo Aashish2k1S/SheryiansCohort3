@@ -1,15 +1,7 @@
-function printXShapePattern(n) {
+// Copy and Reverse Array
+function copyAndReverseArray(arr) {
     // Write your logic here
-    if (!n) return;
-    else if (n%2 === 0) return; 
-
-    for (let i = 1; i <= n; i++) {
-        for (let j = 1; j <= n; j++) {
-            if (i === j || (i+j) === (n+1)) process.stdout.write(`*`);
-            else process.stdout.write(` `);
-        }
-        process.stdout.write("\n");
-    }  
+    return arr.slice().reverse();
 }
-printXShapePattern(5);
 
+console.log(copyAndReverseArray([1,2,3,4,5]));

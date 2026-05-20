@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "Manrope";
+  src: url("./assests/Manrope-VariableFont_wght.woff2");
+}
+
+:root {
+  --primary-color: #ff6a3d;
+  --secondary-color: #2a1208;
+  --background-color: #000000;
+  --transparent-color: rgba(0, 0, 0, 0.03);
+  
+  --border-radius: 0.315rem;
+  --border-color: rgba(255, 255, 255, 0.2);
+
+
+  --text-color: rgba(255, 255, 255, 0.8);
+  --font-family: Manrope, sans-serif;
+
+  --transition: all 0.3s cubic-bezier(0, 0, 1, 1);
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+.main {
+  padding: 2rem 1rem;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(var(--secondary-color), var(--background-color), var(--background-color));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main nav {
+  position: sticky;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main nav .left img {
+  width: 10rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.main nav .left img:hover {
+  transform: scale(1.1);
+}
+
+.main nav ul {
+  display: none;
+  padding: 0.8rem 1.2rem;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--transparent-color);
+}
+
+.main nav ul li a {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  height: 1.3rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  letter-spacing: 0.01rem;
+  font-weight: 500;
+  line-height: 1.3rem;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.main nav ul li a span {
+  display: block;
+  transition: var(--transition);
+}
+
+.main nav ul li a::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.main nav ul li a:hover span, 
+.main nav ul li a:hover::after {
+  transform: translateY(-100%);
+}
+
+.main nav .right button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.main nav .right button:hover {
+  color: white;
+  background-color: var(--transparent-color);
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+}
+
+@media (max-width: 900px) {
+  .main nav {
+    padding: 0.5rem 0.5rem;
+    justify-content: space-between;
+  }
+
+  .main nav ul,
+  .main nav .right button {
+    display: none;
+  }
+
+  .main nav .right .hamburger {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .main nav .right .hamburger span::after {
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-color);
+    display: block;
+    margin: 8px 0;
+    border-radius: var(--border-radius);
+  }
+
+  .main nav .right .hamburger:hover {
+    background-color: var(--transparent-color);
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+  }
+
+  .main nav .right .hamburger:hover span::after {
+    background-color: white;
+  }
+}

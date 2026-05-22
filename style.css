@@ -236,6 +236,37 @@ HERO SECTION
   border: 1px solid var(--primary-color);
 }
 
+
+
+
+.bottom {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.bottom .tag {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom .tag img {
+  object-fit: cover;
+  margin-left: -1rem;
+  border: 2px solid;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+
+
+
 .main .hero .content button {
   margin-top: 3rem;
   outline: none;
@@ -249,7 +280,6 @@ HERO SECTION
   cursor: pointer;
   overflow: hidden;
 }
-
 .main .hero .content button span {
   padding: 0.8rem 1rem;
   font-size: 1rem;
@@ -259,7 +289,6 @@ HERO SECTION
   position: relative;
   transition: var(--transition);
 }
-
 .main .hero .content button span::after {
   content: "Start Learning →";
   position: absolute;
@@ -273,12 +302,10 @@ HERO SECTION
   color: var(--text-color);
   transition: var(--transition);
 }
-
 .main .hero .content button span:hover,
 .main .hero .content button span:hover span::after {
   transform: translateY(-100%);
 }
-
 .main .hero .content button:hover {
   box-shadow: 0 0 8px 8px var(--secondary-text-color);
 }

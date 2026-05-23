@@ -7,20 +7,22 @@
   --primary-color: #ff6a3d;
   --secondary-color: #2a1208;
   --background-color: #000000;
+  --glow-color: rgba(240, 101, 50, 0.4);
 
-  --transparent-color: rgba(0, 0, 0, 0.03);
+
+  --transparent-color: rgba(0, 0, 0, 0.5);
   --secondary-transparent-color: rgba(240, 100, 50, 0.2);
 
   --border-radius: 0.315rem;
   --border-color: rgba(255, 255, 255, 0.2);
 
   --text-color: rgba(255, 255, 255, 0.8);
-  --secondary-text-color: rgb(240, 100, 50);
+  --secondary-text-color: rgba(240, 101, 50, 1);
 
   --font-family: Manrope;
 
-  --transition: all 0.3s cubic-bezier(0, 0, 1, 1);
-  --second-transition: all 0.2s ease;
+  --transition: all 0.15s cubic-bezier(0, 0, 1, 1);
+  --second-transition: all 0.01s ease;
 }
 
 * {
@@ -45,11 +47,12 @@ body {
   justify-content: flex-start;
 }
 
+
 .main {
   padding: 2rem 1rem;
   width: 100%;
-  margin-bottom: 5rem;
   background: radial-gradient(
+    var(--secondary-color),
     var(--secondary-color),
     var(--background-color),
     var(--background-color)
@@ -196,7 +199,7 @@ HERO SECTION
 
 .main .hero {
   width: 100%;
-  margin-top: 15rem;
+  margin-top: 10rem;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -215,70 +218,95 @@ HERO SECTION
   color: var(--secondary-text-color);
   text-transform: uppercase;
   font-size: 1.1rem;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.01rem;
   text-align: center;
-  margin-bottom: -0.5rem;
+  margin-bottom: 1rem;
 }
 
-.main .hero .content p {
+.main .hero .content .top {
   color: var(--text-color);
   font-size: 3.5rem;
   line-height: 4.5rem;
   font-weight: 500;
   letter-spacing: 0.01rem;
   text-align: center;
+  text-transform: capitalize;
 }
 
-.main .hero .content p span {
+.main .hero .content .top span {
   background-color: var(--secondary-color);
   padding: 0.2rem 0.5rem;
   border: 1px solid var(--primary-color);
 }
 
 
+.main .hero .content .para {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.01rem;
+  line-height: normal;
+  text-align: center;
+  margin-top: 1rem;
+}
 
-
-.bottom {
+.main .hero .content .bottom {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
 }
-
-.bottom .tag {
+.main .hero .content .bottom .tag {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  
 }
-
-.bottom .tag img {
+.main .hero .content .bottom .tag img {
   object-fit: cover;
   margin-left: -1rem;
   border: 2px solid;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   margin-right: 0.5rem;
 }
-
-
-
+.main .hero .content .bottom>p, 
+.main .hero .content .bottom>p>span {
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.01rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.main .hero .content .bottom>p>span {
+  font-weight: 700;
+  color: var(--secondary-text-color);
+}
 
 .main .hero .content button {
-  margin-top: 3rem;
+  margin-top: 2rem;
   outline: none;
   border: none;
   display: flex;
   align-content: center;
   justify-content: center;
-  background-color: var(--secondary-text-color);
+  background: linear-gradient(90deg, 
+    var(--secondary-text-color), 
+    var(--secondary-text-color),
+    var(--secondary-text-color),
+    var(--secondary-color)
+  );
   border-radius: var(--border-radius);
   box-shadow: 2px 2px 5px 0 black;
   cursor: pointer;
   overflow: hidden;
+  box-shadow: inset 0 2px 5px 0 var(--text-color);
+
 }
 .main .hero .content button span {
   padding: 0.8rem 1rem;
@@ -307,7 +335,8 @@ HERO SECTION
   transform: translateY(-100%);
 }
 .main .hero .content button:hover {
-  box-shadow: 0 0 8px 8px var(--secondary-text-color);
+  background: linear-gradient( var(--secondary-text-color) );
+  box-shadow: 0 0 30px 10px var(--glow-color);
 }
 
 @media (max-width: 900px) {
@@ -327,15 +356,42 @@ HERO SECTION
 HERO SECTION 
 --------------------------------------*/
 
-.section1,
+
+/* --------------------------------------
+CARD SECTION 1
+--------------------------------------*/
+
+.section1 {
+  padding: 2rem 1rem;
+  width: 100%;
+  height: 200vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+
+
+
+/* --------------------------------------
+CARD SECTION 1
+--------------------------------------*/
+
+
+
+
+
 .section2,
 .section3,
 .seciton4 {
   padding: 2rem 1rem;
   width: 100%;
-  height: 100vh;
+  height: 200vh;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
+  flex-shrink: 0;
 }

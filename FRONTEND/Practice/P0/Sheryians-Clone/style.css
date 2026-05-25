@@ -1,0 +1,397 @@
+@font-face {
+  font-family: "Manrope";
+  src: url("./assests/Manrope-VariableFont_wght.woff2");
+}
+
+:root {
+  --primary-color: #ff6a3d;
+  --secondary-color: #2a1208;
+  --background-color: #000000;
+  --glow-color: rgba(240, 101, 50, 0.4);
+
+
+  --transparent-color: rgba(0, 0, 0, 0.5);
+  --secondary-transparent-color: rgba(240, 100, 50, 0.2);
+
+  --border-radius: 0.315rem;
+  --border-color: rgba(255, 255, 255, 0.2);
+
+  --text-color: rgba(255, 255, 255, 0.8);
+  --secondary-text-color: rgba(240, 101, 50, 1);
+
+  --font-family: Manrope;
+
+  --transition: all 0.15s cubic-bezier(0, 0, 1, 1);
+  --second-transition: all 0.01s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+.main {
+  padding: 2rem 1rem;
+  width: 100%;
+  background: radial-gradient(
+    var(--secondary-color),
+    var(--secondary-color),
+    var(--background-color),
+    var(--background-color)
+  );
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* --------------------------------------
+NAVBAR 
+--------------------------------------*/
+
+.main nav {
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main nav .left img {
+  width: 10rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.main nav .left img:hover {
+  transform: scale(1.1);
+}
+
+.main nav ul {
+  display: none;
+  padding: 0.8rem 1.2rem;
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--transparent-color);
+}
+
+.main nav ul li a {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  height: 1.3rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  letter-spacing: 0.01rem;
+  font-weight: 500;
+  line-height: 1.3rem;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.main nav ul li a span {
+  display: block;
+  transition: var(--transition);
+}
+
+.main nav ul li a::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.main nav ul li a:hover span,
+.main nav ul li a:hover::after {
+  transform: translateY(-100%);
+}
+
+.main nav .right button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.main nav .right button:hover {
+  color: white;
+  background-color: var(--transparent-color);
+  border-top: 2px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
+}
+
+@media (max-width: 900px) {
+  .main nav {
+    padding: 0 2rem;
+    justify-content: space-between;
+  }
+  .main nav .left img {
+    width: 8rem;
+  }
+
+  .main nav ul,
+  .main nav .right button {
+    display: none;
+  }
+  .main nav .right .hamburger {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .main nav .right .hamburger span::after {
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: var(--text-color);
+    display: block;
+    margin: 8px 0;
+    border-radius: var(--border-radius);
+  }
+  .main nav .right .hamburger:hover {
+    background-color: var(--transparent-color);
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+  }
+  .main nav .right .hamburger:hover span::after {
+    background-color: white;
+  }
+}
+/* --------------------------------------
+NAVBAR 
+--------------------------------------*/
+
+/* --------------------------------------
+HERO SECTION 
+--------------------------------------*/
+
+.main .hero {
+  width: 100%;
+  margin-top: 10rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.main .hero .content {
+  padding: 0 15rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.main .hero .content h1 {
+  color: var(--secondary-text-color);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.01rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.main .hero .content .top {
+  color: var(--text-color);
+  font-size: 3.5rem;
+  line-height: 4.5rem;
+  font-weight: 500;
+  letter-spacing: 0.01rem;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.main .hero .content .top span {
+  background-color: var(--secondary-color);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--primary-color);
+}
+
+
+.main .hero .content .para {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  font-weight: 300;
+  letter-spacing: 0.01rem;
+  line-height: normal;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.main .hero .content .bottom {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.main .hero .content .bottom .tag {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  
+}
+.main .hero .content .bottom .tag img {
+  object-fit: cover;
+  margin-left: -1rem;
+  border: 2px solid;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.main .hero .content .bottom>p, 
+.main .hero .content .bottom>p>span {
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.01rem;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+.main .hero .content .bottom>p>span {
+  font-weight: 700;
+  color: var(--secondary-text-color);
+}
+
+.main .hero .content button {
+  margin-top: 2rem;
+  outline: none;
+  border: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: linear-gradient(90deg, 
+    var(--secondary-text-color), 
+    var(--secondary-text-color),
+    var(--secondary-text-color),
+    var(--secondary-color)
+  );
+  border-radius: var(--border-radius);
+  box-shadow: 2px 2px 5px 0 black;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: inset 0 2px 5px 0 var(--text-color);
+
+}
+.main .hero .content button span {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  display: block;
+  position: relative;
+  transition: var(--transition);
+}
+.main .hero .content button span::after {
+  content: "Start Learning →";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  padding: 0.8rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+.main .hero .content button span:hover,
+.main .hero .content button span:hover span::after {
+  transform: translateY(-100%);
+}
+.main .hero .content button:hover {
+  background: linear-gradient( var(--secondary-text-color) );
+  box-shadow: 0 0 30px 10px var(--glow-color);
+}
+
+@media (max-width: 900px) {
+  .main .hero .content {
+    padding: 0 13rem;
+  }
+  .main .hero .content h1 {
+    font-size: 0.8rem;
+  }
+  .main .hero .content p {
+    line-height: normal;
+    font-size: 2.5rem;
+  }
+}
+
+/* --------------------------------------
+HERO SECTION 
+--------------------------------------*/
+
+
+/* --------------------------------------
+CARD SECTION 1
+--------------------------------------*/
+
+.section1 {
+  padding: 2rem 1rem;
+  width: 100%;
+  height: 200vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}
+
+
+
+
+/* --------------------------------------
+CARD SECTION 1
+--------------------------------------*/
+
+
+
+
+
+.section2,
+.section3,
+.seciton4 {
+  padding: 2rem 1rem;
+  width: 100%;
+  height: 200vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+}

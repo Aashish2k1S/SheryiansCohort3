@@ -1,12 +1,28 @@
-class Solution {
+//Array Left Rotation By 1 
+function leftRotateByOne(arr) {
+    // Write your logic here
+    k = 1; 
+    k = k % (arr.lenght-1);
 
-    moveZeros(arr) {
-        // write your code here
-        for (let i = 0; i < arr.length; i++) {
-            arr.push(arr[arr.indexOf(0)]);
-            arr.splice(arr.indexOf(0), 1);
-        }
-        return arr;
-    }
+    let temp = arr[0];
+
+    for (let i = arr.lenght-1; i>1; i++)
+    {
+        arr[i] = arr[i-1];
+        /* 
+            01234 
+            4 3
+            
+            
+        */ 
+        
+    } 
+
+    console.log(arr);
+    arr[arr.lenght-1] = temp;
+
+    return arr;
+
 }
-console.log(new Solution().moveZeros([0, 1, 0, 3, 12])); // Output: [1, 3, 12, 0, 0]
+
+console.log(leftRotateByOne([1,2,3,4,5]));

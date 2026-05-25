@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@font-face {
+    font-family: Reckless;
+    src: url(./assests/RecklessCondensedS-TRIAL-Book.woff);
+} 
+
+
+:root {
+    --primary-color: #FBF9EB;
+    --secondary-color: #FFFEFB;
+    
+    --text-color: #000000;
+
+    --font-size: clamp(5rem, 5vw, 999rem);
+    --secondary-font-size: clamp(0.5rem, 1vw, 0.8rem);
+    
+    --font-family: Reckless;
+    --secondary-font-family: Roboto, sans-serif;
+
+    --font-weight: 300;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--primary-color);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+nav {
+    margin: 1rem 2rem;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+}
+
+.navLeft {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--secondary-color);
+}
+
+
+.navRight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--secondary-color);
+}
+
+.navRight p, .navRight svg {
+    font-family: var(--secondary-font-family);
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+nav img {
+    width: 4rem;
+    height: 4rem;
+}
+nav img, .navLeft p, .navRight p, .navRight svg{
+
+    background-color: var(--secondary-color);
+}
+
+

@@ -1,25 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
-
 @font-face {
     font-family: Reckless;
     src: url(./assests/RecklessCondensedS-TRIAL-Book.woff);
 } 
+@font-face {
+    font-family: Roboto-Mono-Medium;
+    src: url(./assests/RobotoMono-Medium.ttf);
+}
+@font-face {
+    font-family: Roboto-Mono-Regular;
+    src: url(./assests/RobotoMono-Regular.ttf);
+}
 
 
 :root {
     --primary-color: #FBF9EB;
     --secondary-color: #FFFEFB;
+    --topBar-bg-color: #2A2857;
+    --yellow-bg-color: #FAB502;
     
     --text-color: #000000;
 
-    --font-size: clamp(5rem, 5vw, 999rem);
-    --secondary-font-size: clamp(0.5rem, 1vw, 0.8rem);
+    --font-size: 5rem;
+    /* clamp(5rem, 10vw, 8rem); */
+    --secondary-font-size: 0.8rem; 
+    /* clamp(0.5rem, 1vw, 2rem); */
     
     --font-family: Reckless;
-    --secondary-font-family: Roboto, sans-serif;
+    --secondary-font-family: Roboto-Mono-Medium;
+    --New-font-family: Roboto-Mono-Regular;
 
     --font-weight: 300;
 }
+
 
 * {
     margin: 0;
@@ -35,35 +47,61 @@ html, body {
     min-height: 100vh;
 }
 
+main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh
+}
+
+.topbar {
+    padding: 0.5rem 0;
+    color: white;
+    background-color: var(--topBar-bg-color);
+    font-family: var(--secondary-font-family);
+    font-size: 0.75rem;
+    font-weight: 550;
+    word-spacing: 0.12rem;
+    letter-spacing: 0.01rem;
+    text-transform: uppercase;
+    text-align: center;
+}
 
 nav {
-    margin: 1rem 2rem;
+    position: absolute;
+    align-self: center;
+    width: 95%;
+    transform: translate(-50%, 50%);
+    left: 50%;
+    top: 1rem;
     padding: 0rem 1rem;
+    border: 1px solid var(--topBar-bg-color);
+    border-radius: min(1rem, 2vw);
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: var(--secondary-color);
 }
-
 .navLeft {
     display: flex;
     align-items: center;
     gap: 1rem;
     background-color: var(--secondary-color);
 }
-
+.navLeft p {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
 
 .navRight {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
     background-color: var(--secondary-color);
 }
-
 .navRight p, .navRight svg {
     font-family: var(--secondary-font-family);
-    font-size: 0.5rem;
-    font-weight: 700;
+    font-size: 0.7rem;
+    font-weight: 200;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
 }
@@ -71,9 +109,61 @@ nav img {
     width: 4rem;
     height: 4rem;
 }
-nav img, .navLeft p, .navRight p, .navRight svg{
-
-    background-color: var(--secondary-color);
+nav img, .navLeft p, .navRight p, .navRight .bag .navRight .bag svg{
+    cursor: pointer;
+    background-color: transparent;
 }
+.navRight .bag svg {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+.navRight .bag {
+    position: relative;
+    display: inline-block;
+}
+.navRight .bag::after {
+    content: "0";
+    position: absolute;
+    top: 20%;
+    right: -30%;
+
+    width: 1rem;
+    height: 1rem;
+
+    border-radius: 50%;
+    border: 1px solid var(--topBar-bg-color);
+
+    color: var(--topBar-bg-color);
+    background-color: var(--yellow-bg-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--secondary-font-family);
+    font-weight: 500;
+
+    font-size: 0.8rem;
+}
+
+.section1 .card1 {
+    /* width: 100vw; */
+    min-height: 90vh;
+    background-image: url('https://www.twoleavestea.com/cdn/shop/files/cere-memorial_matcha_wide.png?v=1779304660&width=3200');
+    /* background-image: url('//www.twoleavestea.com/cdn/shop/files/AlpineBerry.webp?v=1774284236&width=3200'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 3rem;
+}
+
+.section1 .bottom, .section1 .bottom>*{
+    background-color: transparent;
+}
+
 
 

@@ -1,0 +1,38 @@
+// 1. Round `4.7` using `Math.round()`.
+
+let num = 4.7
+console.log(Math.round(num));
+
+// 2. Find the square root of 81.
+
+console.log(Math.sqrt(81));
+
+// 3. Find the maximum number from `10, 20, 5, 99`.
+
+console.log(Math.max(10, 20, 5, 99));
+
+// 4. Generate a random number between 1 and 10.
+
+// let rand = Math.floor(Math.random() * (max - min + 1)) + min;
+console.log(Math.floor(Math.random() * (10 - 1 + 1)) + 1);
+
+// 5. Convert `"99.99"` into an integer.
+
+num = 99.99;
+console.log(Number(num));
+console.log(parseInt(num));
+console.log(Math.round(num));
+console.log(Math.floor(num));
+console.log(Math.ceil(num));
+console.log(num.toFixed(0));
+
+// 6. Check whether `25` is an integer or not.
+
+console.log(Number.isInteger(25));
+console.log(Number.isInteger(true));
+console.log(Number.isInteger(25.4));
+
+
+// 7. Use `toFixed(2)` on `3.141592`.
+
+console.log(3.141592.toFixed(2));

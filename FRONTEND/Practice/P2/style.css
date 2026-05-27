@@ -109,7 +109,7 @@ nav img {
     width: 4rem;
     height: 4rem;
 }
-nav img, .navLeft p, .navRight p, .navRight .bag .navRight .bag svg{
+nav .navCenter, nav .navCenter img, .navLeft p, .navRight p, .navRight .bag .navRight .bag svg{
     cursor: pointer;
     background-color: transparent;
 }

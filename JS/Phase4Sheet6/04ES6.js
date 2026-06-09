@@ -169,40 +169,99 @@
 // bark()
 // ```
 
-class Animal {
-    constructor(name) {
-        this.name = name;
-    }
-};
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// };
 
 
-class Dog extends Animal {
-    constructor(name) {
-        super(name);
+// class Dog extends Animal {
+//     constructor(name) {
+//         super(name);
 
-        function eat_test() {
-            console.log(`${this.name} is eating`);
-        };
-        function bark_test() {
-            console.log(`${this.name} is barking`);
-        }
-    };
+//         function eat_test() {
+//             console.log(`${this.name} is eating`);
+//         };
+//         function bark_test() {
+//             console.log(`${this.name} is barking`);
+//         }
+//     };
 
-    eat() {
-        console.log(`${this.name} is eating`);
-    }
-    bark() {
-        console.log(`${this.name} is barking`);
-    }
-};
+//     eat() {
+//         console.log(`${this.name} is eating`);
+//     }
+//     bark() {
+//         console.log(`${this.name} is barking`);
+//     }
+// };
 
-// console.log(Dog.prototype);
+// const dog1 = new Dog("Buddy");
+// dog1.eat();
+// dog1.bark();
 
-const dog1 = new Dog("Buddy");
-dog1.eat();
-dog1.bark();
+// console.log(dog1.__proto__);
 
-console.log(dog1.__proto__);
+// dog1.eat_test();
+// dog1.bark_test();
 
-dog1.eat_test();
-dog1.bark_test();
+
+
+
+// ## Problem 20: Multi-Level Inheritance
+// Create:
+// ```
+// Person
+//    ↓
+// Employee
+//    ↓
+// Manager
+// ```
+// Add unique properties and methods at each level.
+
+
+//this multi-level inheritance is not possible in ES6
+// class Person {
+//     constructor(name) {
+//         this.name = name;        
+//     }
+
+//     introduce() { 
+//         console.log(`Hello, my name is ${this.name}`); 
+//     }; 
+// };
+
+// class Employee extends Person {
+//     constructor(name, salary) {
+//         super(name);
+//         this.salary = salary;
+//     }
+
+//     showSalary() {
+//         console.log(`My salary is ${this.salary}`);
+//     };    
+
+// };
+
+// class Manager extends Employee {
+//     constructor(name, salary, department) {
+//         super(name, salary);
+//         this.department = department;
+//     }
+
+//     showDepartment() {
+//         console.log(`My department is ${this.department}`);
+//     };
+// };
+
+
+// console.log(Person.prototype);
+// console.log(Employee.prototype);
+// console.log(Manager.prototype);
+
+// const manager1 = new Manager("Anubhav", 50000, "IT");
+// console.log(manager1);
+
+// manager1.introduce();
+// manager1.showSalary();
+// manager1.showDepartment();

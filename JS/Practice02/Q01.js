@@ -109,14 +109,14 @@
 // console.log(longWord);
 
 // let nums= [1,2,3,4,5];
-// let newNums = [], n = 4; 
+// let newNums = [], n = 4;
 // let k = n % nums.length;
 // // newNums = JSON.parse(JSON.stringify(
 // //     nums.slice(nums.length-k, nums.length)
 // // ));
 // // // console.log(newNums);
 // // // console.log(nums);
-// // for (let i = 0; i < nums.length-k; i++) 
+// // for (let i = 0; i < nums.length-k; i++)
 // //     newNums.push(nums[i]);
 // newNums = [
 //     ...nums.slice(nums.length - k),
@@ -124,5 +124,20 @@
 // ];
 // console.log(newNums);
 
+let sales = ["Mouse", "Keyboard", "Mouse", "Laptop", "Mouse", "Keyboard"];
+let freq = sales.reduce((a, c) => {
+    a[c] = (a[c] || 0) + 1;
+    return a;
+} , {});
+console.log(freq);
+let max = Math.max(...Object.values(freq));
+let maxFreq = Object.entries(freq).reduce(
+    (a, c) => {
+        if (c[1] === max) a.push(c);
+        return a;
+    }, []
+);
+// console.log(maxFreq);
+console.log(maxFreq[0][0]);
 
 

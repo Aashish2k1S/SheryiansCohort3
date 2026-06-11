@@ -27,7 +27,7 @@ div {
   width: 15rem;
   height: 15rem;
   border-radius: 50%;
-  border: 0.5rem solid black;
+  border: 0.2rem solid black;
   background-color: black;
   position: relative;
 }

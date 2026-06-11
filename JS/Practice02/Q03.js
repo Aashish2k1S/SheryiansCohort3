@@ -1,4 +1,4 @@
-// FUNCTIONS 
+// FUNCTIONS
 
 // function greet(name) {console.log(`Hello ${name}`);}
 // greet('Ritik');
@@ -70,7 +70,7 @@
 // console.log(login("asdas", "54564"));
 
 // function factorial(n) {
-//     // return n === 0 ? 1 : n * factorial(n - 1);    
+//     // return n === 0 ? 1 : n * factorial(n - 1);
 //     if (n < 0) return undefined;
 //     if (n <= 1) return 1;
 //     let fact = 1
@@ -93,7 +93,7 @@
 //         if (char.includes(password[i])) charCount++;
 //         if (num.includes(password[i])) numCount++;
 
-//         if (charCount >= 8 && numCount >= 1) return 'Strong';        
+//         if (charCount >= 8 && numCount >= 1) return 'Strong';
 //     }
 //     return 'Weak';
 // }
@@ -117,6 +117,13 @@
 // }
 // processUser("Ritik",welcomeUser);
 
-function generateBill(items) {
-    
-}
+// function generateBill(items) {
+//     let total = items.reduce((a,c) => a + c.price, 0);
+//     console.log(`Total Bill: ${total}`);
+// }
+// let cart = [
+//   { name: "Mouse", price: 500 },
+//   { name: "Keyboard", price: 1000 },
+//   { name: "Monitor", price: 10000 },
+// ];
+// generateBill(cart);

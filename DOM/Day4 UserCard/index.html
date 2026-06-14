@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Card | DOM</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <button id="reset" class="button" onclick="resetClick()">Reset</button>
+            <i id="theme" class="ri-moon-line button" onclick="themeToggle()"></i>
+        </nav>
+        <div id="panel">
+            <form action="">
+                <div>
+                    <label for="name">Name : </label>
+                    <input type="text" name="name" id="name" placeholder="Enter name..." autocomplete="off">
+                </div>
+                <div>
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" id="email" placeholder="Enter email..." autocomplete="off">
+                </div>
+                <div>
+                    <label for="imgUrl">Image Url : </label>
+                    <input type="url" name="imgUrl" id="imgUrl" placeholder="Enter image url..." autocomplete="off">
+                </div>
+                <button id="submit" class="button">Submit</button>
+            </form>
+            <div id="testImg"></div>
+        </div>
+
+    </header>
+    <main></main>
+    <script src="script.js"></script>
+</body>
+
+</html>

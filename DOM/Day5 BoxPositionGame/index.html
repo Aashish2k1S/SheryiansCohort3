@@ -1,13 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Box Position Game | DOM</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-    <script src="script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Box Position Game | DOM</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            preload
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main>
+            <h1 id="title">Guess - Box Position</h1>
+            <nav>
+                <p>Highest Score: <span id="hgScore">0</span></p>
+                <button id="theme" class="btn">
+                    <i class="ri-sun-line"></i>
+                </button>
+            </nav>
+            <div id="info">
+                <p class="btn">Time: <span id="time">0</span></p>
+                <p class="btn">Score: <span id="score">0</span></p>
+            </div>
+            <div id="mainBox">
+                <!-- <div id="box"></div> -->
+            </div>
+            <button id="start" class="btn">Start</button>
+        </main>
+        <div id="overlay">
+            <h1>GAME OVER : <span id="finalScore">0</span></h1>
+            <h2 id="newHgScore">🎉🎉 New High Score : 0</h2>
+            <h3>Highest Score: <span id="finalHgScore">0</span></h3>
+            <button id="reset" class="btn">RESET</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>

@@ -1,17 +1,139 @@
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
+  --primary-color: #fff;
+  --transparent-color: rgba(255, 0, 0, 0.5);
+  --secondary-color: #000;
+  --font: Verdana, Geneva, Tahoma, sans-serif;
 }
+.dark { 
+  --primary-color: #000; 
+  --secondary-color: #fff; 
+} 
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--font);
 }
 
 html, body {
   width: 100%;
   min-height: 100vh;
   scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  background-color: var(--primary-color);  
+  letter-spacing: 0.1rem;
+}
+
+
+.btn {
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 0.5rem var(--secondary-color);
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  box-shadow: inset 0 0 0.5rem var(--secondary-color);
+}
+
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;  
+  position: absolute;
+}
+
+#title{
+  text-transform: uppercase;
+  font-size: 3rem;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+}
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  color: var(--secondary-color);
+  gap: 1rem;
+}
+nav p {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+
+#info {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+
+#mainBox{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  min-height: 50%;
+  border: 2px solid var(--secondary-color);
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem var(--secondary-color);
+  color: var(--secondary-color);
+  position: relative;
+}
+
+#box {  
+  position: absolute;
+  margin: 1rem;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem var(--secondary-color);
+  background-color: var(--secondary-color);
+}
+
+#overlay{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  gap: 3rem;
+  background-color: var(--transparent-color); 
+  color: var(--secondary-color);  
+}
+#overlay h1 {
+  font-size: 3rem;
 }
 

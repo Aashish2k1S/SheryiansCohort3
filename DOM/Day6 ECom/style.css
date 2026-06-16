@@ -1,0 +1,321 @@
+:root {
+    --txt-color: rgb(0, 0, 0);
+    --bg-color: rgb(255, 255, 255);
+    --transparent-color: rgba(0, 0, 0, 0.8);
+
+    --delete-color: rgba(255, 0, 0, 0.8);
+    --update-color: rgba(255, 166, 0, 0.8);
+    --cart-color: rgba(0, 200, 0, 0.8);
+
+    --font-small: 0.5rem;
+    --font-medium: 1rem;
+    --font-large: 3rem;
+
+    --font-thin: 100;
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-bold: 700;
+    --font-bolder: 900;
+
+    --font: Verdana, Geneva, Tahoma, sans-serif;
+
+    --radius: 50px;
+    --radius-m: 10px;
+
+    --shadow: 0 0 1rem;
+
+    --transition: all ease 0.3s;
+}
+
+.dark {
+    --txt-color: rgb(255, 255, 255);
+    --bg-color: rgb(0, 0, 0);
+    --transparent-color: rgba(255, 255, 255, 0.8);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    position: relative;
+}
+
+main {
+    max-width: 1200px;
+    width: 95%;
+    min-height: 100vh;
+    padding: 2rem 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow) var(--transparent-color);
+}
+
+
+#right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-flow: row wrap;
+}
+
+#right button {
+    background-color: var(--txt-color);
+    color: var(--bg-color);
+    box-shadow: var(--shadow) var(--transparent-color);    
+    padding: 1rem 1.5rem;
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    cursor: pointer
+}
+
+#right button:hover {
+    box-shadow: inset var(--shadow) var(--transparent-color);
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+}
+
+
+
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    flex-flow: row wrap;
+}
+#noProduct {
+    padding: 1rem;
+    text-align: center;
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+    text-transform: uppercase;
+    font-weight: var(--font-bolder);
+    font-size: var(--font-large);
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-flow: row wrap;
+}
+
+.card {
+    flex-shrink: 1;
+    width: 15rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    color: var(--txt-color);
+    background-color: var(--bg-color);
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow) var(--transparent-color);
+    padding: 1rem;
+    gap: 1rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(0.99);
+    box-shadow: none;
+}
+
+.card img {
+    object-fit: cover;
+    object-position: center;
+    border: none;
+    border-radius: var(--radius-m);
+    width: 200px;
+    height: 250px;
+    transform: var(--transition);
+}
+
+.card .mid {
+    width: 100%;    
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2rem;
+}
+
+.card .mid .content {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.card .mid .content .name, .card .mid .content .price  {
+    word-break: break-all; 
+}
+
+.card .mid .content .desc {
+    word-break: break-all; 
+    font-size: var(--font-small);
+}
+
+
+.card i {
+    font-size: var(--font-medium);
+    font-weight: var(--font-thin);    
+    transform: scale(1.5);
+    transition: var(--transition);
+}
+.card i:hover {
+    transform: scale(1);
+}
+
+.card .mid .content .cart { 
+    color: var(--cart-color);
+}
+
+.card .lower {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.card .lower .update {
+    color: var(--update-color);
+}
+.card .lower .delete {
+    color: var(--delete-color);
+}
+
+
+
+
+#form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--txt-color);
+    background-color: var(--transparent-color);;
+}
+#form div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    width: 100%;
+}
+#form #close {
+    cursor: pointer;
+    transition: var(--transition);
+}
+#form #close:hover {
+    transform: scale(0.7);    
+}
+
+form {    
+    text-transform: uppercase;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    background-color: var(--bg-color);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow) var(--transparent-color);
+}
+form input {
+    outline: none;
+    border: none;
+    border-radius: var(--radius);
+    padding: 1rem;
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+    box-shadow: var(--shadow) var(--transparent-color);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+form button {
+    outline: none;
+    border: none;
+    border-radius: var(--radius);
+    padding: 1rem;
+    background-color: var(--bg-color);
+    color: var(--txt-color);
+    box-shadow: var(--shadow) var(--transparent-color);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+form button:hover {
+    box-shadow: none;
+    background-color: var(--txt-color);
+    color: var(--bg-color);
+    transform: scale(0.99);
+}
+
+
+
+
+
+
+#cart {
+    display: none;
+}

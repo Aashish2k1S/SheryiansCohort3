@@ -1,0 +1,17 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+

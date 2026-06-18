@@ -10,8 +10,6 @@ const close = document.querySelector('#close');
 
 
 
-
-
 const themeToggler = () => {
     if (body.classList.toggle('dark')) {
         theme.innerHTML = '<i class="ri-moon-line"></i>';
@@ -20,23 +18,56 @@ const themeToggler = () => {
     }
 }
 
-let products = [];
 function product(name, price, desc, image) {
     this.name = name;
     this.price = price;
     this.desc = desc;
     this.image = image
 }
+let products = JSON.parse(localStorage.getItem('products')) || [
+    {
+        name: 'asdasd', 
+        price: '132123', 
+        desc: 'sadfafsadasfasfsdgsfsf',
+        image: 'https://plus.unsplash.com/premium_photo-1780691020752-213011fadb66?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8' 
+    },{
+        name: 'asdasd', 
+        price: '132123', 
+        desc: 'sadfafsadasfasfsdgsfsf',
+        image: 'https://plus.unsplash.com/premium_photo-1780691020752-213011fadb66?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8' 
+    },{
+        name: 'asdasd', 
+        price: '132123', 
+        desc: 'sadfafsadasfasfsdgsfsf',
+        image: 'https://plus.unsplash.com/premium_photo-1780691020752-213011fadb66?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8' 
+    },{
+        name: 'asdasd', 
+        price: '132123', 
+        desc: 'sadfafsadasfasfsdgsfsf',
+        image: 'https://plus.unsplash.com/premium_photo-1780691020752-213011fadb66?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8' 
+    },{
+        name: 'asdasd', 
+        price: '132123', 
+        desc: 'sadfafsadasfasfsdgsfsf',
+        image: 'https://plus.unsplash.com/premium_photo-1780691020752-213011fadb66?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8' 
+    },{
+        name: 'asdasd', 
+        price: '132123', 
+        desc: 'sadfafsadasfasfsdgsfsf',
+        image: 'https://plus.unsplash.com/premium_photo-1780691020752-213011fadb66?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8' 
+    },{
+        name: 'asdasd', 
+        price: '132123', 
+        desc: 'sadfafsadasfasfsdgsfsf',
+        image: 'https://plus.unsplash.com/premium_photo-1780691020752-213011fadb66?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8' 
+    }
+];
 
-if (localStorage.getItem('products')) {
-    products = JSON.parse(localStorage.getItem('products'));
-}
 
 const card = (index, name, price, desc, image) => {
-
     return `
         <div class="card">
-            <img src="${image}" alt="img${index + 1}">
+            <img src="${image}" alt="img${index}" class="img${index}">
             <div class="mid">
                 <div class="content">
                     <h3 class="name">${name}</h3>
@@ -59,8 +90,8 @@ const renderProductCard = () => {
     if (products.length > 0) {
         console.log(products);
 
-        products.forEach(({ name, price, desc, img }, index) => {
-            hero.innerHTML += card(index, name, price, desc, img);
+        products.forEach(({ name, price, desc, image }, index) => {
+            hero.innerHTML += card(index, name, price, desc, image);
         })
     }
     else {

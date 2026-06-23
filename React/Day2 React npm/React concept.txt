@@ -1,0 +1,34 @@
+RENDER PHASE 
+1. RDOM => VDOM with the help of React DOM which is known as Reconciliation
+2. that VDOM becomes old VDOM and with new updates new VDOM gets created 
+3. then comparison happens between old VDOM and new VDOM with the help of Diffing Algorithm.
+4. Then stores that new VDOM 
+
+COMMIT PHASE 
+5. updating the real DOM through React DOM with the stored VDOM. 
+8. Paint phase of real DOM starts 
+7. Real DOM gets updated and VDOM will be deleted after updating.
+
+
+Reconciliation 
+in 2015 it follows stack engine like we mentioned above
+but after 2015 like 2016 and after it work with fibre in an optimize way 
+
+**like how stack engine works synchronously and after fibre reconciliation works asynchronously, like updating the nodes simultaneously and entirely.**
+
+
+--------------------------------------------
+
+from now we will not use React CDN anymore now we will use npm package React
+`npm i react`
+then the Package.JSON is not yet setup because the module type of not enough for html script 
+now we have to create the fresh Package.JSON after REACT installation like 
+- delete Package.JSON
+- npm init -y [this will create a fresh Package.JSON with all the setup]
+- "types" : "commonjs" => "types": "module"
+- scripts [we have to add] "dev": "node script.js" or "node script.js --watch" now we do not need to use nodemon anymore 
+
+
+
+
+https://medium.com/@ddhote780/babel-vs-oxc-understanding-the-future-of-javascript-tooling-3c0da1509844

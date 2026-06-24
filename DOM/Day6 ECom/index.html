@@ -1,32 +1,29 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>E Commerce | DOM</title>
-        <link
-            preload
-            href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="style.css" />
-    </head>
 
-    <body>
-        <main>
-            <nav>
-                <h3>E-Comm<h3>                
-                <div id="right">
-                    <button id="create" class="btn">+ Product</button>
-                    <button id="theme" class="btn">
-                        <i class="ri-sun-line"></i>
-                    </button>
-                </div>
-            </nav>
-            <div id="hero">
-                <!-- <div id="noProduct">no products yet!!</div> -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E Commerce | DOM</title>
+    <link preload href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-                <!-- <div class="card">
+<body>
+    <main>
+        <nav>
+            <h3>E-Comm<h3>
+                    <div id="right">
+                        <button id="create" class="btn">+ Product</button>
+                        <button id="theme" class="btn">
+                            <i class="ri-moon-line"></i>
+                        </button>
+                    </div>
+        </nav>
+        <div id="hero">
+            <!-- <div id="noProduct">no products yet!!</div> -->
+
+            <!-- <div class="card">
                     <div class="prodImg">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRewexeR-HUBriSQLaqRqjxqQBR1esYMRLT73ohwNg31A&s=10" alt="shoes"/>    
                     </div>
@@ -46,42 +43,43 @@
                         ></i>
                     </div>
                 </div> -->
-               
-            </div>
-        </main>
 
-        <div id="form">
-            <form action="">
-                <div><i class="ri-close-circle-line" id="close"></i></div>
-                <h3 id="formTitle">Create Product</h3>
-                <input style="display: none;" type="number" placeholder="ID" id="idInp" />
-                <input type="text" placeholder="Name" id="nameInp" />
-                <input type="number" placeholder="Price" id="priceInp" />
-                <textarea placeholder="Description" id="descInp" rows="5"></textarea>
-                <input type="url" placeholder="Image Url" id="imgUrlInp" />
-                <img src="" alt="sample" id="sampleFormImg" class="sample">
-                <button>SUBMIT</button>
-            </form>
         </div>
+    </main>
 
-        <div id="cart">
-            <ul>
-                <li>
-                    <img src="" alt="" />
-                    <div id="mid">
-                        <h3>Name</h3>
-                        <p>Price</p>
-                    </div>
-                    <div id="qty">
-                        <button>-</button>
-                        <p>1</p>
-                        <button>+</button>
-                    </div>
-                    <button>DELETE</button>
-                </li>
-            </ul>
-        </div>
+    <div id="form">
+        <form action="">
+            <div><i class="ri-close-circle-line" id="close"></i></div>
+            <h3 id="formTitle">Create Product</h3>            
+            <input type="hidden" id="idInp" />
+            <input type="text" placeholder="Name" id="nameInp" />
+            <input type="number" placeholder="Price" id="priceInp" />
+            <textarea placeholder="Description" id="descInp" rows="5"></textarea>
+            <input type="url" placeholder="Image Url" id="imgUrlInp" />
+            <img src="" alt="sample" id="sampleFormImg" class="sample">
+            <button>SUBMIT</button>
+        </form>
+    </div>
 
-        <script type="module" src="script.js"></script>
-    </body>
+    <div id="cart">
+        <ul>
+            <li>
+                <img src="" alt="" />
+                <div id="mid">
+                    <h3>Name</h3>
+                    <p>Price</p>
+                </div>
+                <div id="qty">
+                    <button>-</button>
+                    <p>1</p>
+                    <button>+</button>
+                </div>
+                <button>DELETE</button>
+            </li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>

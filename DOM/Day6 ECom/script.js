@@ -1,24 +1,16 @@
-import { task } from "./tasks.js";
-
 //#region elements
-
 const body = document.body;
 const create = document.querySelector("#create");
 const theme = document.querySelector("#theme");
-
 const main = document.querySelector("main");
-
 const hero = document.querySelector("#hero");
-
 const formDiv = document.querySelector("#form");
 const form = document.querySelector("form");
 const imgUrlInp = document.querySelector("#imgUrlInp");
-
 const close = document.querySelector("#close");
-
 //#endregion elements
 
-localStorage.removeItem("products");
+// REMOVED: localStorage.removeItem("products"); -> This was wiping your data on every reload!
 
 const themeToggler = () => {
     theme.innerHTML = body.classList.toggle("dark")
@@ -33,29 +25,96 @@ function Product(id, name, price, desc, image) {
     this.desc = desc;
     this.image = image;
 }
-let products = JSON.parse(localStorage.getItem("products")) || task;
+let products = JSON.parse(localStorage.getItem("products")) || [
+    new Product(
+        1,
+        "Wireless Headphones",
+        59,
+        "High-quality noise-canceling wireless headphones with a 20-hour battery life.",
+        "https://picsum.photos/seed/headphones/300/300"
+    ),
+    new Product(
+        2,
+        "Fitness Smartwatch",
+        129,
+        "Waterproof fitness tracker with heart rate monitor and sleep tracking.",
+        "https://picsum.photos/seed/smartwatch/300/300"
+    ),
+    new Product(
+        3,
+        "Mechanical Keyboard",
+        89,
+        "RGB backlit mechanical keyboard with tactile blue switches for typing and gaming.",
+        "https://picsum.photos/seed/keyboard/300/300"
+    ),
+    new Product(
+        4,
+        "Ergonomic Gaming Mouse",
+        45,
+        "Wired gaming mouse with adjustable DPI settings and customizable side buttons.",
+        "https://picsum.photos/seed/mouse/300/300"
+    ),
+    new Product(
+        5,
+        "Portable Power Bank",
+        24,
+        "10000mAh portable charger with dual USB outputs and fast charging support.",
+        "https://picsum.photos/seed/powerbank/300/300"
+    ),
+    new Product(
+        6,
+        "Bluetooth Speaker",
+        39,
+        "Compact and waterproof portable Bluetooth speaker delivering deep bass.",
+        "https://picsum.photos/seed/speaker/300/300"
+    ),
+    new Product(
+        7,
+        "Aluminum Laptop Stand",
+        19,
+        "Adjustable laptop riser compatible with all laptops ranging from 10 to 15.6 inches.",
+        "https://picsum.photos/seed/laptopstand/300/300"
+    ),
+    new Product(
+        8,
+        "1080p HD Webcam",
+        49,
+        "High-definition web camera with a built-in dual noise reduction microphone.",
+        "https://picsum.photos/seed/webcam/300/300"
+    ),
+    new Product(
+        9,
+        "USB-C Hub Adapter",
+        29,
+        "7-in-1 Type C dongle featuring 4K HDMI, USB 3.0 ports, and SD/TF card readers.",
+        "https://picsum.photos/seed/usbc/300/300"
+    ),
+    new Product(
+        10,
+        "Extended Desk Pad",
+        15,
+        "Large anti-slip rubber base desk mat and gaming mouse pad.",
+        "https://picsum.photos/seed/deskpad/300/300"
+    )
+];
 
 const card = (id, name, price, desc, image) => {
-    name =
-        name.trim().length > 15
-            ? name.trim().slice(0, 15) + "..."
-            : name.trim();
-    desc =
-        desc.trim().length > 15
-            ? desc.trim().slice(0, 15) + "..."
-            : desc.trim();
-    price = parseFloat(price).toFixed(2);
+    const 
+        formattedName = name.trim().length > 15 ? name.trim().slice(0, 15) + "..." : name.trim(),
+        formattedPrice = parseFloat(price).toFixed(2), 
+        formattedDesc = desc.trim().length > 15 ? desc.trim().slice(0, 15) + "..." : desc.trim(), 
+        formattedImage = image.trim();
 
     return `
         <div class="card"> 
             <div class="prodImg" data-id="${id}"> 
-                <img src="${image}" alt="${name}" class="img${id}"/> 
+                <img src="${formattedImage}" alt="${name}" class="img${id}"/> 
             </div> 
             <div class="mid" data-id="${id}"> 
                 <h1 class="id">${id}</h1> 
-                <h2 class="name">${name}</h2> 
-                <h4 class="price">$ ${price}</h4> 
-                <small class="desc">${desc}</small> 
+                <h2 class="name">${formattedName}</h2> 
+                <h4 class="price">$ ${formattedPrice}</h4> 
+                <small class="desc">${formattedDesc}</small> 
             </div> 
             <div class="lower"> 
                 <i class="ri-delete-bin-6-line delete" data-id="${id}"></i>
@@ -66,15 +125,33 @@ const card = (id, name, price, desc, image) => {
 };
 
 const renderProductCard = () => {
-    hero.innerHTML = "";
-    hero.innerHTML =
-        products.length > 0
-            ? products
-                  .map(({ id, name, price, desc, image }) => {
-                      return card(id, name, price, desc, image);
-                  })
-                  .join("")
-            : `<div id="noProduct">no products yet!!</div>`;
+    hero.innerHTML = products.length > 0
+        ? products.map(({ id, name, price, desc, image }) => card(id, name, price, desc, image)).join("")
+        : `<div id="noProduct">No products yet!!</div>`;
+};
+
+
+const sampleImgLoad = (src) => {
+    // Remove previous samples
+    document.querySelectorAll(".sample").forEach((e) => e.remove());
+
+    if (!src) return;
+    
+    const sampleFormImg = document.createElement("img");
+    sampleFormImg.setAttribute("id", "sampleFormImg");
+    sampleFormImg.setAttribute("alt", "sample preview");
+    sampleFormImg.classList.add("sample");
+
+    // Proper way to handle image loading/errors
+    sampleFormImg.onload = () => {
+        imgUrlInp.after(sampleFormImg);
+    };
+
+    sampleFormImg.onerror = () => {
+        alert("Invalid Image URL!!");
+    };
+
+    sampleFormImg.src = src; // Trigger the load
 };
 
 const formVisibility = (mode) => {
@@ -88,12 +165,13 @@ const formVisibility = (mode) => {
         main.classList.remove("main-overflow");
     }
 
-    sampleFormImg.src = "";
-    sampleFormImg.style.display = "none";
+    sampleImgLoad("");
 };
 
 const edit = (prodId) => {
     let index = products.findIndex((p) => p.id === prodId);
+    if (index === -1) return; // Safety check
+
     formVisibility(1);
 
     let { id, name, price, desc, image: img } = products[index];
@@ -103,18 +181,21 @@ const edit = (prodId) => {
     form[2].value = price;
     form[3].value = desc;
     form[4].value = img;
+
+    sampleImgLoad(img);
 };
 
 const del = (id) => {
-    let consent = confirm(`Are sure you want to delete the product-${id}?`);
+    let consent = confirm(`Are you sure you want to delete product ID: ${id}?`);
     if (!consent) return;
 
-    let index = products.findIndex((p) => p.id === id);
-    products.splice(index, 1);
+    products = products.filter((p) => p.id !== id);
 
-    products.length > 0
-        ? localStorage.setItem("products", JSON.stringify(products))
-        : localStorage.removeItem("products");
+    if (products.length > 0) {
+        localStorage.setItem("products", JSON.stringify(products));
+    } else {
+        localStorage.removeItem("products");
+    }
 
     renderProductCard();
 };
@@ -122,27 +203,39 @@ const del = (id) => {
 const submit = (e) => {
     e.preventDefault();
 
-    const id = parseInt(
-        e.target[0].value || Math.max(...products.map(({ id }) => id)) + 1,
-    );
+    // Fix: Safely handle ID generation if the array is completely empty
+    const providedId = e.target[0].value;
+    const generatedId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1;
+    const id = parseInt(providedId || generatedId);
+
     const name = e.target[1].value.trim();
-    const price = parseFloat(e.target[2].value).toFixed(2);
+    const price = e.target[2].value.trim();
     const desc = e.target[3].value.trim();
     const img = e.target[4].value.trim();
 
-    if (!id) {
+    if (!id || isNaN(id)) {
         alert("Product ID is Invalid!!!");
         return;
     }
 
-    console.log(img);
-
-    if (!name || !price || !price || !desc || !img) {
-        alert("Please fillout the manadate fields!!!");
+    if (!name || !price || !desc || !img) {
+        alert("Please fill out the mandatory fields!!!");
         return;
     }
 
-    products.unshift(new Product(id, name, price, desc, img));
+    const newProd = new Product(id, name, price, desc, img);
+
+    if (providedId === "") {
+        // Create new
+        products.unshift(newProd);
+    } else {
+        // Update existing
+        let index = products.findIndex((p) => p.id === id);
+        if (index !== -1) {
+            products[index] = newProd;
+        }
+    }
+
     localStorage.setItem("products", JSON.stringify(products));
     renderProductCard();
     formVisibility(0);
@@ -153,49 +246,33 @@ const pageLoad = () => {
     renderProductCard();
 };
 
+// Event Listeners
 pageLoad();
 
 theme.addEventListener("click", themeToggler);
 create.addEventListener("click", () => formVisibility(1));
 close.addEventListener("click", () => formVisibility(0));
-form.addEventListener("submit", (e) => submit(e));
-imgUrlInp.addEventListener("input", () => {
-    let testElem = document.querySelectorAll(".sample");
-    testElem.forEach((e) => e.remove());
+form.addEventListener("submit", submit);
 
-    let src = imgUrlInp.value.trim();
-    if (!src) return;
+// Debounce or at least delay image loading to prevent firing on every single keystroke
+imgUrlInp.addEventListener("change", () => sampleImgLoad(imgUrlInp.value.trim()));
 
-    const sampleFormImg = document.createElement("img");
+// Cleaner Event Delegation
+hero.addEventListener("click", (e) => {
+    const target = e.target;
+    
+    // Find the closest parent that has a data-id attribute
+    const actionContainer = target.closest('[data-id]');
+    
+    if (!actionContainer) return;
 
-    sampleFormImg.setAttribute("id", "sampleFormImg");
-    sampleFormImg.setAttribute("alt", "sample");
-    sampleFormImg.classList.add("sample");
+    const id = parseInt(actionContainer.dataset.id);
 
-    try {
-        sampleFormImg.src = src;
-        imgUrlInp.after(sampleFormImg);
-    } catch (e) {
-        sampleFormImg.remove();
-        alert("Invalid URL!!");
+    if (target.closest(".delete")) {
+        del(id);
+    } else if (target.closest(".cart")) {
+        alert("Added to cart: ID " + id);
+    } else if (target.closest(".prodImg") || target.closest(".mid")) {
+        edit(id);
     }
 });
-hero.addEventListener(
-    "click",
-    (e) => {
-        if (e.target.closest(".prodImg")) {
-            let id = parseInt(e.target.closest(".prodImg").dataset.id);
-            edit(id);
-        } else if (e.target.closest(".mid")) {
-            let id = parseInt(e.target.closest(".mid").dataset.id);
-            edit(id);
-        } else if (e.target.closest(".delete")) {
-            let id = parseInt(e.target.closest(".delete").dataset.id);
-            del(id);
-        } else if (e.target.closest(".cart")) {
-            let id = parseInt(e.target.closest(".cart").dataset.id);
-            alert("clicked on cart for id " + id);
-        }
-    },
-    true,
-);

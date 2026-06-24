@@ -1,0 +1,108 @@
+VITE & ENVIRONMENT SETUP
+
+* Current Stack: Using Vite 7 with Babel (JavaScript-based) instead of the latest Vite versions.
+* Reason: The newest Vite version uses Oxc (a Rust-based parser/compiler), and you are currently avoiding it due to some bugs in the newer releases.
+
+FUNCTIONS VS. COMPONENTS
+
+* Normal Functions: Named using camelCase (e.g., myFunction).
+* Components & Functional Components (FC): Named using PascalCase (e.g., MyComponent).
+
+CALLING COMPONENTS: ELEMENTS VS. FUNCTIONS
+
+* As an Element (): When you call a Functional Component as a React element, it takes advantage of HMR (Hot Module Replacement) through ESM (ES Modules). It receives an empty object {} if no props are passed.
+* As a Normal Function ({About()}): If you execute it directly with parentheses, it executes only once. It skips the constant updates from HMR, and any arguments passed are treated as normal function parameters (which will be undefined if nothing is passed).
+
+HOW HMR & THE DOM WORK
+
+* HMR (Hot Module Replacement): This is where Reconciliation happens.
+* The Process:
+1. Babel compiles the simple HTML/JSX code into React child elements.
+2. The Vite bundler bundles the code.
+3. A Diffing Algorithm compares the new Virtual DOM (VDOM) with the old one.
+4. Reconciliation happens, and only the updated parts get rendered onto the Real DOM.
+
+
+
+UNDERSTANDING PROPS AND THE CHILDREN PROP
+
+* Props: When calling an FC as an element, you pass attributes as an object (e.g., width="300" becomes props = { width: "300" }).
+* Children: You can pass entire HTML/JSX blocks inside a component. This is received as a special prop named exactly "children". This is case-sensitive; you cannot name it anything else. It represents a React Virtual Element, not a real DOM element.
+
+Example:
+
+Hello
+
+
+In this example: props = { width: "300", children: Hello }
+
+---
+
+CODE EXAMPLES
+
+## App.jsx
+
+import React from 'react';
+import About from './About.jsx';
+
+const App = () => {
+// let elem = React.createElement("div", {}, [
+//   React.createElement("h1", {}, "hello"),
+//   React.createElement("h2", {}, "Bye"),
+//   React.createElement("h3", {}, "vapus ao")
+// ]);
+// return elem;
+
+return (
+
+hello
+Bye
+vapus ao
+
+```
+  {/* Calling as a function: {About("args")} */}
+  
+  {/* Calling as an element passing props and children */}
+  <About width="300" name="Aashish" children="temp"> 
+    <h1>Children hello</h1>
+  </About>
+</div>
+
+```
+
+);
+}
+
+export default App;
+
+## About.jsx
+
+// const About = (props) => {
+// console.log(props);
+
+// Receiving the destructured 'children' prop
+const About = ({ children }) => {
+console.log(children);
+
+```
+return (
+    <h1>
+        <span>Hello</span>
+    </h1>
+);
+
+```
+
+}
+
+export default About;
+
+---
+
+STUDY GUIDE: VITE 7 VS. VITE 8
+
+Since your notes mentioned reading up on this today, here is a quick, factual summary of the differences based on the current 2026 landscape to help with your studies:
+
+* Vite 7 Architecture: Uses a split JavaScript/Go ecosystem. It relies on esbuild for lightning-fast development server transforms and Rollup for production bundling.
+* Vite 8 Architecture: Released in March 2026, it unifies the toolchain entirely in Rust. It replaces both esbuild and Rollup with Rolldown (a single, high-speed bundler) and uses Oxc for JavaScript parsing and compiling.
+* The Trade-off: While Vite 8 is massively faster, migrating to an entirely new Rust toolchain like Oxc and Rolldown has introduced some growing pains and edge-case bugs for specific project setups. Sticking to Vite 7 and Babel is a common and stable workaround while the ecosystem matures!

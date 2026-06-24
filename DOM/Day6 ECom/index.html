@@ -1,83 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>E Commerce | DOM</title>
+        <link
+            preload
+            href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E Commerce | DOM</title>
-    <link preload href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
-</head>
+    <body>
+        <main>
+            <nav>
+                <h3>E-Comm<h3>                
+                <div id="right">
+                    <button id="create" class="btn">+ Product</button>
+                    <button id="theme" class="btn">
+                        <i class="ri-sun-line"></i>
+                    </button>
+                </div>
+            </nav>
+            <div id="hero">
+                <!-- <div id="noProduct">no products yet!!</div> -->
 
-<body>
-
-    <main>
-        <nav>
-            <h2>E-Comm</h2>
-            <div id="right">
-                <button id="create" class="btn">Create Product</button>
-                <button id="theme" class="btn"><i class="ri-sun-line"></i></button>
-            </div>
-        </nav>
-        <div id="hero">
-                
-            <!-- <div id="noProduct">no products yet!!</div> -->
-        
-            <!-- <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRewexeR-HUBriSQLaqRqjxqQBR1esYMRLT73ohwNg31A&s=10"
-                    alt="shoes">
-                <div class="mid">
-                    <div class="content">
-                        <h3 class="name">Name</h3>
-                        <i class="ri-shopping-bag-line cart" onclick="cart(index)"></i>
+                <!-- <div class="card">
+                    <div class="prodImg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRewexeR-HUBriSQLaqRqjxqQBR1esYMRLT73ohwNg31A&s=10" alt="shoes"/>    
                     </div>
-                    <p class="price">Price</p>
-                    <p class="desc">Description</p>
-                </div>
-                <div class="lower">
-                    <i class="ri-edit-box-line update" onclick="edit(index)"></i>
-                    <i class="ri-delete-bin-6-line delete" onclick="del(index)"></i>
-                </div>
+                    <div class="mid">
+                        <h4 class="name">Name</h4>
+                        <p class="price">Price</p>
+                        <p class="desc">Description</p>
+                    </div>
+                    <div class="lower">                        
+                        <i
+                            class="ri-delete-bin-6-line delete"
+                            onclick="del(index)"
+                        ></i>
+                        <i
+                            class="ri-shopping-bag-line cart"
+                            onclick="cart(index)"
+                        ></i>
+                    </div>
+                </div> -->
+               
+            </div>
+        </main>
 
-            </div> -->
+        <div id="form">
+            <form action="">
+                <div><i class="ri-close-circle-line" id="close"></i></div>
+                <h3 id="formTitle">Create Product</h3>
+                <input style="display: none;" type="number" placeholder="ID" id="idInp" />
+                <input type="text" placeholder="Name" id="nameInp" />
+                <input type="number" placeholder="Price" id="priceInp" />
+                <textarea placeholder="Description" id="descInp" rows="5"></textarea>
+                <input type="url" placeholder="Image Url" id="imgUrlInp" />
+                <img src="" alt="sample" id="sampleFormImg" class="sample">
+                <button>SUBMIT</button>
+            </form>
         </div>
-    </main>
 
+        <div id="cart">
+            <ul>
+                <li>
+                    <img src="" alt="" />
+                    <div id="mid">
+                        <h3>Name</h3>
+                        <p>Price</p>
+                    </div>
+                    <div id="qty">
+                        <button>-</button>
+                        <p>1</p>
+                        <button>+</button>
+                    </div>
+                    <button>DELETE</button>
+                </li>
+            </ul>
+        </div>
 
-    <div id="form">
-        <form action="">
-            <div><h3 id="close">X</h3></div>
-            <h1>Create Product</h1>
-            <input type="text" placeholder="Name" id="nameInp">
-            <input type="number" placeholder="Price" id="priceInp">
-            <input type="text" placeholder="Description" id="descInp">
-            <input type="url" placeholder="Image Url" id="imgUrlInp">
-            <button>CREATE</button>
-        </form>
-    </div>
-
-    <div id="cart">
-        <ul>
-            <li>
-                <img src="" alt="">
-                <div id="mid">
-                    <h3>Name</h3>
-                    <p>Price</p>
-                </div>
-                <div id="qty">
-                    <button>-</button>
-                    <p>1</p>
-                    <button>+</button>
-                </div>
-                <button>DELETE</button>
-            </li>
-        </ul>
-    </div>
-
-
-
-
-    <script src="script.js"></script>
-</body>
-
+        <script type="module" src="script.js"></script>
+    </body>
 </html>

@@ -1,0 +1,43 @@
+:root {
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(0, 0, 0);
+}
+.dark {
+  --primary-color: rgb(0, 0, 0);
+  --secondary-color: rgb(255, 255, 255);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+
+/* Media queries */
+/* 640px, 768px, 1024px, 1280px */
+
+/*Tablet*/
+@media (min-width: 768px) {
+
+}
+/*Desktop*/
+@media (min-width: 1024px) {
+
+}
+/*Large screen*/
+@media (min-width: 1280px) {
+
+}

@@ -1,40 +1,9 @@
-//debounce
-// let input = document.getElementById("search");
-// function debounce(fn, delay) {
-//     let timer;
-//     return function (value) {
-//         clearTimeout(timer);
-//         timer = setTimeout(fn, delay, value);
-//     };
-// }
+let h1 = document.createElement('h1');
+h1.setAttribute('id', 'title');
+h1.textContent = "Welcome";
+document.body.appendChild(h1);
 
-// function search(value) {
-//     console.log("Searching:", value);
-// }
-// const debouncedSearch = debounce(search, 500);
-input.addEventListener("input", (e) => {
-    // console.log(e.target.value);    
-    debouncedSearch(e.target.value);
-});
+setTimeout(() => {
+    h1.textContent = "Welcome to JS DOM!!!";
+}, 3000);
 
-//throttle
-function throttle(fn, delay) {
-    let lastTime = 0;
-    return function (value) {
-        const now = Date.now();
-        if (now - lastTime >= delay) {
-            lastTime = now;
-            fn(value);
-        }
-    };
-}
-
-function handleScroll() {
-    console.log("Scrolling...");
-}
-
-window.addEventListener(
-    "scroll",
-    //handleScroll
-    throttle(handleScroll, 500),
-);

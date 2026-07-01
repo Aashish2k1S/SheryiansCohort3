@@ -15,7 +15,7 @@
 <body>
 
     <!-- #region HOME-PAGE -->
-    <div class="hero">
+    <div class="hero overflow">
 
         <!-- #region SIDE BAR -->
         <aside>
@@ -28,14 +28,14 @@
                     </div>
                 </div>
                 <div class="options">
-                    <ul>
-                        <li class="options-li-active"><i class="ri-layout-grid-line"></i><span>Dashboard</span></li>
-                        <li><i class="ri-settings-3-fill"></i><span>Settings</span></li>
+                    <ul class="optionsList">
+                        <li class="options-li-active" id="dashboardOption"><i class="ri-layout-grid-line"></i><span>Dashboard</span></li>
+                        <li id="settingOption"><i class="ri-settings-3-fill"></i><span>Settings</span></li>
                     </ul>
                 </div>
             </div>
             <div class="bottom">
-                <button id="addTran"><i class="ri-add-large-fill"></i> <span>Add Transaction</span></button>
+                <button id="addTranBtn"><i class="ri-add-large-fill"></i> <span>Add Transaction</span></button>
             </div>
         </aside>
         <!-- #endregion SIDE BAR -->
@@ -66,21 +66,21 @@
                             <!-- <i class="ri-bank-fill"></i> -->
                             <i><span class="material-symbols-outlined">account_balance</span></i>
                             <p>Current Balance</p>
-                            <h1 id="amtBalance"><span class="currency">$</span> 0.00</h1>
+                            <h1 id="amtBalance">$ 0.00</h1>
                         </div>
 
                         <div class="card" id="income">
                             <!-- <i class="ri-refund-2-line"></i> -->
                             <i><span class="material-symbols-outlined">trending_up</span></i>
                             <p>Total Income</p>
-                            <h1 id="amtIncome"><span class="currency">$</span> 0.00</h1>
+                            <h1 id="amtIncome">$ 0.00</h1>
                         </div>
 
                         <div class="card" id="expense">
                             <!-- <i class="ri-wallet-fill"></i> -->
                             <i><span class="material-symbols-outlined">trending_down</span></i>
                             <p>Total Expense</p>
-                            <h1 id="amtExpense"><span class="currency">$</span> 0.00</h1>
+                            <h1 id="amtExpense">$ 0.00</h1>
                         </div>
 
                         <div class="card" id="transaction">
@@ -144,29 +144,7 @@
                                     <th>ACTIONS</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="display: none;">0</td>
-                                    <td>2026-06-29</td>
-                                    <td>asdasdas</td>
-                                    <td><span class="category-pill shopping">Shopping</span></td>
-                                    <td class="expense-amt">-$213213.00</td>
-                                    <td>
-                                        <span class="edit"><i class="ri-pencil-fill"></i></span>
-                                        <span class="delete"><i class="ri-delete-bin-7-fill"></i></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2026-06-29</td>
-                                    <td>asdasdas</td>
-                                    <td><span class="category-pill shopping">Shopping</span></td>
-                                    <td class="income-amt">+$213213.00</td>
-                                    <td>
-                                        <span class="edit"><i class="ri-pencil-fill"></i></span>
-                                        <span class="delete"><i class="ri-delete-bin-7-fill"></i></span>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            <tbody id="transactionsData"></tbody>
                         </table>
                     </section>
                 </div>
@@ -180,7 +158,7 @@
                     <p>Manage your account profile and app formatting.</p>
                     <div id="settingPanel">
                         <h1 class="title">Profile Details</h1>
-                        <form action="">
+                        <form action="" id="settingForm">
                             <div class="inputs-div">
                                 <div id="usernameSettingDiv">
                                     <label for="username" id="usernameSettingLbl">Username</label>
@@ -212,14 +190,15 @@
             <section id="addTransaction">
                 <div class="top">
                     <div class="header" id="addTransactionHead">Add Transaction</div>
-                    <i class="ri-close-large-fill"></i>
+                    <i class="ri-close-large-fill add-transaction-close"></i>
                 </div>
                 <form action="" id="addTransactionForm">
+                    <input type="hidden" name="idInp">
                     <div class="inp">
                         <label for="type" id="typeLbl">Type</label>
                         <select name="type" id="typeInp">
-                            <option value="expense">Expense</option>
-                            <option value="income">Income</option>
+                            <!-- <option value="expense">Expense</option>
+                            <option value="income">Income</option> -->
                         </select>
                     </div>
 

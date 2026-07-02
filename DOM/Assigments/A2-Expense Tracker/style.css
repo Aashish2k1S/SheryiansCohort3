@@ -69,12 +69,6 @@ body {
         color var(--transition-speed);
 }
 
-/* adding this class ato hero */
-.overflow {
-    position: relative;
-    overflow-y: hidden;
-}
-
 .hero {
     width: 100%;
     min-height: 100vh;
@@ -174,7 +168,7 @@ body {
     display: none;
 }
 
-.hero aside .top .options ul li:active, 
+.hero aside .top .options ul li:active,
 .hero aside .top .options ul li:hover {
     background-color: var(--options-color);
     color: var(--add-btn-color);
@@ -549,11 +543,11 @@ body {
     background-color: rgba(153, 27, 27, 0.2);
     color: rgb(153, 27, 27);
     font-size: var(--font-size-m);
-    font-weight: var(--font-w-l);
+    font-weight: var(--font-w-m);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.2rem;
     cursor: pointer;
     box-shadow: var(--shadow-s) var(--shadow-color);
     transition: all ease-in-out var(--transition-speed);
@@ -905,11 +899,12 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 
 .add-transaction-wrapper #addTransaction {
     width: 100%;
+    height: 100%;
     /* max-width: 500px; */
     background-color: var(--bg-color);
     padding: 1rem 2rem 2rem 2rem;
@@ -1105,12 +1100,11 @@ main {
     transition: all ease-in-out var(--transition-speed);
 }
 
-#loginBtn {
+.loginBtn {
     background-color: var(--login-btn-color);
 }
 
-#signupBtn {
-    display: none;
+.signupBtn {
     background-color: var(--register-btn-color);
 }
 
@@ -1131,6 +1125,48 @@ button:hover {
     transform: scale(0.98);
 }
 
+/* #region TOAST */
+#toast {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 5rem;
+    right: 2rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-w-xl);
+    padding: 1rem;
+    word-break: break-all;
+    max-width: 20rem;
+    border-radius: var(--radius-l) 0 var(--radius-l) var(--radius-l);
+    box-shadow: var(--shadow) var(--shadow-color);
+}
+#toast.toast-success {
+    background-color: rgba(69, 168, 69, 0.8);
+}
+#toast.toast-warn {
+    background-color: rgba(153, 27, 27, 0.8);
+}
+#toast.toast-hide {
+    /* #toast:hover{ */
+    /* animation: sliding 1s ease-in-out alternate infinite; */
+    /* animation: sliding 1s ease-in-out forwards; */
+    animation-name: sliding;
+    animation-delay: 1s;
+    animation-duration: 1s;
+}
+
+/* ANIMATIONS */
+@keyframes sliding {
+    to {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+}
+
+/* #endregion TOAST */
+
 /* #region Responsive Media Query */
 /* Tablets */
 @media (min-width: 768px) {
@@ -1144,18 +1180,22 @@ button:hover {
     }
 
     #graphSection .graph-wrapper {
-        width: 70%;
+        width: 60%;
         height: 15rem;
     }
 
     #graphSection #preference {
-        width: 30%;
+        width: 40%;
         height: 15rem;
     }
 
+    .add-transaction-wrapper {
+        padding: 1rem;
+    }
+
     .add-transaction-wrapper #addTransaction {
-        width: 100%;
         max-width: 500px;
+        height: auto;
     }
 }
 
@@ -1189,6 +1229,12 @@ button:hover {
         grid-template-columns: repeat(4, 1fr);
     }
 
+    #reset {
+        font-size: var(--font-size-m);
+        font-weight: var(--font-w-l);
+        gap: 0.2rem;
+    }
+
     #settingPanel form .inputs-div {
         flex-flow: row nowrap;
     }
@@ -1196,6 +1242,18 @@ button:hover {
 
 /* Desktops */
 @media (min-width: 1200px) {
+    #graphSection .graph-wrapper {
+        width: 70%;
+        height: 15rem;
+    }
+
+    #graphSection #preference {
+        width: 30%;
+        height: 15rem;
+    }
+    #reset {
+        gap: 1rem;
+    }
 }
 
 /* #endregion responsive */

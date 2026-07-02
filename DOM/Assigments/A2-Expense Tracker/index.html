@@ -13,6 +13,10 @@
 </head>
 
 <body>
+    
+    <!-- #region TOAST NOTIFY -->
+    <div id="toast"></div>
+    <!-- #endregion TOAST NOTIFY -->
 
     <!-- #region HOME-PAGE -->
     <div class="hero overflow">
@@ -222,7 +226,7 @@
                     <div class="inp">
                         <label for="category" id="categoryLbl">Category</label>
                         <select name="category" id="categoryInp" required>
-                            <option value="" disabled selected>Select a category</option>
+                            <!-- <option value="" disabled selected>Select a category</option>
                             <option value="Food &amp; Dining">Food &amp; Dining</option>
                             <option value="Shopping">Shopping</option>
                             <option value="Recharge &amp; Bills">Recharge &amp; Bills</option>
@@ -230,7 +234,7 @@
                             <option value="Utilities">Utilities</option>
                             <option value="Salary">Salary</option>
                             <option value="Entertainment">Entertainment</option>
-                            <option value="Other">Other</option>
+                            <option value="Other">Other</option> -->
                         </select>
                     </div>
 
@@ -243,7 +247,6 @@
 
     </div>
     <!-- #endregion HOME-PAGE -->
-
 
     <!-- #region LOGIN & SIGNUP-PAGE -->
     <main>
@@ -258,10 +261,12 @@
                 <div>
                     <label for="pass" class="loginSignupPassword">Password</label>
                     <input type="password" name="pass" id="loginSignupInpPassword" required>
+                    <!-- <span>
+                        <i class="ri-eye-fill"></i>
+                        <i class="ri-eye-off-fill"></i>
+                    </span> -->
                 </div>
-                <button type="submit" id="loginBtn" class="loginSignupBtn">Login</button>
-
-                <button id="signupBtn"" class=" loginSignupBtn">Register</button>
+                <button type="submit" id="authBtn" class="loginBtn">Login</button>
             </form>
 
             <p><span id="spanBottom">Don't have an account?</span> <span id="anchor">Register here</span></p>

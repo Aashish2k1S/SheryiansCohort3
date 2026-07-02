@@ -2,13 +2,14 @@
 const body = document.body,
     main = document.querySelector("main");
 
+const toast = document.querySelector("#toast");
+
 const loginSignup = document.querySelector(".loginSignup"),
     loginSignupForm = document.querySelector("#loginSignupForm"),
     loginSignupTitle = document.querySelector(".loginSignupTitle"),
     loginSignupHead = document.querySelector(".loginSignupHead"),
     loginSignupUsername = document.querySelector(".loginSignupUsername"),
-    loginBtn = document.querySelector("#loginBtn"),
-    signupBtn = document.querySelector("#signupBtn"),
+    authBtn = document.querySelector("#authBtn"),
     spanBottom = document.querySelector("#spanBottom"),
     anchor = document.querySelector("#anchor");
 
@@ -50,6 +51,14 @@ const addTransaction = document.querySelector(".add-transaction-wrapper"),
 
 theme.style.display = "none";
 
+function debounce(fn, delay) {
+    let timer;
+    return function (value) {
+        clearTimeout(timer);
+        timer = setTimeout(fn, delay, value);
+    };
+}
+
 function User(
     id,
     username,
@@ -75,13 +84,14 @@ function Transaction(id, amount, type, category, date, description) {
     this.description = description;
 }
 
-const currency = { usd: `$`, eur: `€`, gbp: `£`, inr: `₹`, jpy: `¥` },
+const
+    currency = { usd: `$`, eur: `€`, gbp: `£`, inr: `₹`, jpy: `¥` },
     type = [`income`, `expense`],
     category = [
-        `Food & Dining`,
+        `Food &amp; Dining`,
         `Shopping`,
-        `Recharge`,
-        `Petrol & Auto`,
+        `Recharge &amp; Bills`,
+        `Petrol &amp; Auto`,
         `Utilities`,
         `Salary`,
         `Entertainment`,
@@ -90,8 +100,27 @@ const currency = { usd: `$`, eur: `€`, gbp: `£`, inr: `₹`, jpy: `¥` },
 
 let userData = [];
 
-if (localStorage.getItem("userData"))
-    userData = JSON.parse(localStorage.getItem("userData"));
+if (localStorage.getItem("userData")) userData = JSON.parse(localStorage.getItem("userData"));
+
+
+function notify(message, type = 1) {
+    if (!message.trim()) return;
+
+    toast.textContent = message;
+    toast.style.display = "block";
+    toast.classList.add("toast-hide");
+    toast.classList.add(type ? "toast-success" : "toast-warn");
+
+    let notifyTimeout = setTimeout(() => {
+        toast.classList.remove("toast-hide");
+        toast.classList.remove(type ? "toast-success" : "toast-warn");
+        toast.style.display = "none";
+        toast.textContent = "";
+        clearTimeout(notifyTimeout);
+    }, 2000);
+}
+
+// notify("Welcome to FinTrack Pro");
 
 function authToggle(flag) {
     loginSignupForm.reset();
@@ -101,8 +130,10 @@ function authToggle(flag) {
         : "Login to FinTrack Pro";
     loginSignupUsername.textContent = flag ? "Choose a Username" : "Username";
 
-    loginBtn.style.display = flag ? "none" : "block";
-    signupBtn.style.display = flag ? "block" : "none";
+    authBtn.classList.remove(flag ? "loginBtn" : "signupBtn");
+    authBtn.classList.add(flag ? "signupBtn" : "loginBtn");
+    authBtn.textContent = flag ? "Register" : "Login";
+
 
     spanBottom.textContent = flag
         ? "Already have an account?"
@@ -134,7 +165,7 @@ function register(event) {
         (user) => user.username === username,
     ).length;
     if (usernameTaken) {
-        alert("username already exists!!!");
+        notify("username already existed ❌", 0);
         return;
     }
 
@@ -147,8 +178,8 @@ function register(event) {
     userData.push(newUser);
     localStorage.setItem("userData", JSON.stringify(userData));
 
-    alert("Registration successful!");
     authToggle(false);
+    notify("Registered successfully 🎉", 1);
 }
 
 function login(event) {
@@ -164,7 +195,7 @@ function login(event) {
     );
 
     if (!userCheck.length) {
-        alert("Invalid username or password!!!");
+        notify("Invalid username or password ❌", 0);
         return;
     }
     let idx = userData.indexOf(userCheck[0]),
@@ -175,8 +206,8 @@ function login(event) {
 
     render();
 
-    // alert('logged in successfully');
     authToggle(false);
+    notify(`${userName.textContent}, Welcome to FinTrack Pro 🎉`, 1);
 }
 
 function loadAll() {
@@ -184,10 +215,9 @@ function loadAll() {
         .sort()
         .map((e) => {
             return `<option value="${e.toLowerCase()}"> 
-            ${
-                e.substring(0, 1).toUpperCase() +
+            ${e.substring(0, 1).toUpperCase() +
                 e.substring(1, e.length).toLowerCase()
-            } 
+                } 
         </option>`;
         })
         .join("");
@@ -198,26 +228,24 @@ function loadAll() {
             .sort()
             .map((e) => {
                 return `<option value="${e.toLowerCase()}"> 
-            ${
-                e.substring(0, 1).toUpperCase() +
-                e.substring(1, e.length).toLowerCase()
-            } 
+            ${e.substring(0, 1).toUpperCase() +
+                    e.substring(1, e.length).toLowerCase()
+                    } 
         </option>`;
             })
             .join("");
 
     categoryInp.innerHTML =
         `<option value="" disabled selected>Select a category</option>` +
-        category
-            .sort()
-            .map((e) => `<option value="${e}">${e}</option>`)
-            .join("");
+        category.map((e) => `<option value="${e}">${e}</option>`).join("");
 }
 
 function settingPage() {
     let idx = userData.findIndex(
         (user) => user.id === parseInt(userId.textContent),
     );
+    userName.textContent = userData[idx].username;
+
     // console.log('working');
 
     dashboard.style.display = "none";
@@ -281,9 +309,24 @@ function render() {
         transactionCount = transactions.length;
     }
 
-    balance = balance.toFixed(2);
-    income = income.toFixed(2);
-    expense = expense.toFixed(2);
+    balance =
+        balance.toFixed(2) > 1000000
+            ? (balance * 0.000001).toFixed(0) + "M"
+            : balance.toFixed(2) > 1000
+                ? (balance * 0.001).toFixed(0) + "K"
+                : balance.toFixed(2);
+    income =
+        income.toFixed(2) > 1000000
+            ? (income * 0.000001).toFixed(0) + "M"
+            : income.toFixed(2) > 1000
+                ? (income * 0.001).toFixed(0) + "K"
+                : income.toFixed(2);
+    expense =
+        expense.toFixed(2) > 1000000
+            ? (expense * 0.000001).toFixed(0) + "M"
+            : expense > 1000
+                ? (expense * 0.001).toFixed(0) + "K"
+                : expense;
 
     // console.log(balance);
     // console.log(income);
@@ -413,6 +456,7 @@ function pageLoad() {
         return;
     } else {
         render();
+        notify(`${userName.textContent}, Welcome to FinTrack Pro 🎉`, 1);
         return;
     }
 }
@@ -437,8 +481,9 @@ function loadAddTransactionForm(tranID) {
             return;
         }
 
-        console.log(transaction[0].category);
-        console.log(categoryInp.value);
+        // console.log(transaction[0].category);
+        // console.log(addTransactionForm[5].value);
+        // console.log(categoryInp.value);
 
         addTransactionHead.textContent = "Edit Transaction";
 
@@ -457,15 +502,19 @@ function loadAddTransactionForm(tranID) {
 }
 
 function edit(tranId) {
+    if (!tranId) {
+        notify("Transaction is invalid ❌", 0);
+        return;
+    }
     loadAddTransactionForm(tranId);
 }
 
 function del(tranId) {
-    let consent = confirm("Are you sure you want to delete this transaction?");
-    if (!consent) return;
+    // let consent = confirm("Are you sure you want to delete this transaction?");
+    // if (!consent) return;
 
     if (!tranId) {
-        alert("Transaction is invalid!!!");
+        notify("Transaction is invalid ❌", 0);
         return;
     }
 
@@ -473,15 +522,17 @@ function del(tranId) {
         (user) => user.id === parseInt(userId.textContent),
     );
     let tranIdx = userData[idx].transactions.findIndex(
-        (tran) => tran.id === tranId,
+        (tran) => tran.id === parseInt(tranId),
     );
-    userData[idx].transactions.splice(1, tranIdx);
+
+    userData[idx].transactions.splice(tranIdx, 1);
+
     localStorage.setItem("userData", JSON.stringify(userData));
     render();
+    notify("1 Transaction Deleted ❌", 0);
 }
 
 function submit(e) {
-    //NTW on submit tranID is NaN
     e.preventDefault();
 
     let idx = userData.findIndex(
@@ -493,17 +544,23 @@ function submit(e) {
         description = e.target[2].value,
         amount = parseFloat(e.target[3].value).toFixed(2),
         date = e.target[4].value,
-        category = e.target[5].value.toLowerCase();
+        category = e.target[5].value;
 
-    if (!id) {
+    let editflag = true;
+
+    if (!id && userData[idx].transactions.length === 0) {
+        id = 1;
+        editflag = false;
+    } else if (!id && userData[idx].transactions.length !== 0) {
         let maxTranID = userData[idx].transactions
             .map((tran) => tran.id)
             .sort((a, b) => b - a)[0];
         id = maxTranID + 1;
+        editflag = false;
     }
 
     if (!type || !description || !amount || !date || !category) {
-        alert("Please fill all the fields!!!");
+        notify("Please fill all the fields!!!", 0);
         return;
     }
 
@@ -516,10 +573,26 @@ function submit(e) {
         description,
     );
 
+    let tranIdx = userData[idx].transactions.findIndex(
+        (tran) => tran.id === parseInt(id),
+    );
+
+    if (tranIdx !== -1) {
+        userData[idx].transactions.splice(tranIdx, 1);
+    }
+
     userData[idx].transactions.unshift(transaction);
+
     localStorage.setItem("userData", JSON.stringify(userData));
 
     render();
+
+    notify(
+        editflag
+            ? "Transaction edited successfully 🎯"
+            : "Transaction added successfully 🎯",
+        1,
+    );
 }
 
 function logOut() {
@@ -532,29 +605,26 @@ function logOut() {
 
     hero.style.display = "none";
     main.style.display = "flex";
+    notify(`${userName.textContent} is logged out successfully 🎯`, 0);
 }
 
 function resetAllData() {
-    let consent = confirm(
-        "Are sure you want to delete entire transaction history?",
-    );
+    let consent = confirm("Are sure you want to reset entire user data?");
     if (!consent) return;
 
     let idx = userData.findIndex(
         (user) => user.id === Number(userId.textContent),
     );
     userData[idx].transactions = [];
+    userData[idx].currency = `inr`;
+    userData[idx].isDark = false;
     localStorage.setItem("userData", JSON.stringify(userData));
     render();
 }
 
 loginSignupForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    // console.log(e);
-    // if (e.target.matches('#loginBtn')) {
-
-    if (e.submitter.matches("#loginBtn")) login(e);
-    else if (e.submitter.matches("#signupBtn")) register(e);
+    authBtn.classList.contains("loginBtn") ? login(e) : register(e);
 });
 
 anchor.addEventListener("click", () =>
@@ -585,6 +655,14 @@ optionsList.addEventListener(
 addTranBtn.addEventListener("click", () => loadAddTransactionForm(0));
 addTransactionForm.addEventListener("submit", (e) => submit(e));
 closeAddTransaction.addEventListener("click", () => render());
+addTransaction.addEventListener(
+    "click",
+    (e) => {
+        if (e.target.closest("#addTransaction")) return;
+        addTransaction.style.display = "none";
+    },
+    true,
+);
 
 logout.addEventListener("click", () => logOut());
 
@@ -600,8 +678,9 @@ themeSwitch.addEventListener("change", (e) => {
 
 reset.addEventListener("click", () => resetAllData());
 
-seacrhInp.addEventListener("keyup", (e) => transactionRender());
-filterInp.addEventListener("change", (e) => transactionRender());
+seacrhInp.addEventListener("keyup", (e) => debounce(transactionRender, 500)());
+
+filterInp.addEventListener("change", (e) => debounce(transactionRender, 500)());
 
 settingForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -612,6 +691,6 @@ settingForm.addEventListener("submit", (e) => {
     userData[idx].username = e.target[0].value;
     userData[idx].currency = e.target[1].value;
     localStorage.setItem("userData", JSON.stringify(userData));
-    alert("Settings updated successfully!!!");
     settingPage();
+    notify("Settings updated successfully 🎉", 1);
 });

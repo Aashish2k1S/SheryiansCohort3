@@ -1,0 +1,171 @@
+@font-face {font-family: bold; src: url(assests/fonts/bold.ttf);}
+@font-face {font-family: regular; src: url(assests/fonts/regular.ttf);}
+@font-face {font-family: light; src: url(assests/fonts/fonnts.com-garet-light.otf);}
+
+:root {
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(0, 0, 0);
+    --tranclucent-color: rgba(0, 0, 0, 0.2);
+    
+    --transition-speed: 0.3s;
+
+    --font-light: light;
+    --font-regular: regular;
+    --font-bold: bold;
+
+    --font-size-xs : 0.5rem;
+    --font-size-s : 0.8rem;
+    --font-size-m : 1rem;
+    --font-size-l : 1.25rem;
+    --font-size-xl : 2rem;
+
+    --font-weight-m : 300;
+    --font-weight-l : 600;
+    --font-weight-xl : 900;
+}
+
+.dark {
+    --primary-color: rgb(0, 0, 0);
+    --secondary-color: rgb(255, 255, 255);
+    --tranclucent-color: rgba(255, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--secondary-color);
+    font-family: var(--font-light);
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    font-family: var(--font);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+body{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* #region DASHBOARD */
+
+#dashboard {
+    display: grid;
+    grid-template-rows: 6% 95%;    
+    height: 100vh;
+    background-color: var(--primary-color);
+}
+#dashboard .top {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--font-size-m);
+    background-color: var(--secondary-color);
+}
+#dashboard .top>p {
+    font-size: var(--font-size-l);
+    font-family: var(--font-bold);
+    color: var(--primary-color);
+}
+#dashboard .below {
+    width: 100%;
+    height: 100%;
+    padding: 0 var(--font-size-xl);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+#dashboard .below .card {
+    padding: var(--font-size-xl) var(--font-size-l);
+    background-color: var(--tranclucent-color);
+    border: 0.01rem solid var(--tranclucent-color);
+    border-radius: var(--font-size-m);
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--font-size-xl);
+}
+#dashboard .below .card .left {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+#dashboard .below .card .right {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: var(--font-size-l);
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* SIDEBAR */
+#sideBar{
+    position: fixed;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 0;    
+    background-color: var(--tranclucent-color);
+    margin: 0 1rem;
+    height: 10rem;
+    width: 5rem;
+}
+
+
+/* #endregion DASHBOARD */
+
+/* #region TODO */
+#todo {
+    display: none;
+}
+/* #endregion TODO */
+
+/* #region DAILY PLAN */
+#plan{
+    display: none;
+}
+/* #endregion DAILY PLAN */
+
+/* #region QUOTES */
+#quotes{
+    display: none;
+}
+/* #endregion QUOTES */
+
+/* #region TIMER */
+#timer{
+    display: none;
+}
+/* #endregion TIMER */
+
+/* #region GOALS */
+#goals{
+    display: none;
+}
+/* #endregion GOALS */
+
+/* #region RESPONSIVE DESIGN */
+
+/* Default Mobiles */
+
+/* Tablets */
+@media (min-width: 768px) {
+
+}
+/* Laptops */
+@media (min-width: 1024px) {
+
+}
+/* Desktops */
+@media (min-width: 1200px) {
+
+}
+/* #endregion RESPONSIVE DESIGN */

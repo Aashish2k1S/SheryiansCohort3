@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="shortcut icon" href="assets/images/favicon.jpg" type="image/x-icon">
+    <link preload href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,7 +16,17 @@
     <div id="dashboard">
         <div class="top">
             <p>PRODUCTIVITY DASHBOARD</p>
+            <div>
+                <i id="theme" class="ri-sun-fill"></i>
+                <a href="https://github.com/Aashish2k1S"><i class="ri-github-fill"></i></a>
+            </div>
         </div>
+
+        <div class="middle">
+            <img src="assets/images/sunriseimg.jpg" id="dashboardImg" alt="">
+            <video src="assets/Videos/morning.mp4" id="dashboardVid" muted loop autoplay></video>
+        </div>
+
         <div class="below">
             <div class="card">
                 <div class="left">
@@ -37,7 +49,36 @@
                 </div>
             </div>
         </div>
-        <div id="sideBar"></div>
+
+        <div id="sideBar">
+            <div class="allFeatures">
+                <div class="todo elem" id="0">
+                    <img src="assets/images/todo-light.avif" alt="">
+                    <video src="assets/Videos/todo-video.mp4" muted loop autoplay></video>
+                    <h2>To Do List</h2>
+                </div>
+                <div class="daily elem" id="1">
+                    <img src="assets/images/daily-planLight.jpg" alt="">
+                    <video src="assets/Videos/daily-plan.mp4" muted loop autoplay></video>
+                    <h2>Daily Planner</h2>
+                </div>
+                <div class="moti elem" id="2">
+                    <img src="assets/images/moti-light.jpg" alt="">
+                    <video src="assets/Videos/motivate.mp4" muted loop autoplay></video>
+                    <h2>Motivation</h2>
+                </div>
+                <div class="pomo elem" id="3">
+                    <img src="assets/images/pomolight.jpeg" alt="">
+                    <video src="assets/Videos/pomo.mp4" muted loop autoplay></video>
+                    <h2>Pomodoro Timer</h2>
+                </div>
+                <div class="goals elem" id="4">
+                    <img src="assets/images/goalsLight.avif" alt="">
+                    <video src="assets/Videos/goals.mp4" muted loop autoplay></video>
+                    <h2>Daily Goals</h2>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- #endregion DASHBOARD -->
 
@@ -46,11 +87,112 @@
     <!-- #endregion TODO -->
 
     <!-- #region DAILY PLAN -->
-    <div id="plan">daily plan</div>
+    <div id="plan">
+        <div class="top">
+            <h1>Plan your Day to be more Productivity</h1>
+            <i id="planClose" class="close ri-close-large-fill"></i>
+        </div>
+        <div class="below">
+            <div class="plan-table">
+                <div class="plan-div plan1"> 
+                    <label for="plan1">6:00 7:00</label>
+                    <input type="text" name="plan1" id="plan1" placeholder="...">
+                </div>
+                <div class="plan-div plan2"> 
+                    <label for="plan2">7:00 8:00</label>
+                    <input type="text" name="plan2" id="plan2" placeholder="...">
+                </div>
+                <div class="plan-div plan3"> 
+                    <label for="plan3">8:00 9:00</label>
+                    <input type="text" name="plan3" id="plan3" placeholder="...">
+                </div>
+                <div class="plan-div plan4"> 
+                    <label for="plan4">9:00 10:00</label>
+                    <input type="text" name="plan4" id="plan4" placeholder="...">
+                </div>
+                <div class="plan-div plan5"> 
+                    <label for="plan5">10:00 11:00</label>
+                    <input type="text" name="plan5" id="plan5" placeholder="...">
+                </div>
+                <div class="plan-div plan6"> 
+                    <label for="plan6">11:00 12:00</label>
+                    <input type="text" name="plan6" id="plan6" placeholder="...">
+                </div>
+                <div class="plan-div plan7"> 
+                    <label for="plan7">12:00 13:00</label>
+                    <input type="text" name="plan7" id="plan7" placeholder="...">
+                </div>
+                <div class="plan-div plan8"> 
+                    <label for="plan8">13:00 14:00</label>
+                    <input type="text" name="plan8" id="plan8" placeholder="...">
+                </div>
+                <div class="plan-div plan9"> 
+                    <label for="plan9">14:00 15:00</label>
+                    <input type="text" name="plan9" id="plan9" placeholder="...">
+                </div>
+                <div class="plan-div plan10"> 
+                    <label for="plan10">15:00 16:00</label>
+                    <input type="text" name="plan10" id="plan10" placeholder="...">
+                </div>
+                <div class="plan-div plan11"> 
+                    <label for="plan11">16:00 17:00</label>
+                    <input type="text" name="plan11" id="plan11" placeholder="...">
+                </div>
+                <div class="plan-div plan12"> 
+                    <label for="plan12">17:00 18:00</label>
+                    <input type="text" name="plan12" id="plan12" placeholder="...">
+                </div>
+                <div class="plan-div plan13"> 
+                    <label for="plan13">18:00 19:00</label>
+                    <input type="text" name="plan13" id="plan13" placeholder="...">
+                </div>
+                <div class="plan-div plan14"> 
+                    <label for="plan14">19:00 20:00</label>
+                    <input type="text" name="plan14" id="plan14" placeholder="...">
+                </div>
+                <div class="plan-div plan15"> 
+                    <label for="plan15">20:00 21:00</label>
+                    <input type="text" name="plan15" id="plan15" placeholder="...">
+                </div>
+                <div class="plan-div plan16"> 
+                    <label for="plan16">21:00 22:00</label>
+                    <input type="text" name="plan16" id="plan16" placeholder="...">
+                </div>
+                <div class="plan-div plan17"> 
+                    <label for="plan17">22:00 23:00</label>
+                    <input type="text" name="plan17" id="plan17" placeholder="...">
+                </div>
+                <div class="plan-div plan18"> 
+                    <label for="plan18">23:00 24:00</label>
+                    <input type="text" name="plan18" id="plan18" placeholder="...">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
     <!-- #endregion DAILY PLAN -->
 
     <!-- #region QUOTES -->
-    <div id="quotes"></div>
+    <div id="quotes">
+        <div class="top">
+            <i id="quotesClose" class="close ri-close-large-fill"></i>
+        </div>
+        <div class="below">
+            <div class="quote">
+                <div class="quote-top">
+                    <p>Quote of the Day</p>
+                    <img src="assets/images/icons8-get-quote-100.png" alt="">
+                </div>
+                <p>
+                    All black Americans have slave names. They have white names; names that the slave master has given to them.
+                </p>
+                <div class="quote-below">
+                    <p>...Winston Churchill</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- #endregion QUOTES -->
 
     <!-- #region TIMER -->

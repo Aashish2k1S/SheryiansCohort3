@@ -2,8 +2,6 @@
 
 const body = document.body;
 
-
-
 const dashboard = document.querySelector('#dashboard')
 const sideBar = document.querySelector('#sideBar')
 

@@ -1,15 +1,6 @@
-@font-face {
-    font-family: bold;
-    src: url(assets/fonts/bold.ttf);
-}
-@font-face {
-    font-family: regular;
-    src: url(assets/fonts/regular.ttf);
-}
-@font-face {
-    font-family: light;
-    src: url(assets/fonts/fonnts.com-garet-light.otf);
-}
+@font-face { font-family: bold; src: url(assets/fonts/bold.ttf); } 
+@font-face { font-family: regular; src: url(assets/fonts/regular.ttf); } 
+@font-face { font-family: light; src: url(assets/fonts/fonnts.com-garet-light.otf); } 
 
 :root {
     --primary-color: rgb(255, 255, 255);
@@ -58,6 +49,7 @@ body {
         background-color var(--transition-speed),
         color var(--transition-speed);
 }
+
 body {
     height: 100vh;
     position: relative;
@@ -76,7 +68,7 @@ body {
     grid-template-rows: 1fr 11fr;
     min-height: 100vh;
     width: 100%;    
-    max-width: 1200px;
+    max-width: 1400px;
     background-color: var(--primary-color);
 }
 #dashboard .top {
@@ -231,7 +223,7 @@ body {
     grid-template-rows: 10% 90%;
     min-height: 100vh;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     background: radial-gradient(var(--primary-color), var(--primary-color));
 }
 
@@ -328,18 +320,18 @@ body {
 /* #region QUOTES */
 
 #quotes {
-    display: none;
-    /* display: grid; */
+    /* display: none; */
+    display: grid;
     grid-template-rows: 10% 90%;
     min-height: 100vh;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     background: radial-gradient(var(--primary-color), var(--primary-color));
 }
 #quotes .top {
     width: 100%;
-    height: 100%;
-    padding: 6rem;
+    height: 100%;    
+    padding: 2rem 6rem 1rem 6rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -416,9 +408,52 @@ body {
 /* #endregion QUOTES */
 
 /* #region TIMER */
+
 #timer {
-    /* display: none; */
+    display: none;
+    /* display: grid; */
+    grid-template-rows: 10% 90%;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1400px;
+    background: radial-gradient(var(--primary-color), var(--primary-color));
 }
+
+#timer .top {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 6rem 1rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--font-size-m);
+}
+#timer .top>h1 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-xl);
+}
+
+#timer .below {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--font-size-s);
+}
+#timer .below .timerTop>h1 {
+    padding: var(--font-size-m);
+    font-size: var(--font-size-xl);
+    border-radius: var(--font-size-l);
+    box-shadow: 0 0 0.2rem 0.1rem var(--tranclucent-color);
+    transition: var(--transition-speed);
+}
+#timer .below .timerTop>h1:hover {
+    box-shadow: none;
+}
+
+
+
 /* #endregion TIMER */
 
 /* #region GOALS */

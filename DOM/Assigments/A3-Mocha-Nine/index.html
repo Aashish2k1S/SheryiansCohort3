@@ -10,18 +10,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="dark">
+<body>
+
+    <!-- #region NAV -->
+    <nav>
+        <h1>PRODUCTIVITY DASHBOARD</h1>
+        <div>
+            <i id="theme" onclick="themeToggle()" class="ri-moon-fill"></i>
+            <a href="https://github.com/Aashish2k1S" target="_blank"><i class="ri-github-fill"></i></a>
+        </div>
+    </nav>
+    <!-- #endregion NAV -->
 
     <!-- #region DASHBOARD -->
-    <div id="dashboard">
-        <div class="top">
-            <p>PRODUCTIVITY DASHBOARD</p>
-            <div>
-                <i id="theme" class="ri-sun-fill"></i>
-                <a href="https://github.com/Aashish2k1S"target="_blank"><i class="ri-github-fill"></i></a>
-            </div>
-        </div>
-
+    <section class="main" id="dashboard">
         <div class="middle">
             <img src="assets/images/sunriseimg.jpg" id="dashboardImg" alt="">
             <video src="assets/Videos/morning.mp4" id="dashboardVid" muted loop autoplay></video>
@@ -31,20 +33,20 @@
             <div class="card">
                 <div class="left">
                     <div>
-                        <h4>5 July, 2026</h4>
-                        <h1>Sunday, 06:00:00 PM</h1>
+                        <h4 class="date-year">5 July, 2026</h4>
+                        <h1 class="day-time">Sunday, 06:00:00 PM</h1>
                     </div>
-                    <h3>Location</h3>
+                    <h3 class="location">Location</h3>
                 </div>
                 <div class="right">
                     <div>
-                        <h2>31.2° C</h2>
-                        <h2>Partly Cloudy nearby</h2>
+                        <h2 class="temperature">31.2° C</h2>
+                        <h2 class="weather">Partly Cloudy nearby</h2>
                     </div>
                     <div>
-                        <h4>Heat_Index: 35.6%</h4>
-                        <h4>Humidity: 60%</h4>
-                        <h4>Wind: 19.8km/h</h4>
+                        <h4 class="condition">Heat_Index: 35.6%</h4>
+                        <h4 class="humidity">Humidity: 60%</h4>
+                        <h4 class="wind">Wind: 19.8km/h</h4>
                     </div>
                 </div>
             </div>
@@ -52,50 +54,46 @@
 
         <div id="sideBar">
             <div class="allFeatures">
-                <div class="todo elem" id="0">
+                <div class="todo elem" id="sE0" onclick="featureToggle(true, 'notes')">
                     <img src="assets/images/todo-light.avif" alt="">
-                    <video src="assets/Videos/todo-video.mp4" muted loop autoplay></video>
-                    <!-- <h2>To Do List</h2> -->
+                    <video src="assets/Videos/todo-video.mp4" muted loop autoplay in></video>
                 </div>
-                <div class="daily elem" id="1">
+                <div class="daily elem" id="sE1" onclick="featureToggle(true, 'plan')">
                     <img src="assets/images/daily-planLight.jpg" alt="">
                     <video src="assets/Videos/daily-plan.mp4" muted loop autoplay></video>
-                    <!-- <h2>Daily Planner</h2> -->
                 </div>
-                <div class="moti elem" id="2">
+                <div class="moti elem" id="sE2" onclick="featureToggle(true, 'quotes')">
                     <img src="assets/images/moti-light.jpg" alt="">
                     <video src="assets/Videos/motivate.mp4" muted loop autoplay></video>
-                    <!-- <h2>Motivation</h2> -->
                 </div>
-                <div class="pomo elem" id="3">
+                <div class="pomo elem" id="sE3" onclick="featureToggle(true, 'timer')">
                     <img src="assets/images/pomolight.jpeg" alt="">
                     <video src="assets/Videos/pomo.mp4" muted loop autoplay></video>
-                    <!-- <h2>Pomodoro Timer</h2> -->
                 </div>
-                <div class="goals elem" id="4">
+                <div class="goals elem" id="sE4" onclick="featureToggle(true, 'notes')">
                     <img src="assets/images/goalsLight.avif" alt="">
                     <video src="assets/Videos/goals.mp4" muted loop autoplay></video>
-                    <!-- <h2>Daily Goals</h2> -->
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- #endregion DASHBOARD -->
 
     <!-- #region TODO & GOALS -->
-    <div id="notes">
+    <section class="full-elem" id="notes">
         <div class="top">
             <h1>Your Personalised task List | Daily Goals</h1>
-            <i id="notesClose" class="close ri-close-large-fill"></i>
+            <i id="notesClose" class="close ri-close-large-fill" onclick="featureToggle()"></i>
         </div>
         <div class="below">
             <div class="left">
                 <form action="">
                     <div>
-                        <input type="text" name="noteTitle" id="noteTitle" placeholder="Enter note">
+                        <input type="text" name="noteTitle" id="noteTitle" placeholder="Enter note" required>
                     </div>
                     <div>
-                        <textarea name="noteDesc" id="noteDesc" rows="20" placeholder="Enter description"></textarea>
+                        <textarea name="noteDesc" id="noteDesc" rows="5" placeholder="Enter description"
+                            required></textarea>
                     </div>
                     <div>
                         <input type="checkbox" name="chkImp" id="chkImp">
@@ -109,7 +107,7 @@
                     <div class="card cardImp">
                         <div class="cardTitle">
                             <h2 class="cardHead">Task Title</h2>
-                            <input type="checkbox" name="cardDel" id="cardDel">
+                            <input type="checkbox" name="cardDel" class="cardDel">
                         </div>
                         <div class="cardDesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. A similique
                             doloremque quas. Et repudiandae fugiat soluta odio enim. Ullam natus eius molestiae neque
@@ -122,7 +120,7 @@
                     <div class="card ">
                         <div class="cardTitle">
                             <h2 class="cardHead">Task Title</h2>
-                            <input type="checkbox" name="cardDel" id="cardDel">
+                            <input type="checkbox" name="cardDel" class="cardDel">
                         </div>
                         <div class="cardDesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. A similique
                             doloremque quas. Et repudiandae fugiat soluta odio enim. Ullam natus eius molestiae neque
@@ -135,100 +133,100 @@
 
             </div>
         </div>
-    </div>
+    </section>
     <!-- #endregion TODO & GOALS -->
 
     <!-- #region DAILY PLAN -->
-    <div id="plan">
+    <section class="full-elem" id="plan">
         <div class="top">
             <h1>Plan your Day to be more Productivity</h1>
-            <i id="planClose" class="close ri-close-large-fill"></i>
+            <i id="planClose" class="close ri-close-large-fill" onclick="featureToggle()"></i>
         </div>
         <div class="below">
             <div class="plan-table">
                 <div class="plan-div plan1">
-                    <label for="plan1">6:00 7:00</label>
+                    <label for="plan1">6:00 - 7:00</label>
                     <input type="text" name="plan1" id="plan1" placeholder="...">
                 </div>
                 <div class="plan-div plan2">
-                    <label for="plan2">7:00 8:00</label>
+                    <label for="plan2">7:00 - 8:00</label>
                     <input type="text" name="plan2" id="plan2" placeholder="...">
                 </div>
                 <div class="plan-div plan3">
-                    <label for="plan3">8:00 9:00</label>
+                    <label for="plan3">8:00 - 9:00</label>
                     <input type="text" name="plan3" id="plan3" placeholder="...">
                 </div>
                 <div class="plan-div plan4">
-                    <label for="plan4">9:00 10:00</label>
+                    <label for="plan4">9:00 - 10:00</label>
                     <input type="text" name="plan4" id="plan4" placeholder="...">
                 </div>
                 <div class="plan-div plan5">
-                    <label for="plan5">10:00 11:00</label>
+                    <label for="plan5">10:00 - 11:00</label>
                     <input type="text" name="plan5" id="plan5" placeholder="...">
                 </div>
                 <div class="plan-div plan6">
-                    <label for="plan6">11:00 12:00</label>
+                    <label for="plan6">11:00 - 12:00</label>
                     <input type="text" name="plan6" id="plan6" placeholder="...">
                 </div>
                 <div class="plan-div plan7">
-                    <label for="plan7">12:00 13:00</label>
+                    <label for="plan7">12:00 - 13:00</label>
                     <input type="text" name="plan7" id="plan7" placeholder="...">
                 </div>
                 <div class="plan-div plan8">
-                    <label for="plan8">13:00 14:00</label>
+                    <label for="plan8">13:00 - 14:00</label>
                     <input type="text" name="plan8" id="plan8" placeholder="...">
                 </div>
                 <div class="plan-div plan9">
-                    <label for="plan9">14:00 15:00</label>
+                    <label for="plan9">14:00 - 15:00</label>
                     <input type="text" name="plan9" id="plan9" placeholder="...">
                 </div>
                 <div class="plan-div plan10">
-                    <label for="plan10">15:00 16:00</label>
+                    <label for="plan10">15:00 - 16:00</label>
                     <input type="text" name="plan10" id="plan10" placeholder="...">
                 </div>
                 <div class="plan-div plan11">
-                    <label for="plan11">16:00 17:00</label>
+                    <label for="plan11">16:00 - 17:00</label>
                     <input type="text" name="plan11" id="plan11" placeholder="...">
                 </div>
                 <div class="plan-div plan12">
-                    <label for="plan12">17:00 18:00</label>
+                    <label for="plan12">17:00 - 18:00</label>
                     <input type="text" name="plan12" id="plan12" placeholder="...">
                 </div>
                 <div class="plan-div plan13">
-                    <label for="plan13">18:00 19:00</label>
+                    <label for="plan13">18:00 - 19:00</label>
                     <input type="text" name="plan13" id="plan13" placeholder="...">
                 </div>
                 <div class="plan-div plan14">
-                    <label for="plan14">19:00 20:00</label>
+                    <label for="plan14">19:00 - 20:00</label>
                     <input type="text" name="plan14" id="plan14" placeholder="...">
                 </div>
                 <div class="plan-div plan15">
-                    <label for="plan15">20:00 21:00</label>
+                    <label for="plan15">20:00 - 21:00</label>
                     <input type="text" name="plan15" id="plan15" placeholder="...">
                 </div>
                 <div class="plan-div plan16">
-                    <label for="plan16">21:00 22:00</label>
+                    <label for="plan16">21:00 - 22:00</label>
                     <input type="text" name="plan16" id="plan16" placeholder="...">
                 </div>
                 <div class="plan-div plan17">
-                    <label for="plan17">22:00 23:00</label>
+                    <label for="plan17">22:00 - 23:00</label>
                     <input type="text" name="plan17" id="plan17" placeholder="...">
                 </div>
                 <div class="plan-div plan18">
-                    <label for="plan18">23:00 24:00</label>
+                    <label for="plan18">23:00 - 24:00</label>
                     <input type="text" name="plan18" id="plan18" placeholder="...">
                 </div>
 
             </div>
         </div>
 
-    </div>
+    </section>
     <!-- #endregion DAILY PLAN -->
 
     <!-- #region QUOTES -->
-    <div id="quotes">
+    <section class="full-elem" id="quotes">
         <div class="top">
-            <i id="quotesClose" class="close ri-close-large-fill"></i>
+            <i id="quotesClose" class="close ri-close-large-fill" onclick="featureToggle()"></i>
         </div>
         <div class="below">
             <div class="quote">
@@ -236,30 +234,30 @@
                     <p>Quote of the Day</p>
                     <img src="assets/images/icons8-get-quote-100.png" alt="">
                 </div>
-                <p>
+                <p class="quote-desc">
                     All black Americans have slave names. They have white names; names that the slave master has given
                     to them.
                 </p>
                 <div class="quote-below">
-                    <p>...Winston Churchill</p>
+                    <p class="quote-author">...Winston Churchill</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- #endregion QUOTES -->
 
     <!-- #region TIMER -->
-    <div id="timer">
+    <section class="full-elem" id="timer">
         <div class="top">
             <h1>Study with me!</h1>
-            <i id="timerClose" class="close ri-close-large-fill"></i>
+            <i id="timerClose" class="close ri-close-large-fill" onclick="featureToggle()"></i>
         </div>
         <div class="below">
             <div class="timerTop">
                 <h1>Work Session</h1>
             </div>
             <div class="timerBelow">
-                <div class="time">
+                <div class="timer-time">
                     25:00
                 </div>
                 <div class="timeBtns">
@@ -271,9 +269,8 @@
             </div>
         </div>
 
-    </div>
+    </section>
     <!-- #endregion TIMER -->
-
 
     <script src="script.js"></script>
 </body>

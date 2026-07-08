@@ -5,11 +5,13 @@ function openFeatures() {
 
     allElems.forEach(function (elem) {
         elem.addEventListener('click', function () {
+            console.log(elem);            
             allFullElems[elem.id].style.display = 'block'
         })
     })
     allFullElemsBackBtn.forEach(function (back) {
         back.addEventListener('click', function () {
+            console.log(back);
             allFullElems[back.id].style.display = 'none'
         })
 
@@ -188,7 +190,6 @@ function pomodoro() {
 
             }, 1000)
         }
-
     }
 
     function pauseTimer() {

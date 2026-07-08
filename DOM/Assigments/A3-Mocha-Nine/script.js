@@ -12,3 +12,8 @@ const timer = document.querySelector('#timer')
 const goals = document.querySelector('#goals')
 
 // #endregion SELECTORS
+
+
+
+
+

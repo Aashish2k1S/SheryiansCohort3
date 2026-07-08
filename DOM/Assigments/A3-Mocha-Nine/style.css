@@ -1,8 +1,9 @@
-@font-face { font-family: bold; src: url(assets/fonts/bold.ttf); } 
-@font-face { font-family: regular; src: url(assets/fonts/regular.ttf); } 
-@font-face { font-family: light; src: url(assets/fonts/fonnts.com-garet-light.otf); } 
+@font-face { font-family: bold; src: url(assets/fonts/bold.ttf); }
+@font-face { font-family: regular; src: url(assets/fonts/regular.ttf); }
+@font-face { font-family: light; src: url(assets/fonts/fonnts.com-garet-light.otf); }
 
 :root {
+    --bg-color: rgb(255, 255, 255);
     --primary-color: rgb(255, 255, 255);
     --secondary-color: rgb(0, 0, 0);
     --tranclucent-color: rgba(0, 0, 0, 0.2);
@@ -25,9 +26,10 @@
 }
 
 .dark {
+    --bg-color: radial-gradient(rgb(0, 0, 0, 0.9), rgb(0, 0, 0, 1));
     --primary-color: rgb(0, 0, 0);
     --secondary-color: rgb(255, 255, 255);
-    --tranclucent-color: rgba(255, 255, 255, 0.5);
+    --tranclucent-color: rgba(255, 255, 255, 0.2);
 }
 
 * {
@@ -43,15 +45,13 @@ body {
     min-height: 100vh;
     scroll-behavior: smooth;
     font-family: var(--font);
-    background-color: var(--primary-color);
+    background: var(--bg-color);
     color: var(--secondary-color);
-    transition:
-        background-color var(--transition-speed),
-        color var(--transition-speed);
+    transition: var(--transition-speed);
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     /* overflow: hidden; */
     display: flex;
@@ -63,13 +63,13 @@ body {
 /* #region DASHBOARD */
 
 #dashboard {
-    display: none;
-    /* display: grid; */
-    grid-template-rows: 1fr 11fr;
-    min-height: 100vh;
-    width: 100%;    
+    /* display: none; */
+    display: grid;
+    grid-template-rows: 2fr 10fr;
+    height: 100vh;
+    width: 100%;
     max-width: 1400px;
-    background-color: var(--primary-color);
+    overflow: hidden;
 }
 #dashboard .top {
     width: 100%;
@@ -77,7 +77,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 var(--font-size-m);
+    padding: var(--font-size-m);
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
@@ -112,7 +112,7 @@ body {
 }
 
 #dashboard .middle > img#dashboardImg {
-    display: none;
+    /* display: none; */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -185,6 +185,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: var(--font-size-xs);
+    cursor: pointer;
 }
 .elem > img {
     display: block;
@@ -209,11 +210,155 @@ body {
 
 /* #endregion DASHBOARD */
 
-/* #region TODO */
-#todo {
+/* #region TODO & GOALS */
+#notes {
+    display: none;
+    /* display: grid; */
+    grid-template-rows: 10% 90%;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1400px;
+}
+
+#notes .top {
+    width: 100%;
+    height: 100%;
+    padding: 2rem 6rem 1rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--font-size-m);
+}
+#notes .top > h1 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-l);
+}
+
+#notes .below {
+    width: 100%;
+    height: 85vh;
+    padding: 1rem 6rem 1rem 6rem;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 100%;
+    gap: var(--font-size-m);
+    /* background-color: red; */
+}
+
+#notes .below .left {
+    width: 100%;
+    padding: var(--font-size-m);
+    border-radius: var(--font-size-m);
+    background-color: var(--tranclucent-color);
+}
+#notes .below .left form {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--font-size-l);
+}
+#notes .below .left form div {
+    width: 100%;
+}
+
+#notes .below .left form input[text],
+#notes .below .left form textarea,
+#notes .below .left form button {
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: var(--font-size-m);
+    border-radius: var(--font-size-xs);
+    font-size: var(--font-size-m);
+}
+#notes .below .left form textarea {
+    resize: none;
+}
+#notes .below .left form button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: var(--transition-speed);
+    cursor: pointer;
+}
+#notes .below .left form button:hover {
+    box-shadow: inset 0 0 1rem 0.2rem var(--tranclucent-color);
+}
+
+#notes .below .left form div:nth-child(3) {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--font-size-m);
+}
+#notes .below .left form div:nth-child(3) input{
+    width: var(--font-size-m);
+    height: var(--font-size-m);
+} 
+#notes .below .left form div:nth-child(3) label {
+    font-size: var(--font-size-m);
+}
+
+
+
+#notes .below .right {
+    width: 100%;
+    height: 100%;
+    padding: var(--font-size-m);
+    border-radius: var(--font-size-m);
+    background-color: var(--tranclucent-color);
+    overflow-y: scroll;
+}
+#notes .below .right::-webkit-scrollbar {
     display: none;
 }
-/* #endregion TODO */
+#notes .below .right #allNotes {
+    /* display: none; */
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--font-size-m);
+}
+#notes .below .right #allNotes .card {
+    width: 100%;
+    padding: var(--font-size-m);
+    border-radius: var(--font-size-m);
+    color: var(--primary-color);
+    background-color: var(--tranclucent-color);
+}
+
+#notes .below .right #allNotes .card .cardTitle {
+    width: 100%;
+    padding-right: var(--font-size-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--font-size-m);
+    margin-bottom: var(--font-size-s);
+}
+#notes .below .right #allNotes .card .cardTitle input {
+    font-size: var(--font-size-xl);
+}
+
+/* to mark the card as imp */
+.cardImp {
+    position: relative;
+}
+.cardImp::after {
+    content: "IMP";
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    padding: 0.2rem 0.5rem;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border-radius: var(--font-size-xs);
+}
+
+/* #endregion TODO & GOALS */
 
 /* #region DAILY PLAN */
 
@@ -224,7 +369,6 @@ body {
     min-height: 100vh;
     width: 100%;
     max-width: 1400px;
-    background: radial-gradient(var(--primary-color), var(--primary-color));
 }
 
 #plan .top {
@@ -236,7 +380,7 @@ body {
     justify-content: space-between;
     gap: var(--font-size-m);
 }
-#plan .top>h1 {
+#plan .top > h1 {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-xl);
 }
@@ -247,11 +391,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--font-size-s);
+    padding: 1rem 6rem 1rem 6rem;
 }
 
 #plan .below .plan-table {
-    width: 90%;
+    width: 100%;
     padding: var(--font-size-m);
     border-radius: var(--font-size-xl);
     box-shadow: 0 0 0.5rem 0.5rem var(--tranclucent-color);
@@ -266,27 +410,63 @@ body {
         "a13 a14"
         "a15 a16"
         "a17 a18";
-    gap: var(--font-size-m)
+    gap: var(--font-size-m);
 }
 
-#plan .below .plan-table .plan1  { grid-area: a1; }
-#plan .below .plan-table .plan2  { grid-area: a2; }
-#plan .below .plan-table .plan3  { grid-area: a3; }
-#plan .below .plan-table .plan4  { grid-area: a4; }
-#plan .below .plan-table .plan5  { grid-area: a5; }
-#plan .below .plan-table .plan6  { grid-area: a6; }
-#plan .below .plan-table .plan7  { grid-area: a7; }
-#plan .below .plan-table .plan8  { grid-area: a8; }
-#plan .below .plan-table .plan9  { grid-area: a9; }
-#plan .below .plan-table .plan10 { grid-area: a10; }
-#plan .below .plan-table .plan11 { grid-area: a11; }
-#plan .below .plan-table .plan12 { grid-area: a12; }
-#plan .below .plan-table .plan13 { grid-area: a13; }
-#plan .below .plan-table .plan14 { grid-area: a14; }
-#plan .below .plan-table .plan15 { grid-area: a15; }
-#plan .below .plan-table .plan16 { grid-area: a16; }
-#plan .below .plan-table .plan17 { grid-area: a17; }
-#plan .below .plan-table .plan18 { grid-area: a18; }
+#plan .below .plan-table .plan1 {
+    grid-area: a1;
+}
+#plan .below .plan-table .plan2 {
+    grid-area: a2;
+}
+#plan .below .plan-table .plan3 {
+    grid-area: a3;
+}
+#plan .below .plan-table .plan4 {
+    grid-area: a4;
+}
+#plan .below .plan-table .plan5 {
+    grid-area: a5;
+}
+#plan .below .plan-table .plan6 {
+    grid-area: a6;
+}
+#plan .below .plan-table .plan7 {
+    grid-area: a7;
+}
+#plan .below .plan-table .plan8 {
+    grid-area: a8;
+}
+#plan .below .plan-table .plan9 {
+    grid-area: a9;
+}
+#plan .below .plan-table .plan10 {
+    grid-area: a10;
+}
+#plan .below .plan-table .plan11 {
+    grid-area: a11;
+}
+#plan .below .plan-table .plan12 {
+    grid-area: a12;
+}
+#plan .below .plan-table .plan13 {
+    grid-area: a13;
+}
+#plan .below .plan-table .plan14 {
+    grid-area: a14;
+}
+#plan .below .plan-table .plan15 {
+    grid-area: a15;
+}
+#plan .below .plan-table .plan16 {
+    grid-area: a16;
+}
+#plan .below .plan-table .plan17 {
+    grid-area: a17;
+}
+#plan .below .plan-table .plan18 {
+    grid-area: a18;
+}
 
 #plan .below .plan-table .plan-div {
     display: flex;
@@ -296,7 +476,7 @@ body {
     background-color: var(--secondary-color);
     border-radius: var(--font-size-s);
 }
-#plan .below .plan-table .plan-div>label{
+#plan .below .plan-table .plan-div > label {
     color: var(--primary-color);
     outline: none;
     border: none;
@@ -304,7 +484,7 @@ body {
     font-size: var(--font-size-s);
     font-weight: var(--font-weight-xl);
 }
-#plan .below .plan-table .plan-div>input{
+#plan .below .plan-table .plan-div > input {
     outline: none;
     border: none;
     padding: 0.5rem;
@@ -320,17 +500,16 @@ body {
 /* #region QUOTES */
 
 #quotes {
-    /* display: none; */
-    display: grid;
+    display: none;
+    /* display: grid; */
     grid-template-rows: 10% 90%;
     min-height: 100vh;
     width: 100%;
     max-width: 1400px;
-    background: radial-gradient(var(--primary-color), var(--primary-color));
 }
 #quotes .top {
     width: 100%;
-    height: 100%;    
+    height: 100%;
     padding: 2rem 6rem 1rem 6rem;
     display: flex;
     justify-content: flex-end;
@@ -416,7 +595,6 @@ body {
     min-height: 100vh;
     width: 100%;
     max-width: 1400px;
-    background: radial-gradient(var(--primary-color), var(--primary-color));
 }
 
 #timer .top {
@@ -428,39 +606,64 @@ body {
     justify-content: space-between;
     gap: var(--font-size-m);
 }
-#timer .top>h1 {
+#timer .top > h1 {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-xl);
 }
 
 #timer .below {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    padding: 6rem 6rem 1rem 6rem;
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
-    justify-content: center;
-    padding: var(--font-size-s);
+    justify-content: flex-start;
+    gap: 5rem;
 }
-#timer .below .timerTop>h1 {
+
+#timer .below .timerTop > h1 {
     padding: var(--font-size-m);
     font-size: var(--font-size-xl);
     border-radius: var(--font-size-l);
     box-shadow: 0 0 0.2rem 0.1rem var(--tranclucent-color);
     transition: var(--transition-speed);
+    cursor: pointer;
 }
-#timer .below .timerTop>h1:hover {
+#timer .below .timerTop > h1:hover {
     box-shadow: none;
 }
+#timer .below .timerBelow {
+    padding: var(--font-size-s);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--font-size-xl);
+}
 
+#timer .below .timerBelow .time {
+    font-size: 6rem;
+}
 
+#timer .below .timerBelow .timeBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--font-size-m);
+}
+#timer .below .timerBelow .timeBtns .btns {
+    padding: var(--font-size-xs) var(--font-size-s);
+    outline: none;
+    border: none;
+    border-radius: var(--font-size-xs);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-l);
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+}
 
 /* #endregion TIMER */
-
-/* #region GOALS */
-#goals {
-    display: none;
-}
-/* #endregion GOALS */
 
 .close {
     padding: var(--font-size-s);

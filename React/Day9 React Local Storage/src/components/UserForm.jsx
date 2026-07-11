@@ -1,18 +1,19 @@
 import { useForm } from "react-hook-form"
 
-const UserForm = ({ setUsers }) => {
+const UserForm = ({ id, setUsers, users }) => {
 
     const {
         handleSubmit,
         register,
         reset,
         formState: { errors }
-    } = useForm();
-    // } = useForm({mode: 'onChange'});
+    //} = useForm();
+    } = useForm({mode: 'onChange'});
 
     const formSubmit = (data) => {
-        setUsers(prev => [...prev, JSON.parse(JSON.stringify(data))]);
-        // console.log(data);        
+        let arr = [...users, data]; 
+        localStorage.setItem('users', JSON.stringify(arr));
+        setUsers(arr); 
         reset();
     };
 

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.notify {
+    position: relative;
+}
+.notify::after {
+    content: "";
+    background-color: #155dfc;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}

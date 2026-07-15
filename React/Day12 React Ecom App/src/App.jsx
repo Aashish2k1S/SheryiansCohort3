@@ -10,14 +10,22 @@ const App = () => {
 
     let { toggleCart, cartItems, setCartItems } = useContext(MyShopContext);
 
-    console.log(cartItems);
 
+
+    // console.log(cartItems);
 
     const apiCall = async () => {
         try {
+            if (localStorage.getItem("products")) { 
+                setProducts(JSON.parse(localStorage.getItem("products")));
+                setCartItems(JSON.parse(localStorage.getItem("cartProducts")));
+                return;
+            }
             const res = await axios.get("https://fakestoreapi.com/products");
-            let data = await res.data;
+            let data = await res.data; 
             // console.log(data); 
+
+            localStorage.setItem("products", JSON.stringify(data));
             setProducts(data);
         } catch (err) {
             console.log("API error:", err);
@@ -29,20 +37,27 @@ const App = () => {
     // console.log(products);
 
     return (
-
         <div className="min-h-screen bg-slate-900 text-white p-4">
             <Navbar />
-            {toggleCart
-                ? (<Cart products={products} />)
-                : (
-                    <div className="max-w-7xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {products.map((elem) => {
-                            let isInCart = cartItems.find((item) => item.id === elem.id);
+            {toggleCart ? (
+                <Cart products={cartItems} />
+            ) : (
+                <div className="max-w-7xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {products.map((elem) => {
+                        let isInCart = cartItems.find(
+                            (item) => item.id === elem.id,
+                        );
 
-                            return (<ProductCard key={elem.id} product={elem} isInCart={isInCart} setCartItems={setCartItems} />)
-                        })}
-                    </div>
-                )}
+                        return (
+                            <ProductCard
+                                key={elem.id}
+                                product={elem}
+                                isInCart={isInCart}
+                            />
+                        );
+                    })}
+                </div>
+            )}
         </div>
     );
 };

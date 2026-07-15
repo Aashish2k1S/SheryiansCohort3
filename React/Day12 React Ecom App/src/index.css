@@ -5,9 +5,20 @@
 }
 .notify::after {
     content: "";
-    background-color: #155dfc;
+    padding: 0.4rem;
+    background-color: red;
     border-radius: 50%;
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: -2px;
+    right: -2px;
+    animation: popup 1s ease-in-out alternate infinite;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.8);
+    }
 }

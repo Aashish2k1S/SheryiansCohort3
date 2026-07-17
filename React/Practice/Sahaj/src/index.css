@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+
+.icon {
+    animation: popping 0.8s ease-in-out infinite alternate;
+}
+.icon:hover {
+    animation: none;
+}
+
+@keyframes popping {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}

@@ -10,10 +10,10 @@ export const MyStoreProvider = ({ children }) => {
     useEffect(() => {
 
         // setAllUsers(JSON.parse(localStorage.getItem("allUsers")) || []);
-        setAllUsers([{email: 'pradip123kolkata@gmail.com', password: 'asdasd'}])
+        setAllUsers([{email: 'test@gmail.com', password: 'test'}])
 
 
-        let localAllUser = [{email: 'pradip123kolkata@gmail.com', password: 'asdasd'}]; //, isLoggedIn: false}];
+        let localAllUser = [{email: 'test@gmail.com', password: 'asdasd'}]; //, isLoggedIn: false}];
         //JSON.parse(localStorage.getItem("allUsers")) || [];
 
         let localUser = localAllUser.find((user) => user?.isLoggedIn === true);

@@ -1,5 +1,5 @@
 {
-  "name": "a1-skymart",
+  "name": "day15-react-router-data-approach",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,13 +11,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "axios": "^1.18.1",
-    "lucide-react": "^1.25.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-hook-form": "^7.82.0",
     "react-router": "^8.2.0",
-    "react-toastify": "^11.1.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {

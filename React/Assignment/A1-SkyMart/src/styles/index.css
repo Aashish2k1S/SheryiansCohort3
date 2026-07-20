@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@font-face { font-family: 'skymart'; src: url('/fonts/SkyMart.woff2'); }
+
+/* Tailwind v4 Configuration */
+@theme {
+    --font-skymart: 'skymart', sans-serif;
+}

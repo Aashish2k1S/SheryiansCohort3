@@ -6,7 +6,6 @@ import { MyStore } from "../context/MyStore";
 import { toast } from "react-toastify";
 
 const Login = () => {
-
     const navigate = useNavigate();
     let { allUsers, setAllUsers, setUser, setIsLoggedIn } = useContext(MyStore);
 
@@ -14,10 +13,8 @@ const Login = () => {
         register,
         handleSubmit,
         reset,
-        // formState: { errors },
-    } = useForm((e) => {
-        e.mode = "onChange";
-    });
+        formState: { errors },
+    } = useForm({ mode: "onChange" });
 
     const [showPass, setShowPass] = useState(false);
 
@@ -35,29 +32,25 @@ const Login = () => {
         }
 
         let arr = allUsers.map((user) => {
-            if (user.email === data.email && user.password === data.password) {
-                return { ...user, isLoggedIn: true };
-            }
+            user.isLoggedIn =
+                user.email === data.email && user.password === data.password;
+
+            console.log(user);
             return user;
         });
 
-
         localStorage.setItem("allUsers", JSON.stringify(arr));
-
 
         setIsLoggedIn(true);
         setUser(user);
         setAllUsers(arr);
+
         reset();
         navigate("/");
-
     };
-
-
 
     return (
         <div className="min-h-screen w-screen font-skymart bg-[#0d0d0d] text-white lg:grid lg:grid-cols-2">
-
             {/* Left Side */}
             <section className="bg-[#111111] hidden lg:flex flex-col justify-between p-12 border-r-2 border-white/50 relative overflow-hidden">
                 {/* Background Glow */}
@@ -78,9 +71,14 @@ const Login = () => {
                 {/* Hero */}
                 <div className="flex-1 max-w-lg flex flex-col justify-center gap-4">
                     <div>
-                        <p className="text-lime-400 text-sm uppercase font-semibold tracking-wider">Welcome Back</p>
+                        <p className="text-lime-400 text-sm uppercase font-semibold tracking-wider">
+                            Welcome Back
+                        </p>
 
-                        <h2 className="text-5xl font-bold leading-tight mt-4">Shop the future. <span className="text-lime-400">Today.</span></h2>
+                        <h2 className="text-5xl font-bold leading-tight mt-4">
+                            Shop the future.{" "}
+                            <span className="text-lime-400">Today.</span>
+                        </h2>
 
                         <p className="mt-8 text-zinc-500 text-lg">
                             Thousands of products, lightning-fast delivery, and
@@ -98,14 +96,14 @@ const Login = () => {
                                 key={label}
                                 className="rounded-2xl border border-zinc-600 p-2 text-center transition hover:border-white/70"
                             >
-                                <h3 className="text-2xl font-bold text-lime-400">{value}</h3>
+                                <h3 className="text-2xl font-bold text-lime-400">
+                                    {value}
+                                </h3>
                                 <p className=" text-zinc-500">{label}</p>
                             </div>
                         ))}
                     </div>
                 </div>
-
-
             </section>
 
             {/* Right Side */}
@@ -129,83 +127,85 @@ const Login = () => {
                     </p>
 
                     <form
-                        action=""
+                        className="mt-8 space-y-5"
                         onSubmit={handleSubmit((data) => formSubmit(data))}
                     >
-                        <div className="mt-10 space-y-5">
-                            {/* <div className="flex items-center gap-3 rounded-2xl border border-zinc-700 bg-[#1d1d1d] px-5 py-4">
-                                <Mail className="text-zinc-500 w-5 h-5" />
-
-                                <input
-                                    {...register("email", { required: true })}
-                                    type="email"
-                                    placeholder="Email address"
-                                    className="w-full bg-[#1c1c1c] text-white border border-[#131313] rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-lime-300 focus:ring-1 focus:ring-lime-300 transition-colors placeholder:text-zinc-500"
-                                />
-                            </div> */}
-
-                            <div className="relative">
-                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                    <Mail size={18} className="text-zinc-500" />
+                        <div className="flex flex-col gap-2">
+                            <div className="flex items-center bg-[#1c1c1c] border border-[#131313] rounded-xl transition-colors focus-within:border-lime-400 focus-within:ring-1 focus-within:ring-lime-400">
+                                <div className="pl-4 pointer-events-none">
+                                    <Mail size={18} className="text-gray-500" />
                                 </div>
                                 <input
-                                    {...register("email", { required: true })}
-                                    type="email"
+                                    {...register("email", {
+                                        required: "Email is required.",
+                                    })}
+                                    type="text"
                                     placeholder="Email address"
-                                    className="w-full bg-[#1c1c1c] text-white border border-[#131313] rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-lime-300 focus:ring-1 focus:ring-lime-300 transition-colors placeholder:text-zinc-500"
+                                    className="flex-1 bg-transparent text-white py-3 px-4 outline-none border-none placeholder:text-zinc-500"
                                 />
                             </div>
+                            {errors.email && (
+                                <p className="text-sm text-red-500">
+                                    {errors.email.message}
+                                </p>
+                            )}
+                        </div>
 
-                            {/* <div className="flex items-center gap-3 rounded-2xl border border-zinc-700 bg-[#1d1d1d] px-5 py-4">
-                                <Lock className="text-zinc-500 w-5 h-5" />
-
-                                <input
-                                    {...register("password", {
-                                        required: true,
-                                    })}
-                                    type="password"
-                                    placeholder="Password"
-                                    className="w-full bg-[#1c1c1c] text-white border border-[#131313] rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-lime-300 focus:ring-1 focus:ring-lime-300 transition-colors placeholder:text-zinc-500"
-                                />
-
-                                <Eye className="text-zinc-500 w-5 h-5 cursor-pointer" />
-                            </div> */}
-
-                            <div className="relative">
-                                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <div className="flex flex-col gap-2">
+                            <div className="flex items-center bg-[#1c1c1c] border border-[#131313] rounded-xl transition-colors focus-within:border-lime-400 focus-within:ring-1 focus-within:ring-lime-400">
+                                <div className="pl-4 pointer-events-none">
                                     <Lock size={18} className="text-gray-500" />
                                 </div>
                                 <input
-                                    {...register("password", { required: true, })}
+                                    {...register("password", {
+                                        required: "Password is required.",
+                                    })}
                                     type={showPass ? "text" : "password"}
                                     placeholder="Password (min 6 chars)"
-                                    className="w-full bg-[#1c1c1c] text-white border border-[#131313] rounded-xl py-3 pl-11 pr-4 focus:outline-none focus:border-lime-300 focus:ring-1 focus:ring-lime-300 transition-colors placeholder:text-zinc-500"
+                                    className="flex-1 bg-transparent text-white py-3 px-4 outline-none border-none placeholder:text-zinc-500"
                                 />
-                                <button onClick={() => setShowPass(prev => !prev)}
-                                    type="button" className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-500 hover:text-gray-300">
-                                    {showPass ? <EyeOff size={18} /> : <Eye size={18} />}
+                                <button
+                                    onClick={() => setShowPass((prev) => !prev)}
+                                    type="button"
+                                    className="pr-4"
+                                >
+                                    {showPass ? (
+                                        <EyeOff
+                                            size={18}
+                                            className="text-gray-500 rotate-x-180 hover:text-white"
+                                        />
+                                    ) : (
+                                        <Eye
+                                            size={18}
+                                            className="text-gray-500 hover:text-white"
+                                        />
+                                    )}
                                 </button>
                             </div>
+                            {errors.password && (
+                                <p className="text-sm text-red-500">
+                                    {errors.password.message}
+                                </p>
+                            )}
+                        </div>
 
-                            <button className="flex w-full items-center justify-center gap-3 rounded-2xl bg-lime-400 py-4 text-lg font-semibold text-black transition hover:scale-[1.02]">
-                                Sign in
-                                <ArrowRight size={18} />
-                            </button>
+                        <button className="w-full bg-lime-400 hover:bg-lime-300 text-black font-semibold rounded-xl py-3 mt-4 flex items-center justify-center gap-2 transition-colors">
+                            Sign in
+                            <ArrowRight size={18} />
+                        </button>
 
-                            <p className="pt-3 text-center text-zinc-500">
-                                Don't have an account?{" "}
-                                <span
-                                    onClick={() => navigate("/signup")}
-                                    className="cursor-pointer font-semibold text-lime-400"
-                                >
-                                    Create one
-                                </span>
-                            </p>
+                        <div className="mt-8 text-center text-sm text-gray-500">
+                            Don't have an account?{" "}
+                            <span
+                                onClick={() => navigate("/signup")}
+                                className="text-lime-400 font-semibold cursor-pointer hover:text-lime-400/50 transition-all"
+                            >
+                                Create one
+                            </span>
                         </div>
                     </form>
                 </div>
             </section>
-
         </div>
     );
 };

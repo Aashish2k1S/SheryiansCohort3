@@ -3,34 +3,27 @@ import { createContext, useEffect, useState } from "react";
 export const MyStore = createContext();
 
 export const MyStoreProvider = ({ children }) => {
-    const [allUsers, setAllUsers] = useState([]);
+    const [allUsers, setAllUsers] = useState(
+        JSON.parse(localStorage.getItem("allUsers")) || [
+            { name: "test", email: "test@gmail.com", password: "test" },
+        ],
+    );
     const [user, setUser] = useState({});
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
+        console.log(localStorage.getItem("allUsers"));
+        console.log(allUsers);
 
-        // setAllUsers(JSON.parse(localStorage.getItem("allUsers")) || []);
-        setAllUsers([{email: 'test@gmail.com', password: 'test'}])
-
-
-        let localAllUser = [{email: 'test@gmail.com', password: 'asdasd'}]; //, isLoggedIn: false}];
-        //JSON.parse(localStorage.getItem("allUsers")) || [];
+        let localAllUser = allUsers;
 
         let localUser = localAllUser.find((user) => user?.isLoggedIn === true);
 
         if (localUser) {
             setIsLoggedIn(true);
             setUser(localUser);
-            setAllUsers(localAllUser);
         }
-
-        
-
-
-    }, []);
-
-
-
+    }, [allUsers]);
 
     return (
         <MyStore.Provider

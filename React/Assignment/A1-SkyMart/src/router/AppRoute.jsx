@@ -11,8 +11,22 @@ const AppRoute = () => {
             <Routes>
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/" element={<AppProtectedRoute><Home/></AppProtectedRoute>}/>
-                <Route path="/about" element={<AppProtectedRoute><About/></AppProtectedRoute>}/>
+                <Route
+                    path="/"
+                    element={
+                        <AppProtectedRoute>
+                            <Home />
+                        </AppProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/about"
+                    element={
+                        <AppProtectedRoute>
+                            <About />
+                        </AppProtectedRoute>
+                    }
+                />
             </Routes>
         </div>
     );

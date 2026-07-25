@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router";
-import AppProtectedRoute from "./protected/AppProtectedRoute";
+import AppProtectedRoute from "./AppProtectedRoute";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
 import About from "../pages/About";
+import MainLayout from "../layouts/MainLayout";
 
 const AppRoute = () => {
     return (
@@ -15,15 +16,19 @@ const AppRoute = () => {
                     path="/"
                     element={
                         <AppProtectedRoute>
-                            <Home />
+                            <MainLayout>
+                                <Home />
+                            </MainLayout>
                         </AppProtectedRoute>
                     }
                 />
                 <Route
                     path="/about"
                     element={
-                        <AppProtectedRoute>
-                            <About />
+                        <AppProtectedRoute>                            
+                            <MainLayout>
+                                <Home />
+                            </MainLayout>
                         </AppProtectedRoute>
                     }
                 />

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MyStore } from "../../context/MyStore";
+import { MyStore } from "../context/MyStore";
 import { Navigate } from "react-router";
 
 const AppProtectedRoute = ({ children }) => {

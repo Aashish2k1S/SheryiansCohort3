@@ -1,5 +1,5 @@
 import { Zap, User, Mail, Lock, Eye, ArrowRight, EyeOff } from "lucide-react";
-import { use, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
@@ -19,7 +19,7 @@ const Signup = () => {
     const [showPass, setShowPass] = useState(false);
 
     let formSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         let existedUser = allUsers.find(user => user.email === data.email);
         if(!existedUser) 
         {

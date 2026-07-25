@@ -19,7 +19,7 @@ const Login = () => {
     const [showPass, setShowPass] = useState(false);
 
     let formSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
 
         let user = allUsers.find(
             (user) =>
@@ -35,7 +35,7 @@ const Login = () => {
             user.isLoggedIn =
                 user.email === data.email && user.password === data.password;
 
-            console.log(user);
+            // console.log(user);
             return user;
         });
 

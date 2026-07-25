@@ -12,8 +12,8 @@ export const MyStoreProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        console.log(localStorage.getItem("allUsers"));
-        console.log(allUsers);
+        // console.log(localStorage.getItem("allUsers"));
+        // console.log(allUsers);
 
         let localAllUser = allUsers;
 

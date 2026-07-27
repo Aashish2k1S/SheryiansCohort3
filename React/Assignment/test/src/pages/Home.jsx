@@ -1,3 +1,4 @@
+import React from "react";
 import {
   ArrowRight,
   Package,
@@ -148,7 +149,7 @@ const newArrivalProducts = [...products]
             <div className="grid grid-cols-1 gap-3 w-full sm:w-72">
               {/* Cart Card */}
               <div className="neu-sm flex items-center gap-4 rounded-2xl px-5 py-4">
-                <div className="neu w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center text-xl">
+                <div className="neu w-12 h-12 flex-shrink-0 rounded-2xl flex items-center justify-center text-xl">
                   🛒
                 </div>
 
@@ -163,7 +164,7 @@ const newArrivalProducts = [...products]
 
               {/* Total Card */}
               <div className="neu-sm flex items-center gap-4 rounded-2xl px-5 py-4">
-                <div className="neu w-12 h-12 shrink-0 rounded-2xl flex items-center justify-center text-xl">
+                <div className="neu w-12 h-12 flex-shrink-0 rounded-2xl flex items-center justify-center text-xl">
                   $
                 </div>
 
@@ -226,7 +227,7 @@ const newArrivalProducts = [...products]
 
                   <p className="mt-2 text-lg font-semibold">{item.title}</p>
 
-                  <p className="text-sm text-muted mt-1">{item.desc}</p>
+                  <p className="text-sm text-[#6C6C6B] mt-1">{item.desc}</p>
                 </div>
 
                 {/* Right Icon */}
@@ -271,7 +272,7 @@ const newArrivalProducts = [...products]
                       {cat.name}
                     </h3>
 
-                    <p className="text-sm text-muted mt-2">
+                    <p className="text-sm text-[#6C6C6B] mt-2">
                       {cat.count}
                     </p>
                   </div>
@@ -402,7 +403,7 @@ const newArrivalProducts = [...products]
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-muted mt-1">
+                <p className="text-sm text-[#6C6C6B] mt-1">
                   {item.desc}
                 </p>
               </div>

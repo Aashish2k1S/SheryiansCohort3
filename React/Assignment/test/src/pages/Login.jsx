@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Zap,
   Mail,
@@ -18,19 +18,15 @@ import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
-
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const defaultValue = {
-    email: "",
-    password: "",
-  }
-
   const {
-    register, handleSubmit, reset, 
+    register,
+    handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm({ mode: "onChange", defaultValues: defaultValue });
+  } = useForm();
 
   const navigate = useNavigate();
 
@@ -38,16 +34,7 @@ const Login = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
     if (!storedUser) {
-      toast.error("User not found. Please register first.", {
-        style: {
-          background: "#1e1e1e",
-          color: "#ffffff",
-        },
-        iconTheme: {
-          primary: "#000",
-          secondary: "#9ae600",
-        },
-      });
+      toast.error("User not found. Please register first.");
       return;
     }
 
@@ -55,25 +42,11 @@ const Login = () => {
       storedUser.email === data.email &&
       storedUser.password === data.password
     ) {
-      toast.success("Login Successful", {
-        style: {
-          background: "#1e1e1e",
-          color: "#ffffff",
-        },
-        iconTheme: {
-          primary: "#000",
-          secondary: "#9ae600",
-        },
-      });
-      reset(defaultValue);
+      toast.success("Login Successful");
+      reset();
       navigate("/home");
     } else {
-      toast.error("Invalid email or password", {
-        style: {
-          background: "#1e1e1e",
-          color: "#ffffff",
-        }
-      });
+      toast.error("Invalid email or password");
     }
   };
 
@@ -93,19 +66,19 @@ const Login = () => {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="neu w-12 h-12 rounded-2xl flex items-center justify-center">
-            <ShoppingBag className="w-6 h-6 text-volt" />
+            <ShoppingBag className="w-6 h-6 text-[#FF8FC7]" />
           </div>
 
           <h1 className="text-3xl font-bold">
             {/* <span className="text-white">Sky</span> */}
-            <span className="text-white">Sky</span><span className="text-volt">Mart</span>
+            <span className="text-[#FF8FC7]">PrimeBasket</span>
           </h1>
         </div>
 
         {/* Content */}
 
         <div className="mt-20 xl:mt-28">
-          <p className="text-volt font-semibold tracking-widest text-sm">
+          <p className="text-[#FF8FC7] font-semibold tracking-widest text-sm">
             WELCOME BACK
           </p>
 
@@ -121,7 +94,7 @@ const Login = () => {
           >
             Shop the future.
             <br />
-            <span className="text-volt">Today.</span>
+            <span className="text-[#FF8FC7]">Today.</span>
           </h2>
 
           <p
@@ -129,7 +102,7 @@ const Login = () => {
             mt-6
             text-base
             xl:text-lg
-            text-muted
+            text-[#6C6C6B]
             max-w-md
             leading-relaxed
             "
@@ -158,11 +131,11 @@ const Login = () => {
                 key={index}
                 className="neu h-24 rounded-2xl flex flex-col items-center justify-center"
               >
-                <h3 className="text-volt text-xl xl:text-2xl font-bold">
+                <h3 className="text-[#FF8FC7] text-xl xl:text-2xl font-bold">
                   {item[0]}
                 </h3>
 
-                <p className="text-muted text-xs xl:text-sm">{item[1]}</p>
+                <p className="text-[#6C6C6B] text-xs xl:text-sm">{item[1]}</p>
               </div>
             ))}
           </div>
@@ -171,14 +144,24 @@ const Login = () => {
 
       {/* RIGHT SECTION */}
 
-      <div className="w-full lg:w-1/2 flex items-center justify-center px-5 py-10">
+      <div
+        className="
+        w-full
+        lg:w-1/2
+        flex
+        items-center
+        justify-center
+        px-5
+        py-10
+        "
+      >
         <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
           <div className="neu rounded-2xl p-6 sm:p-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-white">
               Sign in
             </h2>
 
-            <p className="mt-2 text-sm sm:text-base text-muted">
+            <p className="mt-2 text-sm sm:text-base text-[#6C6C6B]">
               Enter your credentials to continue
             </p>
 
@@ -200,7 +183,17 @@ const Login = () => {
                     message: "Enter valid email address",
                   },
                 })}
-                className="neu-inset w-full h-14 rounded-2xl pl-14 pr-5 text-white placeholder:text-[#666] outline-none"
+                className="
+                neu-inset
+                w-full
+                h-14
+                rounded-2xl
+                pl-14
+                pr-5
+                text-white
+                placeholder:text-[#666]
+                outline-none
+                "
               />
 
               {errors.email && (
@@ -223,12 +216,36 @@ const Login = () => {
                 placeholder="Password"
                 {...register("password", {
                   required: "Password is required",
+                  pattern: {
+                    value:
+                      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/,
+                    message:
+                      "Use 8+ chars with uppercase, lowercase, number & special character",
+                  },
                 })}
-                className="neu-inset w-full h-14 rounded-2xl pl-14 pr-12 text-white placeholder:text-[#666] outline-none"
+                className="
+                neu-inset
+                w-full
+                h-14
+                rounded-2xl
+                pl-14
+                pr-12
+                text-white
+                placeholder:text-[#666]
+                outline-none
+                "
               />
 
-              <button type="button" onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-5 top-4 text-[#666]z-10"
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="
+                absolute
+                right-5
+                top-4
+                text-[#666]
+                z-10
+                "
               >
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -242,8 +259,19 @@ const Login = () => {
 
             {/* BUTTON */}
 
-            <button type="submit"
-              className="neu-accent neu-btn mt-8 w-full h-14 rounded-2xl text-black font-bold text-lg"
+            <button
+              type="submit"
+              className="
+              neu-accent
+              neu-btn
+              mt-8
+              w-full
+              h-14
+              rounded-2xl
+              text-black
+              font-bold
+              text-lg
+              "
             >
               Sign in →
             </button>
@@ -254,7 +282,12 @@ const Login = () => {
               Don't have an account?
               <span
                 onClick={() => navigate("/register")}
-                className="ml-2 text-volt font-semibold cursor-pointer"
+                className="
+                ml-2
+                text-[#FF8FC7]
+                font-semibold
+                cursor-pointer
+                "
               >
                 Create one
               </span>

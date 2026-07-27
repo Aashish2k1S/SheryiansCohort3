@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Zap,
   ShoppingCart,
@@ -17,7 +17,7 @@ import Cart from "./Cart";
 const Navbar = () => {
   const navigate = useNavigate();
 
-  const { cartItems, setIsCartOpen } = useContext(CartContext);
+  const { cartItems, isCartOpen, setIsCartOpen } = useContext(CartContext);
 
   const [scrolled, setScrolled] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -40,24 +40,28 @@ const Navbar = () => {
   };
 
   const linkStyle = ({ isActive }) =>
-    `font-semibold transition ${isActive ? "text-[#FF8FC7]" : "text-gray-400 hover:text-white"
+    `font-semibold transition ${
+      isActive ? "text-[#FF8FC7]" : "text-gray-400 hover:text-white"
     }`;
 
   return (
     <>
       <nav
-        className={`top-0 z-50 w-full border-muted border-b text-white backdrop-blur-xl transition-all duration-300 ${scrolled ? "shadow-[0_8px_30px_rgba(0,0,0,0.5)]" : ""}`}
+        className={`sticky top-0 z-50 w-full text-white
+      bg-[#0a0a0a]/90 backdrop-blur-xl
+      transition-all duration-300
+      ${scrolled ? "shadow-[0_8px_30px_rgba(0,0,0,0.5)]" : ""}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
           {/* Logo */}
           <NavLink to="/home" className="flex items-center gap-3 cursor-pointer">
             <div className="neu w-11 h-11 rounded-2xl flex items-center justify-center">
-              <ShoppingBag className="w-6 h-6  text-volt" />
+              <ShoppingBag className="w-6 h-6  text-[#FF8FC7]" />
             </div>
 
             <h1 className="text-xl sm:text-2xl font-bold">
               {/* <span className="text-white">Sky</span> */}
-              <span className="text-white">Sky</span><span className="text-volt">Mart</span>
+              <span className="text-[#FF8FC7]">PrimeBasket</span>
             </h1>
           </NavLink>
 
@@ -122,7 +126,7 @@ const Navbar = () => {
         {/* Mobile Sidebar */}
 
         <div
-          className={`fixed top-0 right-0 h-screen w-80 bg-[#0a0a0a] shadow-[-12px_0_30px_rgba(0,0,0,0.5)] z-60
+          className={`fixed top-0 right-0 h-screen w-80 bg-[#0a0a0a] shadow-[-12px_0_30px_rgba(0,0,0,0.5)] z-[60]
   transition-transform duration-300
   ${openMenu ? "translate-x-0" : "translate-x-full"}`}
         >
@@ -163,7 +167,8 @@ const Navbar = () => {
               to="/home"
               onClick={() => setOpenMenu(false)}
               className={({ isActive }) =>
-                `neu flex items-center justify-between px-4 py-4 rounded-2xl transition-all duration-300 ${isActive ? "text-[#FF8FC7]" : "text-gray-300 hover:text-white"
+                `neu flex items-center justify-between px-4 py-4 rounded-2xl transition-all duration-300 ${
+                  isActive ? "text-[#FF8FC7]" : "text-gray-300 hover:text-white"
                 }`
               }
             >
@@ -175,7 +180,8 @@ const Navbar = () => {
               to="/shop"
               onClick={() => setOpenMenu(false)}
               className={({ isActive }) =>
-                `neu flex items-center justify-between px-4 py-4 rounded-2xl transition-all duration-300 ${isActive ? "text-[#FF8FC7]" : "text-gray-300 hover:text-white"
+                `neu flex items-center justify-between px-4 py-4 rounded-2xl transition-all duration-300 ${
+                  isActive ? "text-[#FF8FC7]" : "text-gray-300 hover:text-white"
                 }`
               }
             >
@@ -187,7 +193,8 @@ const Navbar = () => {
               to="/about"
               onClick={() => setOpenMenu(false)}
               className={({ isActive }) =>
-                `neu flex items-center justify-between px-4 py-4 rounded-2xl transition-all duration-300 ${isActive ? "text-[#FF8FC7]" : "text-gray-300 hover:text-white"
+                `neu flex items-center justify-between px-4 py-4 rounded-2xl transition-all duration-300 ${
+                  isActive ? "text-[#FF8FC7]" : "text-gray-300 hover:text-white"
                 }`
               }
             >

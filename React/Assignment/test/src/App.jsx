@@ -1,3 +1,4 @@
+import React from "react";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import AppRoutes from "./routes/AppRoutes";
@@ -7,8 +8,8 @@ import { Toaster } from "react-hot-toast";
 const App = () => {
   return (
     <div className="min-h-screen" style={{ background: "var(--bg)" }}>
+       <Toaster position="top-right" />
       <AppRoutes />
-      <Toaster position="top-right" />
     </div>
   );
 };

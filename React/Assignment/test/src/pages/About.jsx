@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Zap,
   Package,
@@ -66,17 +67,17 @@ const About = () => {
 
   const team = [
     {
-      name: "Aashish Gupta",
+      name: "Farhan khan",
       role: "Founder & CEO",
       color: "bg-lime-400",
     },
     {
-      name: "Aashish Gupta",
+      name: "Abdur Rahim",
       role: "Head of Product",
       color: "bg-blue-500",
     },
     {
-      name: "Farhan Khan",
+      name: "Farhan khan",
       role: "Lead Engineer",
       color: "bg-purple-500",
     },
@@ -102,11 +103,11 @@ const About = () => {
             className="mt-6 md:mt-8 text-4xl sm:text-5xl lg:text-6xl"
             style={{ fontFamily: "Clash Display" }}
           >
-            About <span className="text-white">Sky</span><span className="text-volt">Mart</span>
+            About <span className="text-[#FF8FC7]">PrimeBasket</span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted">
-            SkyMart is a next-generation e-commerce platform built to make
+          <p className="mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-[#6C6C6B]">
+            PrimeBasket is a next-generation e-commerce platform built to make
             online shopping faster, smarter, and more enjoyable. We carefully
             curate products that combine quality, affordability, and seamless
             delivery.
@@ -137,7 +138,7 @@ const About = () => {
                 {item.value}
               </h2>
 
-              <p className="text-muted mt-2">{item.label}</p>
+              <p className="text-[#6C6C6B] mt-2">{item.label}</p>
             </div>
           ))}
         </div>
@@ -152,8 +153,8 @@ const About = () => {
               Our Story
             </h2>
 
-            <p className="text-muted leading-7 md:leading-8">
-              SkyMart began with a simple idea — online shopping should feel
+            <p className="text-[#6C6C6B] leading-7 md:leading-8">
+              PrimeBasket began with a simple idea — online shopping should feel
               effortless. We wanted to remove clutter, confusing interfaces, and
               overpriced products, replacing them with a clean shopping
               experience foZcused on quality and speed.
@@ -171,7 +172,7 @@ const About = () => {
                   Our Mission
                 </h3>
 
-                <p className="text-muted mt-2">
+                <p className="text-[#6C6C6B] mt-2">
                   Deliver premium products at affordable prices.
                 </p>
               </div>
@@ -187,7 +188,7 @@ const About = () => {
                   Our Vision
                 </h3>
 
-                <p className="text-muted mt-2">
+                <p className="text-[#6C6C6B] mt-2">
                   Become the most trusted online shopping destination.
                 </p>
               </div>
@@ -201,7 +202,7 @@ const About = () => {
             className="text-center text-3xl md:text-5xl"
             style={{ fontFamily: "Clash Display" }}
           >
-            Why Choose Sky<span className="text-volt">Mart</span>
+            Why Choose PrimeBasket
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 md:mt-12">
@@ -217,7 +218,7 @@ const About = () => {
                 <div>
                   <h3 className="text-xl font-semibold">{item.title}</h3>
 
-                  <p className="text-muted mt-3 leading-7">{item.desc}</p>
+                  <p className="text-[#6C6C6B] mt-3 leading-7">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -247,7 +248,7 @@ const About = () => {
 
                 <h3 className="mt-5 text-xl font-semibold">{member.name}</h3>
 
-                <p className="text-muted mt-2">{member.role}</p>
+                <p className="text-[#6C6C6B] mt-2">{member.role}</p>
               </div>
             ))}
           </div>
@@ -262,7 +263,7 @@ const About = () => {
             Ready to shop?
           </h2>
 
-          <p className="text-muted mt-5 text-base md:text-lg">
+          <p className="text-[#6C6C6B] mt-5 text-base md:text-lg">
             Discover thousands of premium products at unbeatable prices.
           </p>
 

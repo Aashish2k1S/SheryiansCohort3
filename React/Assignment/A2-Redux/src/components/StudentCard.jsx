@@ -1,41 +1,31 @@
-import { useDispatch } from "react-redux";
-import {
-    deleteStudent,
-    setEditingStudent,
-} from "../features/students/studentSlice";
-import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteStudent, setEditingStudent } from "../redux/features/students/studentSlice";
 import { Pencil, Trash2 } from "lucide-react";
 
 const StudentCard = ({ student }) => {
     const dispatch = useDispatch();
 
+    let students = useSelector((state) => state.student.students);
+
     const handleDelete = () => {
-        const confirmDelete = window.confirm(
-            `Are you sure you want to delete ${student.name}?`,
-        );
-
-        if (!confirmDelete) return;
-
         dispatch(deleteStudent(student.id));
-
-        toast.success("Student deleted successfully!");
     };
 
     const handleEdit = () => {
-        dispatch(setEditingStudent(student));
+        let arr = students.filter(one => one !== student);
+        dispatch(setEditingStudent({ student, arr }));
     };
 
     return (
-        <div className="rounded-xl border bg-white p-5 shadow-sm">
+        <div className="rounded-xl border bg-white p-5 shadow-sm overflow-hidden">
             <div className="flex items-center justify-between">
                 <h3 className="text-xl font-semibold">{student.name}</h3>
 
                 <span
-                    className={`rounded-full px-3 py-1 text-sm font-medium ${
-                        student.status === "Active"
+                    className={`rounded-full px-3 py-1 text-sm font-medium ${student.status === "Active"
                             ? "bg-green-100 text-green-700"
                             : "bg-red-100 text-red-700"
-                    }`}
+                        }`}
                 >
                     {student.status}
                 </span>
@@ -57,7 +47,7 @@ const StudentCard = ({ student }) => {
 
             <div className="mt-5 flex gap-3">
                 <button onClick={handleEdit}
-                className="flex items-center gap-2 rounded-lg bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600">
+                    className="flex items-center gap-2 rounded-lg bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600">
                     <Pencil size={18} />
                     Edit
                 </button>

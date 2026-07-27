@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import Navbar from "./components/Navbar.jsx";
-import { ToastContainer } from "react-toastify";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const App = () => {
     return (
@@ -11,8 +11,20 @@ const App = () => {
                 <Outlet />
             </main>
 
-            
-            <ToastContainer position="top-right" autoClose={2000} />
+
+            <ToastContainer
+                position="top-right"
+                autoClose={2500}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                transition={Bounce}
+            />
         </>
     );
 };

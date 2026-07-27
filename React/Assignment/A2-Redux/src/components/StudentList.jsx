@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import StudentCard from "./StudentCard";
 
 const StudentList = () => {
-    const { students, search, filter } = useSelector((state) => state.students);
+    const { students, search, filter } = useSelector((state) => state.student);
 
     const searchQuery = search.trim().toLowerCase();
 
@@ -23,6 +23,7 @@ const StudentList = () => {
 
         return matchesSearch && matchesFilter;
     });
+    
 
     return (
         <section className="mt-8">

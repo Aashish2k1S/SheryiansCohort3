@@ -12,20 +12,26 @@ const StudentForm = () => {
     const dispatch = useDispatch();
 
     const editingStudent = useSelector(
-        (state) => state.students.editingStudent,
+        (state) => state.student.editingStudent,
     );
+
+    const defaultValues = {
+        name: "",
+        email: "",
+        rollNumber: "",
+        department: "CSE",
+        status: "Active",
+    };
 
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors },
-    } = useForm();
+    } = useForm({ mode: "onChange", defaultValues });
 
     useEffect(() => {
-        if (editingStudent) {
-            reset(editingStudent);
-        }
+        if (editingStudent) reset(editingStudent);
     }, [editingStudent, reset]);
 
     const onSubmit = (data) => {
@@ -36,22 +42,19 @@ const StudentForm = () => {
                     ...data,
                 }),
             );
-
             toast.success("Student updated successfully!");
-
             dispatch(clearEditingStudent());
-        } else {
+        }
+        else {
             dispatch(
                 addStudent({
                     id: Date.now(),
                     ...data,
                 }),
             );
-
             toast.success("Student added successfully!");
         }
-
-        reset();
+        reset(defaultValues);
     };
 
     return (

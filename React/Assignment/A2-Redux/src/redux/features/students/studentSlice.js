@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { loadStudents, saveStudents } from "../../../utils/localstorage.js";
+import { toast } from "react-toastify";
 
 const initialState = {
-    students: [],
+    students: loadStudents(),
     search: "",
     filter: "All",
     editingStudent: null,
@@ -13,6 +15,7 @@ const studentSlice = createSlice({
     reducers: {
         addStudent: (state, action) => {
             state.students.push(action.payload);
+            saveStudents(state.students);
         },
 
         updateStudent: (state, action) => {
@@ -22,6 +25,7 @@ const studentSlice = createSlice({
 
             if (index !== -1) {
                 state.students[index] = action.payload;
+                saveStudents(state.students);
             }
         },
 
@@ -29,6 +33,8 @@ const studentSlice = createSlice({
             state.students = state.students.filter(
                 (student) => student.id !== action.payload,
             );
+            saveStudents(state.students);
+            toast.success("Student deleted successfully!");
         },
 
         setSearch: (state, action) => {
@@ -39,7 +45,9 @@ const studentSlice = createSlice({
             state.filter = action.payload;
         },
         setEditingStudent: (state, action) => {
-            state.editingStudent = action.payload;
+            let {arr, student} = action.payload;
+            state.students = arr;                    
+            state.editingStudent = student;
         },
 
         clearEditingStudent: (state) => {

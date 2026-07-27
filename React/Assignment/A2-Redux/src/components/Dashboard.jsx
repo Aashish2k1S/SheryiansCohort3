@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-    const students = useSelector((state) => state.students.students);
+    const students = useSelector((state) => state.student.students);
+
 
     const totalStudents = students.length;
 
@@ -29,6 +30,8 @@ const Dashboard = () => {
             value: departments,
         },
     ];
+
+    
 
     return (
         <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">

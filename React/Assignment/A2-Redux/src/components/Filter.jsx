@@ -4,13 +4,13 @@ import { setFilter } from "../redux/features/students/studentSlice";
 const Filter = () => {
     const dispatch = useDispatch();
 
-    const { filter } = useSelector((state) => state.students);
+    const { filter } = useSelector((state) => state.student);
 
     return (
         <select
             value={filter}
             onChange={(e) => dispatch(setFilter(e.target.value))}
-            className="w-full rounded-lg border p-3"
+            className="w-1/4 rounded-lg border p-3"
         >
             <option value="All">All Students</option>
             <option value="Active">Active</option>

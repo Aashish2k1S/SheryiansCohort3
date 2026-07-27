@@ -42,7 +42,7 @@ git clone <repository-url>
 Navigate to the project
 
 ```bash
-cd student-management-dashboard
+cd repo name
 ```
 
 Install dependencies
@@ -64,7 +64,10 @@ npm run dev
 ```
 src/
 │
-├── app/
+├── redux/
+│   ├── features/
+│   │   └── students/
+│   │        └── studentSlice.js
 │   └── store.js
 │
 ├── routes/
@@ -72,11 +75,11 @@ src/
 │
 ├── features/
 │   └── students/
-│       ├── studentSlice.js
-│       └── StudentForm.jsx
+│       └── studentSlice.js
 │
 ├── components/
 │   ├── Navbar.jsx
+│   ├── StudentForm.jsx
 │   ├── StudentCard.jsx
 │   ├── StudentList.jsx
 │   ├── SearchBar.jsx
@@ -93,6 +96,19 @@ src/
 ├── main.jsx
 └── index.css
 ```
+
+---
+
+## 📷 ScreenShot
+
+![alt text](<./public/readmeImgs/UI_Img.png>)
+
+---
+
+## 🔗 Live Link 
+
+`https://usermanagementredux.vercel.app/`
+
 
 ---
 

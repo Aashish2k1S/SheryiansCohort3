@@ -1,0 +1,38 @@
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+#app {
+    width: 100%;
+    min-height: 100vh;
+    background: #000;
+    padding: 2rem;
+}
+
+/* .btn {
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+} */
+
+.box {
+    width: 150px;
+    height: 150px;
+    background: crimson;
+    border-radius: 10%;
+    margin-bottom: 1rem;
+}

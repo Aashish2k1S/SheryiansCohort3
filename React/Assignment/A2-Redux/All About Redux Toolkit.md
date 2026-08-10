@@ -1,4 +1,4 @@
-# - Introduction to Redux Toolkit
+# Introduction to Redux Toolkit
 
 ## What is Redux Toolkit?
 
@@ -37,13 +37,13 @@ Here:
 
 However, Context API usually depends on **`useState`** or **`useReducer`** to manage its state.
 
-```jsx
+```js
 const [user, setUser] = useState(null);
 ```
 
 or
 
-```jsx
+```js
 const [state, dispatch] = useReducer(reducer, initialState);
 ```
 
@@ -121,9 +121,8 @@ For very small applications, Context API is often enough.
 * It works together with React using the `react-redux` package.
 
 ---
----
 
-# - Why Redux Toolkit is Used
+# Why Redux Toolkit is Used
 
 As React applications grow, managing state becomes more difficult. Passing data from one component to another through multiple levels (known as **prop drilling**) makes the code harder to understand and maintain.
 
@@ -156,7 +155,7 @@ Without Redux Toolkit, data often needs to be passed through multiple components
 
 Example:
 
-```text
+```
 App
  │
  ▼
@@ -173,7 +172,7 @@ If only the `Profile` component needs the user data, the `App` component still h
 
 With Redux Toolkit:
 
-```text
+```
             Redux Store
            /     |      \
           /      |       \
@@ -192,7 +191,7 @@ Each feature manages its own state and update logic.
 
 Example:
 
-```text
+```
 features/
 │
 ├── authSlice.js
@@ -269,7 +268,7 @@ For very small projects with minimal shared state, React's Context API or local 
 
 ## Quick Revision
 
-```text
+```
 Why Redux Toolkit?
 
 ✓ Global State Management
@@ -288,9 +287,8 @@ Why Redux Toolkit?
 ```
 
 ---
----
 
-# - Core Concepts
+# Core Concepts
 
 Redux Toolkit is built around a few core concepts. Understanding these concepts will make it much easier to work with Redux in any React project.
 
@@ -306,7 +304,7 @@ Instead of storing shared data in multiple components, Redux stores everything i
 
 Example (`store.js`):
 
-```js id="i3x6e4"
+```jsx
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./features/counterSlice";
 
@@ -334,7 +332,7 @@ Each Slice contains:
 
 Example:
 
-```js id="bsv8bg"
+```jsx
 const counterSlice = createSlice({
     name: "counter",
 
@@ -354,7 +352,7 @@ A good practice is to create one Slice for each feature.
 
 Examples:
 
-```text id="k5lcpa"
+``` 
 authSlice.js
 
 cartSlice.js
@@ -374,7 +372,7 @@ A **State** is simply the data stored inside Redux.
 
 Example:
 
-```js id="l9jlwm"
+```js 
 initialState: {
     value: 0,
 }
@@ -382,7 +380,7 @@ initialState: {
 
 or
 
-```js id="03s40k"
+```js 
 initialState: {
     user: null,
     isLoggedIn: false,
@@ -399,7 +397,7 @@ Whenever the state changes, React automatically updates the UI.
 
 Example:
 
-```js id="cl0a5u"
+```js 
 const initialState = {
     value: 0,
 };
@@ -415,7 +413,7 @@ A **Reducer** is a function that updates the state.
 
 Example:
 
-```js id="m9jsbk"
+```js 
 increment: (state) => {
     state.value += 1;
 }
@@ -423,7 +421,7 @@ increment: (state) => {
 
 Another example:
 
-```js id="y9g3yz"
+```js 
 decrement: (state) => {
     state.value -= 1;
 }
@@ -439,7 +437,7 @@ An **Action** tells Redux **what should happen**.
 
 Example:
 
-```js id="i7y8ut"
+```js 
 dispatch(increment());
 ```
 
@@ -457,13 +455,13 @@ A **Payload** is the data sent along with an action.
 
 Example:
 
-```js id="6rhn4i"
+```js 
 dispatch(increment(5));
 ```
 
 Inside the reducer:
 
-```js id="otgryo"
+```js 
 increment: (state, action) => {
     state.value += action.payload;
 }
@@ -471,7 +469,7 @@ increment: (state, action) => {
 
 Here,
 
-```text id="l52jkl"
+```
 action.payload = 5
 ```
 
@@ -485,13 +483,13 @@ Payload allows us to send dynamic data while dispatching an action.
 
 Example:
 
-```js id="5mmbpk"
+```js 
 dispatch(increment());
 ```
 
 or
 
-```js id="vyovl8"
+```js 
 dispatch(increment(10));
 ```
 
@@ -509,7 +507,7 @@ It is used to read data from the Redux Store.
 
 Example:
 
-```js id="0f2cgd"
+```js 
 const counter = useSelector(
     (state) => state.counter.value
 );
@@ -527,7 +525,7 @@ It returns the `dispatch()` function, which is used to send actions.
 
 Example:
 
-```js id="h4r14m"
+```js 
 const dispatch = useDispatch();
 
 dispatch(increment());
@@ -545,7 +543,7 @@ Without `Provider`, React components cannot access Redux.
 
 Example:
 
-```jsx id="msndm5"
+```jsx
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 
@@ -566,7 +564,7 @@ Normally, React state should never be modified directly.
 
 For example:
 
-```js id="7om39t"
+```js 
 state.value += 1;
 ```
 
@@ -599,7 +597,7 @@ Because of Immer, reducers are much easier to write and read.
 
 ## Quick Revision
 
-```text id="rtsp0d"
+```
 Store
    │
    ▼
@@ -628,9 +626,8 @@ UI Re-renders
 ```
 
 ---
----
 
-# - Data Flow
+# Data Flow
 
 Redux Toolkit follows a **one-way data flow**. This makes state changes predictable and easier to debug.
 
@@ -640,7 +637,7 @@ Whenever a user performs an action (such as clicking a button), Redux follows th
 
 ## Overall Data Flow
 
-```text
+```
 User Interaction
        │
        ▼
@@ -704,7 +701,7 @@ dispatch(increment(5));
 
 then
 
-```text
+```
 action.payload = 5
 ```
 
@@ -712,7 +709,7 @@ The action also contains a type.
 
 Example:
 
-```text
+```
 counter/increment
 ```
 
@@ -750,13 +747,13 @@ Example:
 
 Before:
 
-```text
+```
 value = 0
 ```
 
 After:
 
-```text
+```
 value = 5
 ```
 
@@ -788,13 +785,13 @@ Example:
 
 Before clicking:
 
-```text
+```
 Counter : 0
 ```
 
 After clicking:
 
-```text
+```
 Counter : 5
 ```
 
@@ -818,7 +815,7 @@ The UI always stays in sync with the Redux Store.
 
 Redux receives
 
-```text
+```
 dispatch(increment(5))
 ```
 
@@ -826,7 +823,7 @@ dispatch(increment(5))
 
 Action becomes
 
-```text
+```
 {
     type: "counter/increment",
     payload: 5
@@ -845,7 +842,7 @@ state.value += action.payload;
 
 Redux Store updates
 
-```text
+```
 value = 5
 ```
 
@@ -863,7 +860,7 @@ const counter = useSelector(
 
 React automatically updates the screen
 
-```text
+```
 Counter : 5
 ```
 
@@ -871,7 +868,7 @@ Counter : 5
 
 ## Visual Diagram
 
-```text
+```
         User Clicks Button
                 │
                 ▼
@@ -915,7 +912,7 @@ Counter : 5
 
 ## Quick Revision
 
-```text
+```
 User Action
       │
       ▼
@@ -939,15 +936,14 @@ UI Re-renders
 
 
 ---
----
 
-# - Folder Structure
+# Folder Structure
 
 A well-organized folder structure makes a Redux Toolkit project easier to understand, maintain, and scale.
 
 A common and recommended structure is:
 
-```text
+```
 src/
 │
 ├── redux/
@@ -987,7 +983,7 @@ Here, we wrap our application with Redux's `Provider` so every component can acc
 
 Example:
 
-```jsx
+```js
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
@@ -1017,7 +1013,7 @@ It combines all the reducers from different slices into one global Store.
 
 Example:
 
-```js
+```jsx
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./features/counterSlice";
 import authReducer from "./features/authSlice";
@@ -1046,7 +1042,7 @@ Each Slice is responsible for managing **one feature** of the application.
 
 Example:
 
-```text
+```
 features/
 │
 ├── authSlice.js
@@ -1070,7 +1066,7 @@ A Slice contains everything related to one feature.
 
 Example:
 
-```js
+```jsx
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -1149,7 +1145,7 @@ Notice that components **do not manage the global state themselves**. They simpl
 
 Imagine putting everything inside one file.
 
-```text
+```
 counter
 login
 logout
@@ -1168,7 +1164,7 @@ Instead, Redux Toolkit encourages creating one Slice per feature.
 
 Example:
 
-```text
+```
 features/
 │
 ├── authSlice.js
@@ -1188,7 +1184,7 @@ This keeps the project clean and organized.
 
 As your project grows, you may also organize API calls, custom hooks, and utility functions.
 
-```text
+```
 src/
 │
 ├── redux/
@@ -1225,7 +1221,7 @@ This structure is commonly used in medium and large React applications.
 
 ## Quick Revision
 
-```text
+```
 src/
 │
 ├── redux/
@@ -1243,9 +1239,8 @@ src/
 ```
 
 ---
----
 
-# - Important Functions
+# Important Functions
 
 Redux Toolkit provides several important functions and hooks that make state management simple and efficient. These are the functions you'll use most often in almost every Redux project.
 
@@ -1261,7 +1256,7 @@ It replaces the old `createStore()` method used in traditional Redux and comes w
 
 ### Syntax
 
-```js id="0m92s9"
+```js 
 import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
@@ -1293,7 +1288,7 @@ A Slice contains:
 
 ### Syntax
 
-```js id="yjn11b"
+```jsx
 import { createSlice } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
@@ -1318,7 +1313,7 @@ const counterSlice = createSlice({
 * Reducer
 * Actions
 
-```js id="qobqva"
+```js 
 export const { increment } = counterSlice.actions;
 
 export default counterSlice.reducer;
@@ -1346,7 +1341,7 @@ Reads data from the Redux Store.
 
 ### Syntax
 
-```js id="z8ocfw"
+```js 
 const counter = useSelector(
     (state) => state.counter.value
 );
@@ -1360,7 +1355,7 @@ The current value stored in Redux.
 
 If the Store contains:
 
-```js id="7ekyda"
+```js 
 counter: {
     value: 15
 }
@@ -1368,7 +1363,7 @@ counter: {
 
 then
 
-```js id="cnh4wz"
+```js 
 const counter = useSelector(
     (state) => state.counter.value
 );
@@ -1376,7 +1371,7 @@ const counter = useSelector(
 
 returns
 
-```text id="qmbotz"
+```
 15
 ```
 
@@ -1394,13 +1389,13 @@ Returns the `dispatch()` function.
 
 ### Syntax
 
-```js id="r43i8z"
+```js 
 const dispatch = useDispatch();
 ```
 
 ### Example
 
-```js id="pmw50x"
+```js 
 dispatch(increment());
 
 dispatch(decrement());
@@ -1422,13 +1417,13 @@ Sends an action to Redux.
 
 ### Syntax
 
-```js id="xyg3r0"
+```js 
 dispatch(action);
 ```
 
 ### Example
 
-```js id="gk1ijg"
+```js 
 dispatch(increment());
 
 dispatch(decrement());
@@ -1438,7 +1433,7 @@ dispatch(increment(10));
 
 ### What Happens?
 
-```text id="elxtg0"
+```
 dispatch()
       │
       ▼
@@ -1461,7 +1456,7 @@ Makes the Redux Store available to the entire React application.
 
 ### Syntax
 
-```jsx id="rn8yvb"
+```jsx
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
@@ -1497,7 +1492,7 @@ Examples:
 
 ### Basic Syntax
 
-```js id="u2o96w"
+```js
 createAsyncThunk(
     "users/fetchUsers",
     async () => {
@@ -1525,7 +1520,7 @@ createAsyncThunk(
 
 ## Quick Revision
 
-```text id="uk4oxl"
+```
 configureStore()
       │
 Creates Store
@@ -1582,9 +1577,8 @@ Handles API calls
 * Remember: **Read → `useSelector()` | Update → `dispatch()` via `useDispatch()`**.
 
 ---
----
 
-# - Your Own Notes
+# Your Own Notes
 
 These are my personal notes while learning Redux Toolkit. They are written in a way that helps **Future Me** quickly revise the concepts.
 
@@ -1627,7 +1621,7 @@ Instead of putting everything in one file, create a separate Slice for each feat
 
 Examples:
 
-```text
+```
 authSlice.js
 
 cartSlice.js
@@ -1649,7 +1643,7 @@ The Store should **never** be updated directly.
 
 The correct flow is:
 
-```text
+```
 dispatch()
       │
       ▼
@@ -1669,7 +1663,7 @@ Always remember:
 
 This was confusing initially, so here's my memory trick.
 
-```text
+```
 useSelector()
       │
       ▼
@@ -1708,7 +1702,7 @@ So, **it is safe**.
 
 No matter how big the project becomes, the flow stays the same.
 
-```text
+```
 Store
 │
 ├── Slice
@@ -1727,7 +1721,7 @@ Store
 
 ## 💡 Folder Structure I Like
 
-```text
+```
 src/
 │
 ├── redux/
@@ -1790,7 +1784,7 @@ export default counterSlice.reducer;
 
 Whenever I use Redux Toolkit, I should think like this:
 
-```text
+```
 Need shared state?
         │
         ▼
@@ -1822,10 +1816,9 @@ If I ever get confused, remember these four things:
 
 If I understand these four concepts, the rest of Redux Toolkit becomes much easier.
 
----
 --- 
 
-# - Diagrams
+# Diagrams
 
 These diagrams provide a quick visual understanding of how Redux Toolkit works.
 
@@ -1833,7 +1826,7 @@ These diagrams provide a quick visual understanding of how Redux Toolkit works.
 
 ## 1. Overall Redux Architecture
 
-```text
+```
                      React Application
                            │
                            ▼
@@ -1860,7 +1853,7 @@ These diagrams provide a quick visual understanding of how Redux Toolkit works.
 
 ## 2. Project Folder Structure
 
-```text
+```
 src/
 │
 ├── redux/
@@ -1886,7 +1879,7 @@ src/
 
 ## 3. Redux Data Flow
 
-```text
+```
 User Clicks Button
         │
         ▼
@@ -1913,7 +1906,7 @@ Data always flows in **one direction**.
 
 ## 4. Inside a Slice
 
-```text
+```
 counterSlice.js
 │
 ├── name
@@ -1937,7 +1930,7 @@ A Slice contains everything related to one feature.
 
 ## 5. Store Structure
 
-```text
+```
 Redux Store
 │
 ├── counter
@@ -1962,7 +1955,7 @@ The Store contains the state from every Slice.
 
 ## 6. Action Flow
 
-```text
+```
 dispatch(increment(5))
         │
         ▼
@@ -1986,7 +1979,7 @@ Every dispatched action contains:
 
 ## 7. Component Communication
 
-```text
+```
              Redux Store
              /         \
             /           \
@@ -2006,7 +1999,7 @@ Every dispatched action contains:
 
 ## 8. Complete Redux Lifecycle
 
-```text
+```
 Create Slice
       │
       ▼
@@ -2038,7 +2031,7 @@ React Re-renders UI
 
 ## 9. One Slice per Feature
 
-```text
+```
 features/
 │
 ├── authSlice.js
@@ -2058,7 +2051,7 @@ One Slice should manage **one feature only**.
 
 ## 10. Quick Revision Diagram
 
-```text
+```
                     Redux Toolkit
 
              Global State Management
@@ -2095,7 +2088,7 @@ React UI Updates
 
 ## ⭐ My Favourite Memory Trick
 
-```text
+```
 Store
    │
    ▼
@@ -2126,7 +2119,7 @@ UI Updates Automatically
 --- 
 ---
 
-# - Real-World Use Cases
+# Real-World Use Cases
 
 Redux Toolkit is most useful when multiple components need to access or update the same data. Below are some common real-world scenarios where Redux Toolkit makes state management much easier.
 
@@ -2138,7 +2131,7 @@ One of the most common uses of Redux Toolkit is managing user authentication.
 
 ### Store
 
-```text
+```
 auth
 ├── user
 ├── token
@@ -2164,7 +2157,7 @@ Every e-commerce website needs a shopping cart.
 
 ### Store
 
-```text
+```
 cart
 ├── items
 ├── totalPrice
@@ -2189,7 +2182,7 @@ Instead of storing the theme inside every component, keep it in Redux.
 
 ### Store
 
-```text
+```
 theme
 └── mode
     ├── light
@@ -2208,7 +2201,7 @@ Store user information globally.
 
 ### Store
 
-```text
+```
 profile
 ├── name
 ├── email
@@ -2233,7 +2226,7 @@ Applications often show notifications in different places.
 
 ### Example:
 
-```text
+```
 notifications
 ├── messages
 ├── unreadCount
@@ -2250,7 +2243,7 @@ Many shopping websites allow users to save products.
 
 ### Example:
 
-```text
+```
 wishlist
 └── products[]
 ```
@@ -2265,7 +2258,7 @@ For shopping websites, product information is usually shared across many compone
 
 ### Example:
 
-```text
+```
 products
 ├── productList
 ├── selectedProduct
@@ -2287,7 +2280,7 @@ Pages that may use this data:
 
 Admin dashboards often contain shared data such as:
 
-```text
+```
 dashboard
 ├── totalUsers
 ├── totalOrders
@@ -2305,7 +2298,7 @@ A simple Todo application is a great beginner project for learning Redux Toolkit
 
 ### Example:
 
-```text
+```
 todos
 ├── items[]
 ├── completed
@@ -2327,7 +2320,7 @@ Applications like Instagram, Facebook, or LinkedIn manage lots of shared data.
 
 ### Example:
 
-```text
+```
 social
 ├── currentUser
 ├── posts
@@ -2369,7 +2362,7 @@ Remember:
 
 ## Quick Revision
 
-```text
+```
 Use Redux Toolkit For:
 
 ✓ Authentication
@@ -2403,10 +2396,9 @@ If only one component needs the data, I should probably use `useState()`.
 
 If many components need the same data, Redux Toolkit is usually the better choice because it provides a single, centralized source of truth.
 
----
 --- 
 
-# - Challenges I Faced While Learning Redux Toolkit
+# Challenges I Faced While Learning Redux Toolkit
 
 Learning Redux Toolkit wasn't very difficult, but there were a few concepts that confused me initially. These are the challenges I faced and how I understood them.
 
@@ -2444,7 +2436,7 @@ I discovered that Context API can store both **data** and **functions**.
 
 Example:
 
-```jsx id="ckwjyl"
+```jsx
 <UserContext.Provider value={{ user, login, logout }}>
 ```
 
@@ -2468,7 +2460,7 @@ Questions I had:
 
 Redux always follows the same flow:
 
-```text id="3w6dyl"
+```
 User Action
       │
       ▼
@@ -2501,7 +2493,7 @@ I often forgot which hook was used for reading data and which one was used for u
 
 A simple memory trick helped me:
 
-```text id="ymw7m3"
+```
 Selector = Select = Read
 
 Dispatch = Send = Update
@@ -2521,7 +2513,7 @@ When creating a new Redux project, I sometimes forgot one of the setup steps.
 
 The basic setup is always:
 
-```text id="txvdk6"
+```
 Install Packages
         │
         ▼
@@ -2556,19 +2548,19 @@ At first, I didn't understand what `payload` was or why it was needed.
 
 Example:
 
-```js id="m3ztzj"
+```js 
 dispatch(increment(5));
 ```
 
 Inside the reducer:
 
-```js id="95cjlwm"
+```js 
 action.payload
 ```
 
 will be:
 
-```text id="6z50kx"
+```
 5
 ```
 
@@ -2582,7 +2574,7 @@ Thinking of payload as **"extra information sent with an action"** made it much 
 
 Seeing code like this confused me:
 
-```js id="0muvp0"
+```js 
 state.value += 1;
 ```
 
@@ -2623,10 +2615,9 @@ If I ever feel confused while using Redux Toolkit again, I should remember this 
 
 Everything else builds on top of that idea.
 
----
 --- 
 
-# - Additional Things I Explored
+# Additional Things I Explored
 
 While learning Redux Toolkit, I came across a few concepts that I either explored briefly or learned about for future study. These topics are important and worth revisiting as I continue learning.
 
@@ -2655,7 +2646,7 @@ One thing that surprised me was that reducers can appear to mutate state directl
 
 ### Example:
 
-```js id="8wukm4"
+```js 
 state.value += 1;
 ```
 
@@ -2673,13 +2664,13 @@ I explored how actions can carry additional data using a payload.
 
 ### Example:
 
-```js id="g9n9rz"
+```js 
 dispatch(increment(5));
 ```
 
 Inside the reducer:
 
-```js id="qbjlwm"
+```js 
 state.value += action.payload;
 ```
 
@@ -2695,7 +2686,7 @@ Instead of writing actions manually, Redux Toolkit creates them for me.
 
 ### Example:
 
-```js id="h2h2ly"
+```js 
 export const { increment, decrement } = counterSlice.actions;
 ```
 
@@ -2709,7 +2700,7 @@ I explored the idea of organizing Redux code by **features** rather than putting
 
 ### Example:
 
-```text id="bgnnff"
+```
 features/
 ├── authSlice.js
 ├── cartSlice.js
@@ -2794,7 +2785,7 @@ As projects grow, the Redux Store can be configured with:
 
 ## Learning Roadmap
 
-```text id="p5k2ep"
+```
 ✔ Redux Basics
 
         │

@@ -1,0 +1,703 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+/* ==========================================================================
+   1. BASE MOBILE STYLES (Default viewports up to 480px wide)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Russo One", sans-serif;
+    letter-spacing: 0.05ch;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    background-color: #0c0c0c;
+    color: #fff;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+main {
+    width: 100%;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- HERO SECTION --- */
+#hero {
+    width: 100%;
+    background: linear-gradient(160deg, #000000 35%, #3d0b00 75%, #7d1200 100%);
+    position: relative;
+    padding-bottom: 2.5rem;
+}
+
+#hero nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1rem;
+}
+
+#hero nav #logo {
+    height: 1.8rem;
+    width: auto;
+}
+
+/* BUTTONS */
+.btn-primary {
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    padding: 0.5rem 1.1rem;
+    border-radius: 2rem;
+    background: linear-gradient(180deg, #161616, #de6732);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.03);
+}
+
+.btn-primary span {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary span i {
+    color: #de6732;
+    font-size: 0.65rem;
+}
+
+/* HERO BODY ELEMENTS */
+#hero #center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+    position: relative;
+}
+
+#hero .hero-graphic {
+    height: auto;
+    width: 16rem;
+    max-width: 95%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+#hero #centerBottom {
+    margin-top: -1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    z-index: 2;
+}
+
+#hero #centerBottom #left h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+#hero #centerBottom #left .highlight {
+    color: #ff5100;
+}
+
+#hero #centerBottom #right {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    max-width: 260px;
+    line-height: 1.4;
+}
+
+.curve-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+/* --- INFINITE TICKER MARQUEE --- */
+#divider {
+    width: 100%;
+    background-color: #0c0c0c;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 0.85rem 0;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.track {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    white-space: nowrap;
+    animation: ribbon 20s linear infinite;
+}
+
+.track span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #444444;
+    text-transform: uppercase;
+    margin-right: 2rem;
+}
+
+@keyframes ribbon {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* --- MAIN TEXT & VIDEO WRAPPERS --- */
+#content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3.5rem 1rem;
+    gap: 1.75rem;
+}
+
+#content #text {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#content #text h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
+
+.gradient-text {
+    background: linear-gradient(180deg, #ffffff 30%, #a5a5a5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#content #text .sub-intro {
+    margin-top: 0.85rem;
+    color: #777;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    letter-spacing: 0.02ch;
+}
+
+#content #video {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background-color: #1c1c1e;
+    border: 1px solid #2c2c2e;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#content #video:hover {
+    background-color: #242427;
+}
+
+#content #video .play {
+    background-color: #de6732;
+    color: white;
+    font-size: 1.3rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(222, 103, 50, 0.3);
+    padding-left: 0.2rem;
+}
+
+#content #button {
+    margin-top: 0.25rem;
+}
+
+/* --- FEATURE CARD BLOCK --- */
+#card-section {
+    width: 100%;
+    padding: 2.5rem 1rem 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+#card-section #card-text h2 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+}
+
+#card-section #card-text .dim-text {
+    color: #444;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+    width: 100%;
+}
+
+.card {
+    border-radius: 1.2rem;
+    padding: 1.75rem 1.25rem;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card .top {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.card .top h3 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+.card .top img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.card .bottom {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    letter-spacing: 0.02ch;
+    margin-top: 1.25rem;
+}
+
+/* Theme Color Declarations */
+.card-orange {
+    background-color: #ff5100;
+    color: #fff;
+}
+.card-orange .bottom {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.card-white {
+    background-color: #ffffff;
+    color: #000;
+}
+.card-white .bottom {
+    color: #555;
+}
+
+.card-dark-grey {
+    background-color: #1c1c1e;
+    color: #fff;
+}
+.card-dark-grey .bottom {
+    color: #8e8e93;
+}
+
+.card-black {
+    background-color: #000000;
+    color: #fff;
+    border: 1px solid #222;
+}
+.card-black .bottom {
+    color: #777;
+}
+
+/* ==========================================================================
+   2. LARGE PHONES / SMALL TABLETS (Viewports: >= 481px)
+   ========================================================================== */
+@media (min-width: 481px) {
+    #hero {
+        padding-bottom: 3rem;
+    }
+    #hero nav {
+        padding: 1.5rem 1.5rem;
+    }
+    #hero nav #logo {
+        height: 2rem;
+    }
+    .btn-primary {
+        font-size: 0.8rem;
+        padding: 0.55rem 1.25rem;
+    }
+
+    #hero #center {
+        padding: 0 1.5rem;
+    }
+    #hero .hero-graphic {
+        width: 19rem;
+    }
+    #hero #centerBottom #left h1 {
+        font-size: 2rem;
+    }
+    #hero #centerBottom #right {
+        font-size: 0.9rem;
+        max-width: 280px;
+    }
+
+    #divider {
+        padding: 1rem 0;
+    }
+    .track span {
+        font-size: 1rem;
+        margin-right: 2.5rem;
+    }
+
+    #content {
+        padding: 4.5rem 1.5rem;
+        gap: 2rem;
+    }
+    #content #text h2 {
+        font-size: 2.1rem;
+    }
+    #content #text .sub-intro {
+        font-size: 0.85rem;
+    }
+    #content #video {
+        height: 280px;
+    }
+
+    #card-section {
+        padding: 3.5rem 1.5rem;
+        gap: 2.2rem;
+    }
+    #card-section #card-text h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Shift to 2 columns for wider phones / compact tablets */
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+    .card {
+        padding: 2rem 1.5rem;
+        min-height: 300px;
+    }
+    .card .top h3 {
+        font-size: 1.2rem;
+    }
+    .card .top img {
+        width: 3.8rem;
+        height: 3.8rem;
+    }
+}
+
+/* ==========================================================================
+   3. TABLETS (Viewports: >= 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+    #hero {
+        padding-bottom: 3.5rem;
+    }
+    #hero nav {
+        padding: 1.75rem 2.5rem;
+    }
+    #hero nav #logo {
+        height: 2.2rem;
+    }
+    .btn-primary {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.4rem;
+    }
+
+    #hero #center {
+        padding: 0 2.5rem;
+    }
+    #hero .hero-graphic {
+        width: 22rem;
+    }
+
+    /* Flip hero bottom elements back into a flat row space */
+    #hero #centerBottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        text-align: left;
+        margin-top: -2.25rem;
+    }
+    #hero #centerBottom #left h1 {
+        font-size: 2.3rem;
+    }
+    #hero #centerBottom #right {
+        text-align: right;
+        font-size: 0.95rem;
+    }
+
+    #divider {
+        padding: 1.2rem 0;
+    }
+    .track span {
+        font-size: 1.05rem;
+        margin-right: 3rem;
+    }
+
+    #content {
+        padding: 5rem 2.5rem;
+        gap: 2.2rem;
+    }
+    #content #text h2 {
+        font-size: 2.5rem;
+    }
+    #content #text .sub-intro {
+        font-size: 0.9rem;
+        margin-top: 1.25rem;
+    }
+    #content #video {
+        height: 360px;
+    }
+
+    #card-section {
+        padding: 4rem 2.5rem;
+        gap: 2.5rem;
+    }
+    #card-section #card-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .card {
+        padding: 2.2rem 1.75rem;
+        min-height: 320px;
+    }
+    .card .top h3 {
+        font-size: 1.35rem;
+    }
+    .card .top img {
+        width: 4.2rem;
+        height: 4.2rem;
+    }
+}
+
+/* ==========================================================================
+   4. SMALL LAPTOPS (Viewports: >= 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+    #hero nav {
+        padding: 2rem 3.5rem;
+    }
+    #hero nav #logo {
+        height: 2.4rem;
+    }
+
+    #hero #center {
+        padding: 0 3.5rem;
+    }
+    #hero .hero-graphic {
+        width: 23rem;
+    }
+
+    #hero #centerBottom {
+        margin-top: -2.75rem;
+    }
+    #hero #centerBottom #left h1 {
+        font-size: 2.6rem;
+    }
+    #hero #centerBottom #right {
+        font-size: 0.95rem;
+        max-width: 280px;
+    }
+
+    #divider {
+        padding: 1.35rem 0;
+    }
+    .track span {
+        font-size: 1.15rem;
+        margin-right: 3.5rem;
+    }
+
+    #content {
+        padding: 5.5rem 3.5rem;
+        gap: 2.5rem;
+    }
+    #content #text {
+        max-width: 600px;
+    }
+    #content #text h2 {
+        font-size: 2.8rem;
+    }
+    #content #text .sub-intro {
+        font-size: 0.95rem;
+    }
+    #content #video {
+        max-width: 700px;
+        height: 390px;
+    }
+    #content #video .play {
+        font-size: 1.6rem;
+        width: 3.6rem;
+        height: 3.6rem;
+    }
+
+    #card-section {
+        padding: 4rem 3.5rem 5rem 3.5rem;
+    }
+    #card-section #card-text h2 {
+        font-size: 2rem;
+    }
+
+    /* Transition cleanly into full 4-column desktop display grids */
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+    }
+    .card {
+        padding: 2.2rem 1.5rem;
+        min-height: 340px;
+    }
+    .card .top h3 {
+        font-size: 1.3rem;
+    }
+    .card .top img {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+    .card .bottom {
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================================================
+   5. DESKTOPS (Viewports: >= 1280px)
+   ========================================================================== */
+@media (min-width: 1280px) {
+    #hero {
+        padding-bottom: 4rem;
+    }
+    #hero nav {
+        padding: 2rem 4rem;
+    }
+    #hero nav #logo {
+        height: 2.5rem;
+    }
+
+    #hero #center {
+        padding: 0 4rem;
+    }
+    #hero .hero-graphic {
+        width: 24rem;
+    }
+
+    #hero #centerBottom {
+        margin-top: -3rem;
+    }
+    #hero #centerBottom #left h1 {
+        font-size: 3rem;
+    }
+    #hero #centerBottom #right {
+        font-size: 1rem;
+        max-width: 300px;
+        line-height: 1.4;
+    }
+
+    #divider {
+        padding: 1.5rem 0;
+    }
+    .track span {
+        font-size: 1.2rem;
+        margin-right: 4rem;
+    }
+
+    #content {
+        padding: 6rem 4rem;
+    }
+    #content #text {
+        max-width: 800px;
+    }
+    #content #text h2 {
+        font-size: 3.2rem;
+    }
+    #content #text .sub-intro {
+        font-size: 0.95rem;
+        margin-top: 1.5rem;
+        max-width: 800px;
+    }
+    #content #video {
+        max-width: 750px;
+        height: 420px;
+    }
+    #content #video .play {
+        font-size: 1.8rem;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    #card-section {
+        padding: 4rem 4rem 6rem 4rem;
+        gap: 3rem;
+    }
+    #card-section #card-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .cards {
+        gap: 1.5rem;
+    }
+    .card {
+        padding: 2.5rem 2rem;
+        min-height: 350px;
+    }
+    .card .top h3 {
+        font-size: 1.5rem;
+    }
+    .card .top img {
+        width: 5rem;
+        height: 5rem;
+    }
+    .card .bottom {
+        font-size: 0.9rem;
+    }
+}

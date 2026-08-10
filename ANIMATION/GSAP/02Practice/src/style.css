@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Oswald:wght@200..700&display=swap");
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --font: "Oswald", sans-serif;
+    --font2: "Google Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+#loader {    
+    position: absolute;
+    z-index: 2;
+    background-color: #010101;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader-count h2 {
+    color: #fff;
+    font-size: 3rem;
+}
+
+#hero {
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-bg img {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.hero-text {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    color: #fff;
+    text-align: center;
+    gap: 1rem;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+}
+
+.hero-text .heading h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font2);
+    display: none;
+}
+
+.hero-text .sub-heading p {
+    font-size: 1rem;
+    font-weight: 100;
+    letter-spacing: 0.35rem;
+    font-family: var(--font);
+    display: none;
+}

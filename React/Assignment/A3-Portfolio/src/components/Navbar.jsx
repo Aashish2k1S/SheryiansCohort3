@@ -1,46 +1,91 @@
+import { useRef } from "react";
+import { gsap, useGSAP } from "../hooks/useGsap";
+
 function Navbar() {
-  return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <nav className="mx-auto flex max-w-350 items-center justify-between px-6 py-6 md:px-10">
-        <a
-          href="/"
-          className="text-sm font-bold tracking-tight"
-        >
-          AASHISH.
-        </a>
+    const navRef = useRef(null);
 
-        <div className="hidden items-center gap-8 md:flex">
-          <a
-            href="#work"
-            className="text-sm text-neutral-400 transition-colors hover:text-white"
-          >
-            WORK
-          </a>
+    useGSAP(
+        () => {
+            const reduceMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)",
+            ).matches;
 
-          <a
-            href="#about"
-            className="text-sm text-neutral-400 transition-colors hover:text-white"
-          >
-            ABOUT
-          </a>
+            if (reduceMotion) return;
 
-          <a
-            href="#contact"
-            className="text-sm text-neutral-400 transition-colors hover:text-white"
-          >
-            CONTACT
-          </a>
-        </div>
+            gsap.from(navRef.current, {
+                y: -20,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power3.out",
+            });
+        },
+        { scope: navRef },
+    );
 
-        <a
-          href="#contact"
-          className="mono hidden text-xs uppercase tracking-wider md:block"
-        >
-          Let's Talk ↗
-        </a>
-      </nav>
-    </header>
-  );
+    return (
+        <header className="fixed inset-x-0 top-0 z-50">
+            <nav
+                ref={navRef}
+                className="mx-auto flex max-w-350 items-center justify-between px-6 py-6 md:px-10"
+            >
+                <a href="/" className="text-sm font-bold tracking-tight">
+                    AASHISH.
+                </a>
+
+                <button
+                    type="button"
+                    className="mono text-[10px] uppercase tracking-[0.2em] text-neutral-400 md:hidden"
+                >
+                    Menu
+                </button>
+
+                <div className="hidden items-center gap-8 md:flex">
+                    <a
+                        href="#work"
+                        className="text-sm text-neutral-400 transition-colors hover:text-white"
+                    >
+                        WORK
+                    </a>
+
+                    <a
+                        href="#about"
+                        className="text-sm text-neutral-400 transition-colors hover:text-white"
+                    >
+                        ABOUT
+                    </a>
+
+                    <a
+                        href="#experience"
+                        className="text-sm text-neutral-400 transition-colors hover:text-white"
+                    >
+                        EXPERIENCE
+                    </a>
+
+                    <a
+                        href="#skills"
+                        className="text-sm text-neutral-400 transition-colors hover:text-white"
+                    >
+                        SKILLS
+                    </a>
+
+                    <a
+                        href="#contact"
+                        className="text-sm text-neutral-400 transition-colors hover:text-white"
+                    >
+                        CONTACT
+                    </a>
+                </div>
+
+                <a
+                    href="#contact"
+                    className="hidden items-center gap-2 transition-colors duration-200 hover:text-neutral-400 md:inline-flex"
+                >
+                    Let's Talk
+                    <span>↗</span>
+                </a>
+            </nav>
+        </header>
+    );
 }
 
 export default Navbar;

@@ -32,34 +32,34 @@ A structured 7-stage roadmap for building a modern, performant, and animated dev
 
 ## 📌 Stage 3 — Visual Polish
 
-- Typography
-- Spacing
-- Borders
-- Responsive layout
-- Project cards
-- Hover states
-- Mobile layout
+- [x] Typography
+- [x] Spacing
+- [x] Borders
+- [x] Responsive layout
+- [x] Project cards
+- [x] Hover states
+- [x] Mobile layout
 
 ---
 
 ## 📌 Stage 4 — GSAP Animations
 
-- [x] Page entrance
-- [x] Hero reveal
-- [x] ScrollTrigger setup
-- [x] Project animations
-- [x] About timeline
-- [x] Skill animations
+- [X] Page entrance
+- [X] Hero reveal
+- [X] ScrollTrigger setup
+- [X] Project animations
+- [X] About timeline
+- [X] Skill animations
 
 ---
 
 ## 📌 Stage 5 — Advanced Interactions
 
-- [x] Custom cursor
-- [x] Magnetic buttons
-- [x] Project hover effects
-- [x] Navbar transition on scroll
-- [x] Smooth scrolling (e.g., Lenis)
+- Custom cursor
+- Magnetic buttons
+- Project hover effects
+- Navbar transition on scroll
+- Smooth scrolling (e.g., Lenis)
 
 ---
 
@@ -134,3 +134,36 @@ This modular approach ensures that adding dynamic subpages won't require redesig
 
 ```
 
+
+## 📌 Stage 5 — Final Polish & UX
+
+```
+[X] Custom cursor — base movement
+[x] Custom cursor — interaction states
+[ ] Magnetic buttons
+[ ] Project hover effects
+[ ] Navbar transition on scroll
+[ ] Smooth scrolling / Lenis
+
+STAGE 5 — ADVANCED INTERACTIONS
+├── Custom cursor
+├── Project hover effects
+├── Magnetic buttons
+├── Navbar scroll transition
+└── Smooth scrolling
+
+STAGE 6 — FINAL POLISH & UX
+├── Animation QA
+├── Reduced-motion QA
+├── Mobile QA
+├── Mobile navbar
+├── Accessibility
+├── SEO
+├── External links
+├── Project detail routing
+├── 404
+├── Performance
+├── Final responsive QA
+├── Production build
+└── Deployment
+```

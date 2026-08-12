@@ -7,7 +7,8 @@ export function createContactReveal(element) {
         scrollTrigger: {
             trigger: element.current,
             start: "top 85%",
-            once: true,
+            end: "bottom 90%",
+            scrub: true,
         },
     });
 
@@ -44,7 +45,7 @@ export function createContactReveal(element) {
                 y: 15,
                 opacity: 0,
                 duration: 0.4,
-                stagger: 0.1,
+                stagger: 0.12,
                 ease: "power3.out",
             },
             "-=0.25",

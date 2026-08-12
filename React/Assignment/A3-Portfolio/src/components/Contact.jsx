@@ -23,7 +23,6 @@ function Contact() {
             id="contact"
             className="border-t border-neutral-800 px-6 py-32 md:px-10 md:py-40"
         >
-            {/* border-t border-neutral-800 px-6 py-32 md:px-10 md:py-40 */}
             <div className="mx-auto max-w-350">
                 <div className="contact-header mb-16 md:mb-20">
                     <p className="mono text-xs uppercase tracking-[0.25em] text-neutral-500">
@@ -39,7 +38,7 @@ function Contact() {
                             <br />
                             SOMETHING
                             <br />
-                            <span className="text-neutral-500">USEFUL.</span>
+                            <span className="text-[#FD1C00]">USEFUL.</span>
                         </h2>
                     </div>
 
@@ -52,17 +51,19 @@ function Contact() {
 
                         <div className="mt-10 flex flex-col items-start gap-5">
                             <a
+                                data-cursor="interactive"
                                 href="mailto:aashishgupta.dev2001@gmail.com"
                                 className="contact-link group flex items-center gap-3 text-sm font-medium"
                             >
                                 <span>EMAIL</span>
 
-                                <span className="text-neutral-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                                <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                                     ↗
                                 </span>
                             </a>
 
                             <a
+                                data-cursor="interactive"
                                 href="https://www.linkedin.com/in/aashish-gupta001/"
                                 target="_blank"
                                 rel="noreferrer"
@@ -70,12 +71,13 @@ function Contact() {
                             >
                                 <span>LINKEDIN</span>
 
-                                <span className="text-neutral-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                                <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                                     ↗
                                 </span>
                             </a>
 
                             <a
+                                data-cursor="interactive"
                                 href="https://github.com/Aashish2k1S"
                                 target="_blank"
                                 rel="noreferrer"
@@ -83,7 +85,7 @@ function Contact() {
                             >
                                 <span>GITHUB</span>
 
-                                <span className="text-neutral-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+                                <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                                     ↗
                                 </span>
                             </a>

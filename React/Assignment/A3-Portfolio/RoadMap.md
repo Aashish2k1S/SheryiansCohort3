@@ -55,11 +55,11 @@ A structured 7-stage roadmap for building a modern, performant, and animated dev
 
 ## 📌 Stage 5 — Advanced Interactions
 
-- Custom cursor
-- Magnetic buttons
-- Project hover effects
-- Navbar transition on scroll
-- Smooth scrolling (e.g., Lenis)
+- [X] Custom cursor
+- [X] Magnetic buttons
+- [X] Project hover effects
+- [X] Navbar transition on scroll
+- [X] Smooth scrolling (e.g., Lenis)
 
 ---
 
@@ -133,25 +133,6 @@ This modular approach ensures that adding dynamic subpages won't require redesig
 ```
 
 ```
-
-
-## 📌 Stage 5 — Final Polish & UX
-
-```
-[X] Custom cursor — base movement
-[x] Custom cursor — interaction states
-[ ] Magnetic buttons
-[ ] Project hover effects
-[ ] Navbar transition on scroll
-[ ] Smooth scrolling / Lenis
-
-STAGE 5 — ADVANCED INTERACTIONS
-├── Custom cursor
-├── Project hover effects
-├── Magnetic buttons
-├── Navbar scroll transition
-└── Smooth scrolling
-
 STAGE 6 — FINAL POLISH & UX
 ├── Animation QA
 ├── Reduced-motion QA
@@ -166,4 +147,18 @@ STAGE 6 — FINAL POLISH & UX
 ├── Final responsive QA
 ├── Production build
 └── Deployment
+
+STAGE 6 — PERFORMANCE & ACCESSIBILITY
+
+[X] Loading / preloader
+[ ] Lighthouse audit
+[ ] Image optimization
+[ ] Font loading strategy
+[ ] Animation performance
+[ ] Mobile performance
+[ ] Accessibility
+[ ] prefers-reduced-motion QA
+[ ] Final responsive QA
+[ ] Production build
+[ ] Deployment
 ```

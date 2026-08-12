@@ -24,6 +24,11 @@ function CustomCursor() {
                 return;
             }
 
+            gsap.set(cursor, {
+                xPercent: -50,
+                yPercent: -50,
+            });
+
             const xTo = gsap.quickTo(cursor, "x", {
                 duration: 0.2,
                 ease: "power3.out",
@@ -149,11 +154,11 @@ function CustomCursor() {
     return (
         <div
             ref={cursorRef}
-            className="pointer-events-none fixed left-0 top-0 z-100 hidden -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white mix-blend-difference md:flex"
+            className="pointer-events-none fixed left-0 top-0 z-100 items-center justify-center rounded-full bg-[#FD1C00] mix-blend-difference flex"
         >
             <span
                 ref={labelRef}
-                className="mono text-[9px] font-medium uppercase tracking-wider text-black opacity-0"
+                className="mono text-xs font-bold uppercase tracking-wider text-white opacity-0"
             />
         </div>
     );

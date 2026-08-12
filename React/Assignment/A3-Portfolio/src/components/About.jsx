@@ -22,7 +22,7 @@ function About() {
         <section
             ref={sectionRef}
             id="about"
-            className="border-t border-neutral-800 px-6 py-32 md:px-10 md:py-40"
+            className="border-t border-neutral-800 px-6 pt-32 md:px-10 md:pt-40"
         >
             <div className="mx-auto max-w-350">
                 {/* Section Header */}
@@ -43,7 +43,7 @@ function About() {
                             <br />
                             WHO BUILDS
                             <br />
-                            <span className="text-neutral-500">
+                            <span className="text-[#FD1C00]">
                                 USEFUL SYSTEMS.
                             </span>
                         </h2>

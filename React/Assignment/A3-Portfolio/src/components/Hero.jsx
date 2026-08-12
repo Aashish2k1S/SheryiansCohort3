@@ -1,9 +1,12 @@
 import { useRef } from "react";
 import { useGSAP } from "../hooks/useGsap";
 import { createHeroReveal } from "../animations/heroAnimations";
+import useMagnetic from "../hooks/useMagnetic";
+import { scrollToSection } from "../hooks/useScrollToSection";
 
 function Hero() {
     const heroRef = useRef(null);
+    const exploreRef = useMagnetic();
 
     useGSAP(
         () => {
@@ -21,7 +24,8 @@ function Hero() {
     return (
         <section
             ref={heroRef}
-            className="relative flex min-h-screen items-end overflow-hidden px-6 pb-12 md:px-10 md:pb-16"
+            id="hero"
+            className="relative flex min-h-screen items-end overflow-hidden px-6 mt-10 md:mt-0 pb-12 md:px-10 md:pb-16"
         >
             <div className="mx-auto w-full max-w-350">
                 {/* Eyebrow */}
@@ -32,14 +36,10 @@ function Hero() {
                 </div>
 
                 {/* Headline */}
-                <h1 className="max-w-300 text-[clamp(3.5rem,9vw,9rem)] font-semibold leading-[0.85] tracking-[-0.07em]">
+                <h1 data-cursor="interactive" className="max-w-250 text-[clamp(3.5rem,9vw,9rem)] font-semibold leading-[0.85] tracking-[-0.07em]">
                     <span className="hero-line block">I BUILD</span>
-
                     <span className="hero-line block">SYSTEMS</span>
-
-                    <span className="hero-line block text-neutral-500">
-                        THAT MATTER.
-                    </span>
+                    <span className="hero-line block text-[#FD1C00]">THAT MATTER.</span>
                 </h1>
 
                 {/* Bottom Content */}
@@ -49,17 +49,18 @@ function Hero() {
                         data-driven applications and modern web experiences.
                     </p>
 
-                    <div className="flex items-center gap-6">
-                        <a
-                            href="#work"
+                    <div className="flex flex-col md:flex-row md:items-center gap-6">
+                        <button
+                            type="button"
+                            onClick={() => scrollToSection("work")}
+                            ref={exploreRef}
                             className="group flex items-center gap-3 px-4 py-3 text-sm font-medium"
                         >
                             <span>EXPLORE WORK</span>
-
                             <span className="transition-transform duration-300 group-hover:translate-x-1">
                                 ↗
                             </span>
-                        </a>
+                        </button>
 
                         <span className="mono text-xs text-neutral-600">
                             .NET · PYTHON · SQL · REACT
@@ -69,9 +70,14 @@ function Hero() {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="hero-scroll mono absolute bottom-6 right-6 hidden text-[10px] uppercase tracking-widest text-neutral-600 md:block">
-                Scroll to explore ↓
-            </div>
+            <button
+                type="button"
+                onClick={() => scrollToSection("contact")} 
+                data-cursor="interactive"
+                className="hero-scroll mono absolute bottom-6 right-6 hidden text-[10px] uppercase tracking-widest text-neutral-600 md:block mix-blend-difference"
+            >
+                Scroll to top ↓
+            </button>
         </section>
     );
 }

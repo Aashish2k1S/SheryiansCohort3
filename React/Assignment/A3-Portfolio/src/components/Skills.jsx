@@ -25,7 +25,7 @@ function Skills() {
         <section
             ref={sectionRef}
             id="skills"
-            className="border-t border-neutral-800 px-6 py-32 md:px-10 md:py-40"
+            className="border-t border-neutral-800 px-6 pt-32 md:px-10 md:pt-40"
         >
             <div className="mx-auto max-w-350">
                 {/* Header */}
@@ -46,11 +46,11 @@ function Skills() {
                 </div>
 
                 {/* Skills */}
-                <div className="border-t border-neutral-800">
+                <div>
                     {categories.map((category) => (
                         <article
                             key={category.number} 
-                            className="skill-category grid gap-8 border-b border-neutral-800 py-10 md:grid-cols-[80px_220px_1fr] md:py-12"
+                            className="skill-category grid gap-8 border-t border-neutral-800 py-10 md:grid-cols-[80px_220px_1fr] md:py-12"
                         >
                             {/* Number */}
                             <div>

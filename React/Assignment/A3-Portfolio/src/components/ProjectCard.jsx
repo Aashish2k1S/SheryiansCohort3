@@ -1,6 +1,26 @@
+import { useRef } from "react";
+import { useGSAP } from "../hooks/useGsap";
+import { createProjectCardReveal } from "../animations/projectCardAnimations";
+
 function ProjectCard({ project }) {
+    const cardRef = useRef(null);
+    const visualRef = useRef(null);
+
+    useGSAP(
+        () => {
+            createProjectCardReveal(cardRef.current, visualRef.current);
+        },
+        {
+            scope: cardRef,
+        },
+    );
+
     return (
-        <article data-cursor="project" className="project-card group border-t border-neutral-800 py-12 md:py-16">
+        <article
+            ref={cardRef}
+            data-cursor="project"
+            className="project-card group border-t border-neutral-800 py-12 md:py-16"
+        >
             <div className="grid gap-10 md:grid-cols-[80px_1fr]">
                 {/* Project Number */}
                 <div>
@@ -34,7 +54,7 @@ function ProjectCard({ project }) {
                             {project.technologies.map((technology) => (
                                 <span
                                     key={technology}
-                                    className="border border-neutral-800 px-3 py-2 text-xs text-neutral-400 transition-colors duration-200 group-hover:border-neutral-700 group-hover:text-neutral-300"
+                                    className="border border-neutral-800 px-3 py-2 text-xs text-neutral-400 transition-colors duration-200 group-hover:border-neutral-700 group-hover:text-neutral-100"
                                 >
                                     {technology}
                                 </span>
@@ -43,12 +63,22 @@ function ProjectCard({ project }) {
                     </div>
 
                     {/* Project Visual */}
-                    <div className="aspect-16/10 overflow-hidden border border-neutral-800 bg-[#101010] transition-colors duration-300 group-hover:border-neutral-700">
-                        <div className="flex h-full items-center justify-center">
-                            <span className="mono text-xs uppercase tracking-[0.3em] text-neutral-700 transition-colors duration-300 group-hover:text-neutral-500">
-                                {project.title}
-                            </span>
-                        </div>
+                    <div ref={visualRef} className="aspect-16/10 overflow-hidden border border-neutral-800 bg-[#101010] transition-colors duration-300 group-hover:border-neutral-700">
+                        {project.image ? (
+                            <img
+                                src={project.image}
+                                alt={`${project.title} project preview`}
+                                loading="lazy"
+                                decoding="async"
+                                className="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                            />
+                        ) : (
+                            <div className="flex h-full items-center justify-center">
+                                <span className="mono text-xs uppercase tracking-[0.3em] text-neutral-700 transition-colors duration-300 group-hover:text-neutral-500">
+                                    {project.title}
+                                </span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

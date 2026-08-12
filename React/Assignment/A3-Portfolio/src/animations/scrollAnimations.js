@@ -2,7 +2,7 @@ import { gsap } from "../hooks/useGsap";
 
 export function createScrollReveal(
     element,
-    { y = 50, duration = 0.8, start = "top 75%" } = {},
+    { y = 50, duration = 0.8, start = "top 85%" } = {},
 ) {
     return gsap.from(element, {
         y,

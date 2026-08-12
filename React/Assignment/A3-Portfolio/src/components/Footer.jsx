@@ -1,13 +1,19 @@
+import { scrollToSection } from "../hooks/useScrollToSection";
+
 function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-neutral-800 px-6 py-8 md:px-10">
-      <div className="mx-auto flex max-w-350 flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <footer className="border-t border-neutral-800 px-6 py-8 md:px-10 mb-4 md:mb-0">
+      <div className="mx-auto flex max-w-350 flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-bold tracking-tight">
+          <button
+            type="button"
+            onClick={() => scrollToSection("hero")}
+            data-cursor="interactive"
+            className="text-[#FD1C00] text-sm font-bold tracking-tight">
             AASHISH.
-          </p>
+          </button>
 
           <p className="mono mt-2 text-[10px] uppercase tracking-wider text-neutral-600">
             Software Developer
@@ -15,7 +21,7 @@ function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center gap-6">
-          <a
+          <a data-cursor="interactive"
             href="https://github.com/Aashish2k1S"
             target="_blank"
             rel="noreferrer"
@@ -24,7 +30,7 @@ function Footer() {
             GitHub
           </a>
 
-          <a
+          <a data-cursor="interactive"
             href="https://www.linkedin.com/in/aashish-gupta001/"
             target="_blank"
             rel="noreferrer"

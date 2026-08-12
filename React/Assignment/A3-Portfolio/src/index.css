@@ -2,43 +2,130 @@
 
 @import "tailwindcss";
 
+/* ========================================
+   Base
+======================================== */
+
 :root {
-  font-family: "Manrope", sans-serif;
+    font-family: "Manrope", sans-serif;
+    color: #f5f5f5;
+    background: #0a0a0a;
 
-  color: #f5f5f5;
-  background: #0a0a0a;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  line-height: 1.5;
+    line-height: 1.5;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+    margin: 0;
+    min-width: 320px;
+
+    background: #0a0a0a;
+    color: #f5f5f5;
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-
-  background: #0a0a0a;
-  color: #f5f5f5;
+    min-height: 100vh;
 }
+
+/* ========================================
+   Interactive Elements
+======================================== */
 
 button,
 a {
-  -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
+
+/* ========================================
+   Selection
+======================================== */
 
 ::selection {
-  background: #f5f5f5;
-  color: #0a0a0a;
+    background: #f5f5f5;
+    color: #0a0a0a;
 }
 
+/* ========================================
+   Typography
+======================================== */
+
 .mono {
-  font-family: "DM Mono", monospace;
+    font-family: "DM Mono", monospace;
+}
+
+/* ========================================
+   Custom Cursor
+   Hide native cursor only when a precise
+   pointing device is available.
+======================================== */
+
+@media (pointer: fine) {
+    html,
+    body {
+        cursor: none;
+    }
+
+    button,
+    a,
+    [role="button"] {
+        cursor: none;
+    }
+}
+
+/* ========================================
+   Lenis Smooth Scrolling
+======================================== */
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+/* ========================================
+   Scrollbar
+======================================== */
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #fd1c00 #0a0a0a;
+}
+
+/* Chrome / Edge / Safari */
+
+html::-webkit-scrollbar {
+    width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #fd1c00;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: #ff321a;
 }

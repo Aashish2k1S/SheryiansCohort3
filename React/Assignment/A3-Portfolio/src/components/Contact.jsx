@@ -21,12 +21,12 @@ function Contact() {
         <section
             ref={sectionRef}
             id="contact"
-            className="border-t border-neutral-800 px-6 py-32 md:px-10 md:py-40"
+            className="border-t border-border-custom px-6 py-32 md:px-10 md:py-40"
         >
             <div className="mx-auto max-w-350">
                 <div className="contact-header mb-16 md:mb-20">
-                    <p className="mono text-xs uppercase tracking-[0.25em] text-neutral-500">
-                        05 / Contact
+                    <p className="mono text-xs uppercase tracking-[0.25em] text-muted">
+                        06 / Contact
                     </p>
                 </div>
 
@@ -38,7 +38,7 @@ function Contact() {
                             <br />
                             SOMETHING
                             <br />
-                            <span className="text-[#FD1C00]">USEFUL.</span>
+                            <span className="text-accent">USEFUL.</span>
                         </h2>
                     </div>
 

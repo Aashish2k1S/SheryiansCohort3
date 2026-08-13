@@ -25,12 +25,12 @@ function Hero() {
         <section
             ref={heroRef}
             id="hero"
-            className="relative flex min-h-screen items-end overflow-hidden px-6 mt-10 md:mt-0 pb-12 md:px-10 md:pb-16"
+            className="relative flex min-h-screen items-end overflow-hidden px-6  pb-12 md:px-10 md:pb-16"
         >
             <div className="mx-auto w-full max-w-350">
                 {/* Eyebrow */}
                 <div className="hero-eyebrow mb-8">
-                    <p className="mono text-xs uppercase tracking-[0.25em] text-neutral-500">
+                    <p className="mono text-xs uppercase tracking-[0.25em] text-muted">
                         Software Developer · India
                     </p>
                 </div>
@@ -39,11 +39,11 @@ function Hero() {
                 <h1 data-cursor="interactive" className="max-w-250 text-[clamp(3.5rem,9vw,9rem)] font-semibold leading-[0.85] tracking-[-0.07em]">
                     <span className="hero-line block">I BUILD</span>
                     <span className="hero-line block">SYSTEMS</span>
-                    <span className="hero-line block text-[#FD1C00]">THAT MATTER.</span>
+                    <span className="hero-line block text-accent">THAT MATTER.</span>
                 </h1>
 
                 {/* Bottom Content */}
-                <div className="hero-bottom mt-10 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+                <div className="hero-bottom mt-10 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
                     <p className="max-w-md text-base leading-relaxed text-neutral-400">
                         Backend-focused software developer building APIs,
                         data-driven applications and modern web experiences.
@@ -62,7 +62,7 @@ function Hero() {
                             </span>
                         </button>
 
-                        <span className="mono text-xs text-neutral-600">
+                        <span className="mono text-xs text-subtle">
                             .NET · PYTHON · SQL · REACT
                         </span>
                     </div>
@@ -74,9 +74,9 @@ function Hero() {
                 type="button"
                 onClick={() => scrollToSection("contact")} 
                 data-cursor="interactive"
-                className="hero-scroll mono absolute bottom-6 right-6 hidden text-[10px] uppercase tracking-widest text-neutral-600 md:block mix-blend-difference"
+                className="hero-scroll mono absolute bottom-6 right-6 hidden text-[10px] uppercase tracking-widest text-subtle md:block mix-blend-difference"
             >
-                Scroll to top ↓
+                Scroll to explore ↓
             </button>
         </section>
     );

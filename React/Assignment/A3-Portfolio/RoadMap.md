@@ -132,33 +132,31 @@ This modular approach ensures that adding dynamic subpages won't require redesig
 
 ```
 
+
 ```
-STAGE 6 — FINAL POLISH & UX
-├── Animation QA
-├── Reduced-motion QA
-├── Mobile QA
-├── Mobile navbar
-├── Accessibility
-├── SEO
-├── External links
-├── Project detail routing
-├── 404
-├── Performance
-├── Final responsive QA
-├── Production build
-└── Deployment
+src/
+├── data/
+│   └── projects.js
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── ProjectDetails.jsx
+│   └── NotFound.jsx
+│
+├── components/
+│   ├── Projects.jsx
+│   ├── ProjectCard.jsx
+│   └── ...
+│
+└── App.jsx
 
-STAGE 6 — PERFORMANCE & ACCESSIBILITY
+/
+├── /projects/scrapeflow
+├── /projects/erp-platform
+├── /projects/ai-summarizer
+├── /projects/employee-api
+└── *
 
-[X] Loading / preloader
-[ ] Lighthouse audit
-[ ] Image optimization
-[ ] Font loading strategy
-[ ] Animation performance
-[ ] Mobile performance
-[ ] Accessibility
-[ ] prefers-reduced-motion QA
-[ ] Final responsive QA
-[ ] Production build
-[ ] Deployment
+ProjectDetails.jsx
+
 ```

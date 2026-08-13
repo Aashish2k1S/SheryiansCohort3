@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useGSAP } from "../hooks/useGsap";
 import { createExperienceReveal } from "../animations/experienceAnimations";
+import { experience } from "../data/data";
 
 function Experience() {
     const sectionRef = useRef(null);
@@ -22,14 +23,13 @@ function Experience() {
         <section
             ref={sectionRef}
             id="experience"
-            className="border-t border-neutral-800 px-6 pt-32 md:px-10 md:pt-40"
+            className="border-t border-border-custom px-6 pt-32 md:px-10 md:pt-40"
         >
-            {/* border-t border-neutral-800 px-6 py-32 md:px-10 md:py-40  */}
             <div className="mx-auto max-w-350">
                 {/* Section Header */}
-                <div className="experience-header mb-16 md:mb-20 grid gap-6 md:grid-cols-2">
+                <div className="experience-header mb-16 grid gap-6 md:mb-20 md:grid-cols-2">
                     <div>
-                        <p className="mono text-xs uppercase tracking-[0.25em] text-neutral-500">
+                        <p className="mono text-xs uppercase tracking-[0.25em] text-muted">
                             03 / Experience
                         </p>
                     </div>
@@ -43,103 +43,53 @@ function Experience() {
                     </div>
                 </div>
 
-                {/* Experience Item */}
-                <article className="experience-item border-t border-neutral-800 py-10 md:py-12">
-                    {/* border-t border-neutral-800 py-10 */}
-                    <div className="grid gap-10 md:grid-cols-[180px_220px_1fr]">
-                        {/* Date */}
-                        <div>
-                            <p className="mono text-xs uppercase tracking-wider text-neutral-500">
-                                2024 — Present
-                            </p>
-                        </div>
+                {/* Experience */}
+                <div>
+                    {experience.map((item) => (
+                        <article
+                            key={item.id}
+                            className="experience-item border-t border-border-custom py-10 md:py-12"
+                        >
+                            <div className="grid gap-10 md:grid-cols-[180px_220px_1fr]">
+                                {/* Period */}
+                                <div>
+                                    <p className="mono text-xs uppercase tracking-wider text-muted">
+                                        {item.period}
+                                    </p>
+                                </div>
 
-                        {/* Company / Role */}
-                        <div>
-                            <h3 className="text-2xl font-semibold tracking-tight">
-                                Quest Global
-                            </h3>
+                                {/* Company / Role */}
+                                <div>
+                                    <h3 className="text-2xl font-semibold tracking-tight">
+                                        {item.company}
+                                    </h3>
 
-                            <p className="mt-2 text-sm text-neutral-500">
-                                Software Developer
-                            </p>
-                        </div>
+                                    <p className="mt-2 text-sm text-muted">
+                                        {item.role}
+                                    </p>
+                                </div>
 
-                        {/* Description */}
-                        <div>
-                            <p className="max-w-xl text-base leading-7 text-neutral-400">
-                                Working on backend applications and APIs with a
-                                focus on .NET, SQL and application development.
-                                Responsibilities include API development,
-                                database optimization and reporting solutions.
-                            </p>
+                                {/* Description / Technologies */}
+                                <div>
+                                    <p className="max-w-xl text-base leading-7 text-neutral-400">
+                                        {item.description}
+                                    </p>
 
-                            <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3">
-                                {[
-                                    ".NET",
-                                    "ASP.NET Core",
-                                    "SQL Server",
-                                    "REST APIs",
-                                    "Crystal Reports",
-                                    "Kotlin",
-                                ].map((technology) => (
-                                    <span
-                                        key={technology}
-                                        className="mono text-[10px] uppercase tracking-wider text-neutral-600"
-                                    >
-                                        {technology}
-                                    </span>
-                                ))}
+                                    <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3">
+                                        {item.technologies.map((technology) => (
+                                            <span
+                                                key={technology}
+                                                className="mono text-[10px] uppercase tracking-wider text-subtle"
+                                            >
+                                                {technology}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </article>
-
-                {/* Additional Experience Placeholder */}
-                <article className="experience-item border-t border-neutral-800 py-10">
-                    <div className="grid gap-10 md:grid-cols-[180px_220px_1fr]">
-                        <div>
-                            <p className="mono text-xs uppercase tracking-wider text-neutral-500">
-                                Freelance
-                            </p>
-                        </div>
-
-                        <div>
-                            <h3 className="text-2xl font-semibold tracking-tight">
-                                Web Application Development
-                            </h3>
-
-                            <p className="mt-2 text-sm text-neutral-500">
-                                Freelance Developer
-                            </p>
-                        </div>
-
-                        <div>
-                            <p className="max-w-xl text-base leading-7 text-neutral-400">
-                                Worked on full-stack web application development
-                                involving Angular, .NET Core and Microsoft SQL
-                                Server, with responsibility across frontend,
-                                backend and database layers.
-                            </p>
-
-                            <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3">
-                                {[
-                                    ".NET Core",
-                                    "Angular",
-                                    "MS SQL",
-                                    "REST APIs",
-                                ].map((technology) => (
-                                    <span
-                                        key={technology}
-                                        className="mono text-[10px] uppercase tracking-wider text-neutral-600"
-                                    >
-                                        {technology}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </article>
+                        </article>
+                    ))}
+                </div>
             </div>
         </section>
     );

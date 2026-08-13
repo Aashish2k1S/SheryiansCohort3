@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useGSAP } from "../hooks/useGsap";
 import { createProjectReveal } from "../animations/projectAnimations";
-import projects from "../data/projects";
+import { projects } from "../data/data";
 import ProjectCard from "./ProjectCard";
 
 function Projects() {
@@ -26,13 +26,13 @@ function Projects() {
         <section
             ref={sectionRef}
             id="work"
-            className="border-t border-neutral-800 px-6 pt-32 md:px-10 md:pt-40"
+            className="border-t border-border-customomom px-6 pt-32 md:px-10 md:pt-40"
         >
             {/* px-6 py-32 md:px-10 md:py-40  */}
             <div className="mx-auto max-w-350">
                 <div className="mb-16 md:mb-20 grid gap-6 md:grid-cols-2">
                     <div>
-                        <p className="mono text-xs uppercase tracking-[0.25em] text-neutral-500">
+                        <p className="mono text-xs uppercase tracking-[0.25em] text-muted">
                             01 / Selected Work
                         </p>
                     </div>

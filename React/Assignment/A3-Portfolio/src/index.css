@@ -3,13 +3,38 @@
 @import "tailwindcss";
 
 /* ========================================
-   Base
+   Design Tokens / Global Theme
 ======================================== */
 
 :root {
-    font-family: "Manrope", sans-serif;
-    color: #f5f5f5;
-    background: #0a0a0a;
+    /* Background */
+    --theme-bg: #0a0a0a;
+    --theme-surface: #101010;
+    --theme-surface-hover: #151515;
+
+    /* Text */
+    --theme-text: #f5f5f5;
+    --theme-text-secondary: #a3a3a3;
+    --theme-text-muted: #737373;
+    --theme-text-subtle: #525252;
+
+    /* Accent */
+    --theme-accent: #fd1c00;
+    --theme-accent-hover: #ff321a;
+
+    /* Borders */
+    --theme-border: #262626;
+    --theme-border-subtle: #1a1a1a;
+    --theme-border-hover: #404040;
+
+    /* Typography */
+    --font-sans: "Manrope", sans-serif;
+    --font-mono: "DM Mono", monospace;
+
+    /* Base */
+    font-family: var(--font-sans);
+    color: var(--theme-text);
+    background: var(--theme-bg);
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -20,13 +45,42 @@
     line-height: 1.5;
 }
 
+/* ========================================
+   Tailwind Theme
+======================================== */
+
+@theme {
+    --color-background: var(--theme-bg);
+    --color-surface: var(--theme-surface);
+    --color-surface-hover: var(--theme-surface-hover);
+
+    --color-foreground: var(--theme-text);
+    --color-secondary: var(--theme-text-secondary);
+    --color-muted: var(--theme-text-muted);
+    --color-subtle: var(--theme-text-subtle);
+
+    --color-accent: var(--theme-accent);
+    --color-accent-hover: var(--theme-accent-hover);
+
+    --color-border-custom: var(--theme-border);
+    --color-border-subtle: var(--theme-border-subtle);
+    --color-border-hover: var(--theme-border-hover);
+
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+}
+
+/* ========================================
+   Base
+======================================== */
+
 html,
 body {
     margin: 0;
     min-width: 320px;
 
-    background: #0a0a0a;
-    color: #f5f5f5;
+    background: var(--theme-bg);
+    color: var(--theme-text);
 }
 
 body {
@@ -47,8 +101,8 @@ a {
 ======================================== */
 
 ::selection {
-    background: #f5f5f5;
-    color: #0a0a0a;
+    background: var(--theme-text);
+    color: var(--theme-bg);
 }
 
 /* ========================================
@@ -56,7 +110,7 @@ a {
 ======================================== */
 
 .mono {
-    font-family: "DM Mono", monospace;
+    font-family: var(--font-mono);
 }
 
 /* ========================================
@@ -109,7 +163,7 @@ html.lenis body {
 
 html {
     scrollbar-width: thin;
-    scrollbar-color: #fd1c00 #0a0a0a;
+    scrollbar-color: var(--theme-accent) var(--theme-bg);
 }
 
 /* Chrome / Edge / Safari */
@@ -119,13 +173,13 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: var(--theme-bg);
 }
 
 html::-webkit-scrollbar-thumb {
-    background: #fd1c00;
+    background: var(--theme-accent);
 }
 
 html::-webkit-scrollbar-thumb:hover {
-    background: #ff321a;
+    background: var(--theme-accent-hover);
 }

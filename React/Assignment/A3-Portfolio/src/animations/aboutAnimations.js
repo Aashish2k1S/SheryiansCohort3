@@ -7,6 +7,7 @@ export function createAboutReveal(element) {
         scrollTrigger: {
             trigger: element.current,
             start: "top 85%",
+            end: "top top", 
             once: true
         },
     });

@@ -138,10 +138,6 @@ function Navbar() {
         setMenuOpen((open) => !open);
     };
 
-    const handleMenuLinkClick = () => {
-        setMenuOpen(false);
-    };
-
     return (
         <header className="fixed inset-x-0 top-0 z-50 border-b border-transparent">
             <nav
@@ -153,12 +149,13 @@ function Navbar() {
                     type="button"
                     onClick={() => scrollToSection("hero")}
                     data-cursor="interactive"
-                    className="text-sm font-bold tracking-tight text-[#FD1C00]"
+                    className="text-sm font-bold tracking-tight text-accent"
                 >
                     AASHISH.
                 </button>
 
                 {/* Mobile Menu Button */}
+
                 <button
                     type="button"
                     data-cursor="interactive"
@@ -170,7 +167,6 @@ function Navbar() {
                 >
                     {menuOpen ? "Close" : "Menu"}
                 </button>
-
                 {/* Desktop Navigation */}
                 <div className="hidden items-center gap-8 md:flex">
                     <button
@@ -202,6 +198,15 @@ function Navbar() {
 
                     <button
                         type="button"
+                        onClick={() => scrollToSection("education")}
+                        data-cursor="interactive"
+                        className="text-sm text-neutral-400 transition-colors hover:text-white"
+                    >
+                        EDUCATION
+                    </button>
+
+                    <button
+                        type="button"
                         onClick={() => scrollToSection("skills")}
                         data-cursor="interactive"
                         className="text-sm text-neutral-400 transition-colors hover:text-white"
@@ -226,61 +231,81 @@ function Navbar() {
                     id="mobile-menu"
                     ref={menuRef}
                     aria-hidden={!menuOpen}
-                    className="absolute left-0 right-0 top-full hidden border-b border-neutral-800 bg-[#0a0a0a]/95 px-6 py-8 backdrop-blur-md md:hidden"
+                    className="absolute left-0 right-0 top-full hidden border-b border-border-custom bg-background/95 px-6 py-8 backdrop-blur-md md:hidden"
                 >
-                    <div
-                        ref={menuItemsRef}
-                        className="flex flex-col"
-                    >
+                    <div ref={menuItemsRef} className="flex flex-col">
                         <button
                             type="button"
-                            onClick={() => scrollToSection("work")}
+                            onClick={() => {
+                                scrollToSection("work");
+                                setMenuOpen(false);
+                            }}
                             data-cursor="interactive"
-                            onClick={handleMenuLinkClick}
                             tabIndex={menuOpen ? 0 : -1}
-                            className="border-b border-neutral-800 py-4 text-sm text-neutral-400 transition-colors hover:text-white"
+                            className="border-b border-border-custom py-4 text-sm text-neutral-400 transition-colors hover:text-white"
                         >
                             WORK
                         </button>
 
                         <button
                             type="button"
-                            onClick={() => scrollToSection("about")}
+                            onClick={() => {
+                                scrollToSection("about");
+                                setMenuOpen(false);
+                            }}
                             data-cursor="interactive"
-                            onClick={handleMenuLinkClick}
                             tabIndex={menuOpen ? 0 : -1}
-                            className="border-b border-neutral-800 py-4 text-sm text-neutral-400 transition-colors hover:text-white"
+                            className="border-b border-border-custom py-4 text-sm text-neutral-400 transition-colors hover:text-white"
                         >
                             ABOUT
                         </button>
 
                         <button
                             type="button"
-                            onClick={() => scrollToSection("experience")}
+                            onClick={() => {
+                                scrollToSection("experience");
+                                setMenuOpen(false);
+                            }}
                             data-cursor="interactive"
-                            onClick={handleMenuLinkClick}
                             tabIndex={menuOpen ? 0 : -1}
-                            className="border-b border-neutral-800 py-4 text-sm text-neutral-400 transition-colors hover:text-white"
+                            className="border-b border-border-custom py-4 text-sm text-neutral-400 transition-colors hover:text-white"
                         >
                             EXPERIENCE
                         </button>
 
                         <button
                             type="button"
-                            onClick={() => scrollToSection("skills")}
+                            onClick={() => {
+                                scrollToSection("education");
+                                setMenuOpen(false);
+                            }}
                             data-cursor="interactive"
-                            onClick={handleMenuLinkClick}
                             tabIndex={menuOpen ? 0 : -1}
-                            className="border-b border-neutral-800 py-4 text-sm text-neutral-400 transition-colors hover:text-white"
+                            className="border-b border-border-custom py-4 text-sm text-neutral-400 transition-colors hover:text-white"
+                        >
+                            EDUCATION
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => {
+                                scrollToSection("skills");
+                                setMenuOpen(false);
+                            }}
+                            data-cursor="interactive"
+                            tabIndex={menuOpen ? 0 : -1}
+                            className="border-b border-border-custom py-4 text-sm text-neutral-400 transition-colors hover:text-white"
                         >
                             SKILLS
                         </button>
 
                         <button
                             type="button"
-                            onClick={() => scrollToSection("contact")}
+                            onClick={() => {
+                                scrollToSection("contact");
+                                setMenuOpen(false);
+                            }}
                             data-cursor="interactive"
-                            onClick={handleMenuLinkClick}
                             tabIndex={menuOpen ? 0 : -1}
                             className="py-4 text-sm text-neutral-400 transition-colors hover:text-white"
                         >

@@ -22,12 +22,12 @@ function About() {
         <section
             ref={sectionRef}
             id="about"
-            className="border-t border-neutral-800 px-6 pt-32 md:px-10 md:pt-40"
+            className="border-t border-border-custom px-6 pt-32 md:px-10 md:pt-40"
         >
             <div className="mx-auto max-w-350">
                 {/* Section Header */}
                 <div className="about-header mb-16 md:mb-20">
-                    <p className="mono text-xs uppercase tracking-[0.25em] text-neutral-500">
+                    <p className="mono text-xs uppercase tracking-[0.25em] text-muted">
                         02 / About
                     </p>
                 </div>
@@ -43,7 +43,7 @@ function About() {
                             <br />
                             WHO BUILDS
                             <br />
-                            <span className="text-[#FD1C00]">
+                            <span className="text-accent">
                                 USEFUL SYSTEMS.
                             </span>
                         </h2>
@@ -58,14 +58,14 @@ function About() {
                                 applications.
                             </p>
 
-                            <p className="mt-6 text-base leading-7 text-neutral-500">
+                            <p className="mt-6 text-base leading-7 text-muted">
                                 My professional work revolves around .NET, SQL
                                 and application development, while I've also
                                 been expanding into Python, React, AI and modern
                                 infrastructure.
                             </p>
 
-                            <p className="mt-6 text-base leading-7 text-neutral-500">
+                            <p className="mt-6 text-base leading-7 text-muted">
                                 I enjoy working on problems where software needs
                                 to be reliable, maintainable and genuinely
                                 useful.
@@ -75,9 +75,9 @@ function About() {
                 </div>
 
                 {/* Principles */}
-                <div className="about-principles mt-24 grid border-t border-neutral-800 md:grid-cols-3">
-                    <div className="about-principle border-b border-neutral-800 py-8 md:border-b-0 md:border-r md:pr-10">
-                        <span className="mono text-xs text-neutral-600">
+                <div className="about-principles mt-24 grid border-t border-border-custom md:grid-cols-3">
+                    <div className="about-principle border-b border-border-custom py-8 md:border-b-0 md:border-r md:pr-10">
+                        <span className="mono text-xs text-subtle">
                             01
                         </span>
 
@@ -85,13 +85,13 @@ function About() {
                             Build with purpose
                         </h3>
 
-                        <p className="mt-3 text-sm leading-6 text-neutral-500">
+                        <p className="mt-3 text-sm leading-6 text-muted">
                             Start with the problem rather than the technology.
                         </p>
                     </div>
 
-                    <div className="about-principle border-b border-neutral-800 py-8 md:border-b-0 md:border-r md:px-10">
-                        <span className="mono text-xs text-neutral-600">
+                    <div className="about-principle border-b border-border-custom py-8 md:border-b-0 md:border-r md:px-10">
+                        <span className="mono text-xs text-subtle">
                             02
                         </span>
 
@@ -99,14 +99,14 @@ function About() {
                             Keep it simple
                         </h3>
 
-                        <p className="mt-3 text-sm leading-6 text-neutral-500">
+                        <p className="mt-3 text-sm leading-6 text-muted">
                             Prefer clear, maintainable solutions over
                             unnecessary complexity.
                         </p>
                     </div>
 
                     <div className="about-principle py-8 md:pl-10">
-                        <span className="mono text-xs text-neutral-600">
+                        <span className="mono text-xs text-subtle">
                             03
                         </span>
 
@@ -114,7 +114,7 @@ function About() {
                             Learn by building
                         </h3>
 
-                        <p className="mt-3 text-sm leading-6 text-neutral-500">
+                        <p className="mt-3 text-sm leading-6 text-muted">
                             The fastest way to understand a technology is to use
                             it.
                         </p>

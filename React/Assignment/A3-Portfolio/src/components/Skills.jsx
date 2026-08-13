@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { categories } from "../data/skills";
+import { skills } from "../data/data";
 import { useGSAP } from "../hooks/useGsap";
 import { createSkillsReveal } from "../animations/skillsAnimations";
 
@@ -25,14 +25,14 @@ function Skills() {
         <section
             ref={sectionRef}
             id="skills"
-            className="border-t border-neutral-800 px-6 pt-32 md:px-10 md:pt-40"
+            className="border-t border-border-custom px-6 pt-32 md:px-10 md:pt-40"
         >
             <div className="mx-auto max-w-350">
                 {/* Header */}
                 <div className="skills-header mb-16 grid gap-6 md:mb-20 md:grid-cols-2">
                     <div>
-                        <p className="mono text-xs uppercase tracking-[0.25em] text-neutral-500">
-                            04 / Skills
+                        <p className="mono text-xs uppercase tracking-[0.25em] text-muted">
+                            05 / Skills
                         </p>
                     </div>
 
@@ -47,14 +47,14 @@ function Skills() {
 
                 {/* Skills */}
                 <div>
-                    {categories.map((category) => (
+                    {skills.map((category) => (
                         <article
                             key={category.number} 
-                            className="skill-category grid gap-8 border-t border-neutral-800 py-10 md:grid-cols-[80px_220px_1fr] md:py-12"
+                            className="skill-category grid gap-8 border-t border-border-custom py-10 md:grid-cols-[80px_220px_1fr] md:py-12"
                         >
                             {/* Number */}
                             <div>
-                                <span className="mono text-xs text-neutral-600">
+                                <span className="mono text-xs text-subtle">
                                     {category.number}
                                 </span>
                             </div>
@@ -68,7 +68,7 @@ function Skills() {
 
                             {/* Technologies */}
                             <div>
-                                <p className="max-w-lg text-sm leading-7 text-neutral-500">
+                                <p className="max-w-lg text-sm leading-7 text-muted">
                                     {category.description}
                                 </p>
 
@@ -76,7 +76,7 @@ function Skills() {
                                     {category.technologies.map((technology) => (
                                         <span
                                             key={technology}
-                                            className="border border-neutral-800 px-3 py-2 text-xs text-neutral-400"
+                                            className="border border-border-custom px-3 py-2 text-xs text-neutral-400"
                                         >
                                             {technology}
                                         </span>

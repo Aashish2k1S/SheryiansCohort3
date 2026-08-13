@@ -154,7 +154,7 @@ function CustomCursor() {
     return (
         <div
             ref={cursorRef}
-            className="pointer-events-none fixed left-0 top-0 z-100 items-center justify-center rounded-full bg-[#FD1C00] mix-blend-difference flex"
+            className="pointer-events-none fixed left-0 top-0 z-100 items-center justify-center rounded-full bg-accent mix-blend-difference flex"
         >
             <span
                 ref={labelRef}

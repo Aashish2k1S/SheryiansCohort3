@@ -4,7 +4,7 @@ function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border-customom px-6 py-8 md:px-10 mb-4 md:mb-0">
+    <footer className="border-t border-border-custom px-6 py-8 md:px-10 mb-4 md:mb-0">
       <div className="mx-auto flex max-w-350 flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <button

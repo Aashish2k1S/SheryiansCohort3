@@ -131,32 +131,3 @@ will cleanly update to a full dynamic route link:
 This modular approach ensures that adding dynamic subpages won't require redesigning or refactoring the core **Selected Work** section.
 
 ```
-
-
-```
-src/
-├── data/
-│   └── projects.js
-│
-├── pages/
-│   ├── Home.jsx
-│   ├── ProjectDetails.jsx
-│   └── NotFound.jsx
-│
-├── components/
-│   ├── Projects.jsx
-│   ├── ProjectCard.jsx
-│   └── ...
-│
-└── App.jsx
-
-/
-├── /projects/scrapeflow
-├── /projects/erp-platform
-├── /projects/ai-summarizer
-├── /projects/employee-api
-└── *
-
-ProjectDetails.jsx
-
-```

@@ -25,7 +25,7 @@ function Hero() {
         <section
             ref={heroRef}
             id="hero"
-            className="relative flex min-h-screen items-end overflow-hidden px-6  pb-12 md:px-10 md:pb-16"
+            className="relative flex min-h-screen items-end overflow-hidden px-6 pb-12 md:px-10 md:pb-16"
         >
             <div className="mx-auto w-full max-w-350">
                 {/* Eyebrow */}

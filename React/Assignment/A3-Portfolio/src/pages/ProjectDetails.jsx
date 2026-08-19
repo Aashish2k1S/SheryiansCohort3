@@ -3,7 +3,6 @@ import projects from "../data/projects";
 
 function ProjectDetails() {
     const { slug } = useParams();
-
     const project = projects.find((project) => project.slug === slug);
 
     if (!project) {
@@ -20,6 +19,7 @@ function ProjectDetails() {
 
                     <Link
                         to="/"
+                        data-cursor="interactive"
                         className="mt-10 inline-flex text-sm text-accent"
                     >
                         ← Back to home
@@ -35,7 +35,8 @@ function ProjectDetails() {
             <section className="px-6 pb-20 pt-32 md:px-10 md:pb-32 md:pt-40">
                 <div className="mx-auto max-w-350">
                     <Link
-                        to="/#work"
+                        to="/"
+                        data-cursor="interactive"
                         className="mono text-xs uppercase tracking-[0.25em] text-muted"
                     >
                         ← Back to work
@@ -65,7 +66,7 @@ function ProjectDetails() {
             {/* Hero Image */}
             <section className="px-6 md:px-10">
                 <div className="mx-auto max-w-350">
-                    <div className="aspect-video overflow-hidden border border-border-custom bg-surface">
+                    <div className="aspect-16/10 rounded-2xl overflow-hidden border border-border-custom bg-surface">
                         {project.image ? (
                             <img
                                 src={project.image}

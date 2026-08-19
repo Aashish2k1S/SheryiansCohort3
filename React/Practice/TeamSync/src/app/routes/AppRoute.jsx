@@ -8,26 +8,15 @@ import Home from "../../features/dashboard/ui/pages/Home";
 const AppRoute = () => {
     let router = createBrowserRouter([
         {
-            path: "/",
-            element: <AuthLayout/>,
+            path: "/", element: <AuthLayout />,
             children: [
-                {
-                    path: "",
-                    element: <Login/>
-                }, 
-                {
-                    path: "register",
-                    element: <Register/>
-                }, 
+                { path: "", element: <Login /> },
+                { path: "register", element: <Register /> },
             ]
-        },{
-            path: "/home",
-            element: <DashboardLayout/>,
+        }, {
+            path: "/home", element: <DashboardLayout />,
             children: [
-                {
-                    path: "",
-                    element: <Home/>
-                },
+                { path: "", element: <Home /> },
             ]
         },
     ]);

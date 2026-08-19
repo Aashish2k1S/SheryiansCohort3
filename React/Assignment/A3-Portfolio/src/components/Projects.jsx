@@ -26,7 +26,7 @@ function Projects() {
         <section
             ref={sectionRef}
             id="work"
-            className="border-t border-border-customomom px-6 pt-32 md:px-10 md:pt-40"
+            className="border-t border-border-custom px-6 pt-32 md:px-10 md:pt-40"
         >
             {/* px-6 py-32 md:px-10 md:py-40  */}
             <div className="mx-auto max-w-350">

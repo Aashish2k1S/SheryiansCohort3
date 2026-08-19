@@ -33,7 +33,7 @@ const projects = [
             "Mermaid",
         ],
 
-        image: "YOUR_IMAGE_URL",
+        image: "../../Image/Projects/ScrapeFlow.png",
 
         github: "https://github.com/Aashish2k1S/ScrapeFlow",
 
@@ -73,7 +73,7 @@ const projects = [
             "Docker",
         ],
 
-        image: null,
+        image: "../../Image/Projects/ERP-Platform.png",
         github: null,
         live: null,
     },
@@ -110,7 +110,7 @@ const projects = [
             "REST API",
         ],
 
-        image: "YOUR_IMAGE_URL",
+        image: "../../Image/Projects/AI-Summarizer.png",
 
         github: "https://github.com/Aashish2k1S/SummarizerAPI",
 
@@ -149,8 +149,7 @@ const projects = [
             "REST API",
         ],
 
-        image: null,
-
+        image: "../../Image/Projects/EmployeeAPI.png",
         github: null,
         live: null,
     },

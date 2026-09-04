@@ -13,13 +13,9 @@ export const useAllProduct = () => {
 };
 
 
-export const useProductCategory = () => {
-    let { data, isPending, error } = useQuery({
+export const useAllCategory = () => {
+    return useQuery({
         queryKey: ["products/category"],
         queryFn: getAllProductCategoryAPI,
     });
-
-    console.log("products/category data", data);
-
-    return { data, isPending, error };
 };

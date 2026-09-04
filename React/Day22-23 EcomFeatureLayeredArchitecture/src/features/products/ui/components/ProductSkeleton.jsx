@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ProductSkeleton = () => (
     <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-4 shadow-sm animate-pulse">
         <div className="aspect-square w-full rounded-xl bg-gray-200" />

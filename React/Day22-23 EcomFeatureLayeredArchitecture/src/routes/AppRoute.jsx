@@ -23,19 +23,6 @@ const AppRoute = () => {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        // (async () => {
-        //     try {
-        //         let res = await hydrateUserAPI();
-        //         // console.log("hydration response", res);
-        //         let credentials = { username: res.username, password: res.password };
-        //         let response = await loginUserAPI(credentials);
-        //         // console.log("login response", response);
-        //         dispatch(addUser(response));
-        //     } catch (error) {
-        //         dispatch(removeUser());
-        //         console.log("error in hydration:", error);
-        //     }
-        // })()
         dispatch(hydrateUserAction());
     }, []);
 

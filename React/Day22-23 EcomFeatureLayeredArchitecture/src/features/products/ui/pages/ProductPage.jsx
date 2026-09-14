@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { AlertCircle, PackageX, RefreshCw } from "lucide-react";
 import { useAllProduct } from "../../hooks/useProductHooks";
 import ProductCard from "../components/ProductCard";
@@ -6,12 +5,15 @@ import ProductSkeleton from "../components/ProductSkeleton";
 import Filter from "../components/Filter";
 
 const ProductPage = () => {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState("all");
 
-    const { data, isPending, error, refetch } = useAllProduct(searchTerm, selectedCategory);
+    const {
+        data, isPending, error, refetch,
+        searchTerm, setSearchTerm, 
+        searchInput, setSearchInput,
+        selectedCategory, setSelectedCategory
+    } = useAllProduct();
 
-    const products = data?.products || [];
+    const products = data || [];
 
     return (
         <div className="min-h-screen bg-gray-50/50 pb-16 pt-6">
@@ -29,8 +31,8 @@ const ProductPage = () => {
                     </div>
 
                     <Filter
-                        searchTerm={searchTerm}
-                        setSearchTerm={setSearchTerm}
+                        searchInput={searchInput}
+                        setSearchInput={setSearchInput}
                         selectedCategory={selectedCategory}
                         setSelectedCategory={setSelectedCategory}
                     />

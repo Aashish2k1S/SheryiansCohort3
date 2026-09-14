@@ -1,41 +1,14 @@
-import { useEffect, useState } from "react";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { useAllCategory } from "../../hooks/useProductHooks";
 
-const Filter = ({
-    searchTerm,
-    setSearchTerm,
-    selectedCategory,
-    setSelectedCategory,
-}) => {
+const Filter = ({ searchInput, setSearchInput, selectedCategory, setSelectedCategory }) => {
     const { data, isPending, error } = useAllCategory();
 
-    // Local input value
-    const [searchInput, setSearchInput] = useState(searchTerm);
-   
     const categories = data || [];
-
-    // Debounce search input by 1500ms
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setSearchTerm(searchInput);
-        }, 3000);
-
-        // Clear previous timer whenever searchInput changes
-        return () => clearTimeout(timer);
-    }, [searchInput, setSearchTerm]);
-
-    // Keep local input in sync if searchTerm
-    // is changed from outside the Filter component
-    useEffect(() => {
-        setSearchInput(searchTerm);
-    }, [searchTerm]);
 
     if (isPending) return <p>Loading categories...</p>;
 
-    if (error) {
-        return <p>Error loading categories: {error.message}</p>;
-    }
+    if (error) return <p>Error loading categories: {error.message}</p>;
 
     return (
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -45,8 +18,8 @@ const Filter = ({
 
                 <input
                     type="text"
-                    placeholder="Search products..."
                     value={searchInput}
+                    placeholder="Search products..."
                     onChange={(e) => setSearchInput(e.target.value)}
                     className="w-full rounded-xl border border-gray-200 bg-white py-2 pl-9 pr-4 text-sm text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
                 />

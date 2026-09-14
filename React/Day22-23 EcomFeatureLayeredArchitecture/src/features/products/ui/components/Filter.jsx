@@ -12,14 +12,14 @@ const Filter = ({
 
     // Local input value
     const [searchInput, setSearchInput] = useState(searchTerm);
-
+   
     const categories = data || [];
 
     // Debounce search input by 1500ms
     useEffect(() => {
         const timer = setTimeout(() => {
             setSearchTerm(searchInput);
-        }, 1500);
+        }, 3000);
 
         // Clear previous timer whenever searchInput changes
         return () => clearTimeout(timer);

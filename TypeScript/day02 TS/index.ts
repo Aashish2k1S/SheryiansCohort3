@@ -31,4 +31,13 @@
 
 //non-primitive datatypes for ANNOTATION 
 //ARRAY 
-let arr: number[] = [1,2,4,5,6,7,8,9, true, undefined, 'aashsh']; 
+// let arr: number[] = [1,2,4,5,6,7,8,9, true, undefined, 'aashsh']; 
+// let arr: number[] = [1,2,4,5,6,7,8,9]; 
+// console.log(arr);
+
+//TUPLEs
+// let tup: [string, number, boolean] = ['aashish', 9999, false, null]; 
+// let tup: [string, number, boolean] = ['aashish', 9999, false]; 
+// console.log(tup);
+
+

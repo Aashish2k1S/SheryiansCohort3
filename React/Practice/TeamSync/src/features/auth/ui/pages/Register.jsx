@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { User, Mail, Lock, Monitor, Volleyball } from 'lucide-react';
+import { Link } from 'react-router';
 
 const Register = () => {
   const {
@@ -189,7 +190,7 @@ const Register = () => {
             </div>
 
             <p className="text-center text-gray-400 mt-8 text-sm">
-              Already have an account? <a href="#" className="text-white font-medium hover:text-[#A78BFA] hover:underline transition-colors">Log In</a>
+              Already have an account? <Link to="/" className="text-white font-medium hover:text-[#A78BFA] hover:underline transition-colors">Log In</Link>
             </p>
           </div>
         </div>

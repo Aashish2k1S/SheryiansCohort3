@@ -4,6 +4,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Network, Cloud, Terminal, LogIn } from 'lucide-react';
+import { Link } from 'react-router';
 
 const Login = () => {
   const {
@@ -126,7 +127,7 @@ const Login = () => {
         {/* Sign Up Link */}
         <div className="mt-8 text-center border-t border-[#2B2936] pt-6">
           <p className="text-sm text-gray-400">
-            Don't have an account? <a href="#" className="text-white font-semibold hover:text-[#755BB4] transition-colors">Sign Up</a>
+            Don't have an account? <Link to="/register" className="text-white font-semibold hover:text-[#755BB4] transition-colors">Sign Up</Link>
           </p>
         </div>
       </div>

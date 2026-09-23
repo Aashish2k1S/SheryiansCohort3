@@ -6,21 +6,32 @@ import Register from "../../features/auth/ui/pages/Register";
 
 import DashboardLayout from "../layouts/DashboardLayout";
 import Home from "../../features/dashboard/ui/pages/Home";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { currentLoginEmployee } from "../../features/auth/state/auth/authAction";
 
 const AppRoute = () => {
+    let dispatch = useDispatch();
+
+    useEffect(() => {
+        (() => {
+            dispatch(currentLoginEmployee());
+        })();
+    }, []);
+
     let router = createBrowserRouter([
         {
-            path: "/", element: <AuthLayout />,
+            path: "/",
+            element: <AuthLayout />,
             children: [
                 { path: "", element: <Login /> },
                 { path: "register", element: <Register /> },
-            ]
-        }, 
+            ],
+        },
         {
-            path: "/home", element: <DashboardLayout />,
-            children: [
-                { path: "", element: <Home /> },
-            ]
+            path: "/home",
+            element: <DashboardLayout />,
+            children: [{ path: "", element: <Home /> }],
         },
     ]);
 

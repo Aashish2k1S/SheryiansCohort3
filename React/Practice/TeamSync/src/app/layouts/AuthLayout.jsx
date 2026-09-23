@@ -1,9 +1,13 @@
-import { Outlet } from 'react-router'
+import { useSelector } from 'react-redux'
+import { Navigate, Outlet } from 'react-router'
 
 const AuthLayout = () => {
-  return (
-    <Outlet/>
-  )
+  const { employee, isLoading } = useSelector((store) => store.auth); 
+
+  if (isLoading) return null; 
+  if (employee) return <Navigate to="/home" replace />; 
+  
+  return <Outlet />;
 }
 
-export default AuthLayout
+export default AuthLayout;

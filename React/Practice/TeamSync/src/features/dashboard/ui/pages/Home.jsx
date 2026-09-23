@@ -291,14 +291,14 @@ const Home = () => {
               </div>
 
               <div className="overflow-x-auto">
-                <div className="min-w-[280px] h-56 flex items-end justify-between gap-2 sm:gap-3 px-2 sm:px-4 pb-2 border-b border-[#202033]">
+                <div className="min-w-70 h-56 flex items-end justify-between gap-2 sm:gap-3 px-2 sm:px-4 pb-2 border-b border-[#202033]">
                   {barData.map((item, index) => (
                     <div
                       key={index}
                       className="flex-1 flex flex-col items-center gap-3 h-full justify-end"
                     >
                       <div
-                        className={`w-full max-w-[36px] sm:max-w-[48px] rounded-t-lg transition-all duration-300 ${item.highlight
+                        className={`w-full max-w-9 sm:max-w-12 rounded-t-lg transition-all duration-300 ${item.highlight
                             ? "bg-[#7c72c8]"
                             : "bg-[#272738] hover:bg-[#34344c]"
                           } ${item.height}`}

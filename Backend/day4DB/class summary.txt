@@ -1,0 +1,24 @@
+understood the installation and learned how to access the organisation, projects, clusters
+
+first install MongoDB community server
+second install MongoDB Shell
+third install MongoDB Compass
+
+forth create a MongoDB Atlas Account 
+and then create an organisation
+then create a project 
+then create a cluster within it and compy the username and password 
+and if you didn't copied that, then do not worry 
+after creating cluster just go to sidebar 
+SECURITY > Database & Network Access 
+then just edit and write the new pass and click on update user
+
+
+and to check the version 
+
+mongod --version
+mongosh --version
+
+
+if it shows error for the `mongod --version` then do add the path of the bin folder of mongoDB ie, 
+`C:\Program Files\MongoDB\Server\9.0\bin`

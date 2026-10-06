@@ -2,9 +2,7 @@ const { default: mongoose } = require("mongoose");
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(
-            "mongodb+srv://aashishshaw123kolkata_db_user:cohortaashish@cohort-cluster.ijorwap.mongodb.net/notes-app",
-        );
+        await mongoose.connect(process.env.DB_URI);
         console.log("DB is connected");
     } catch (error) {
         console.log("error connecting DB: ", error);
